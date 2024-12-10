@@ -26,7 +26,7 @@ async function loadPage() {
     link.addEventListener('click',async(e)=>{
       e.preventDefault();
       const page = link.getAttribute('data-page');
-      const url = `/pages/${page}.html`;
+      const url = `./pages/${page}.html`;
       try {
         const response = await fetch(url);
         if(response.ok){
@@ -94,8 +94,8 @@ toggleButton.addEventListener("click", () => {
   updateLayout();
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  loadComponent("components/modal.html", "modal-container");
-  loadComponent("components/navbar.html", "navbar-container");
+document.addEventListener("DOMContentLoaded", async() => {
+  await loadComponent("/components/modal.html", "modal-container");
+  await loadComponent("/components/navbar.html", "navbar-container");
   loadPage();
 });
