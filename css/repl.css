@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+
+:root{
+    --replit-font-family: "IBM Plex Sans", sans-serif;
+    --replit-bg-light: #ebeced;
+    --replit-bg-dark: #0e1525;
+    --replit-bg-spooky: #020203;
+    --replit-title-size: 24px;
+    --replit-text-size: 14px;
+    --replit-text-color-dark: #f9f5fc;
+    --replit-text-color-light: #0e1525;
+    --replit-text-color-spooky: #f9f5fc;
+    --replit-border-radius: 8px;
+}
+
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--replit-font-family);
+  color: var(--replit-text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--replit-title-size);
+}
+
+span,
+p,
+label,
+input,
+select,
+a,
+button,
+li,
+textarea {
+  font-size: var(--replit-text-size);
+}
