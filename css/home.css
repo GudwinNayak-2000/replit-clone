@@ -1,0 +1,162 @@
+:root{
+  --replit-upgrade-btn-color-dark: #bb3e02;
+  --replit-upgrade-btn-color-spooky: #bb3e02;
+  --replit-upgrade-btn-color-light: #faae8a;
+  --replit-start-building-btn-color-light: #d7cfff;
+  --replit-recent-repl-btn-hover-color-dark:#1c2333;
+  --replit-recent-repl-btn-hover-color-light:#fcfcfc;
+  --replit-recent-repl-btn-hover-color-spooky:#292929;
+  --replit-textarea-border-color-light:#ebeced;
+  --replit-textarea-border-color-dark:#1c2333;
+  --replit-textarea-border-color-spooky:#292929;
+  --replit-textarea-outline-color-light:#8972ff;
+}
+
+body.dark-theme{
+    --replit-upgrade-btn-color: var(--replit-upgrade-btn-color-dark);
+    --replit-recent-repl-btn-hover-color: var(--replit-recent-repl-btn-hover-color-dark);
+    --replit-textarea-border-color: var(--replit-textarea-border-color-dark);
+}
+body.light-theme{
+    --replit-upgrade-btn-color: var(--replit-upgrade-btn-color-light);
+    --replit-start-building-btn-color: var(--replit-start-building-btn-color-light);
+    --replit-recent-repl-btn-hover-color: var(--replit-recent-repl-btn-hover-color-light);
+    --replit-textarea-border-color: var(--replit-textarea-border-color-light);
+    --replit-textarea-outline-color: var(--replit-textarea-outline-color-light);
+}
+body.spooky-theme{
+    --replit-upgrade-btn-color: var(--replit-upgrade-btn-color-spooky);
+    --replit-recent-repl-btn-hover-color: var(--replit-recent-repl-btn-hover-color-spooky);
+    --replit-textarea-border-color: var(--replit-textarea-border-color-spooky);
+}
+
+
+
+.replit-agent-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.agent-header-container{
+    display: flex;
+    gap: 8px;
+    align-items: start;
+}
+.agent-header-container .agent-text-container{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.textarea-container{
+    position: relative;
+    width: 100%;
+}
+.textarea-container .custom-textarea{
+    width: 100%;
+    height: 240px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    border: 1px solid var(--replit-textarea-border-color);
+    outline: none;
+}
+
+.custom-textarea:hover{
+    border: 1px solid var(--replit-textarea-outline-color);
+}
+.custom-textarea:focus{
+    outline: 1px solid var(--replit-textarea-outline-color);
+}
+.actions{
+   position: absolute;
+   bottom: 14px;
+   width: 100%;
+   padding: 0 10px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 8px;
+}
+.actions .upload-icon{
+    display: flex;
+    align-items:flex-end;
+    justify-content: flex-end;
+    height: 16px;
+    width: 16px;
+}
+.actions-button-right-container{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.actions .upgrade-button,.improve-button,.start-button{
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+}
+.actions .upgrade-button{
+    background-color: var(--replit-upgrade-btn-color);
+}
+.actions .start-button{
+    background-color: var(--replit-start-building-btn-color);
+}
+
+.examples-container{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+}
+.example-button-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.example-button-container .example-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--replit-border-color);
+    background-color: var(--replit-bg-color);
+}
+
+.recent-repls-container{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+}
+.recent-repls-button-container{
+    display: flex;
+    gap: 8px;
+}
+
+.recent-repls-button-container button:first-child{
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--replit-border-color);
+    text-transform: capitalize;
+}
+.recent-repls-button-container button:not(:first-child){
+    padding: 4px 8px;
+    border: none;
+    background-color: transparent;
+    text-transform: capitalize;
+}
+.recent-repls-button-container button:not(:first-child):hover{
+    border-radius: 4px;
+}
+
+.recent-repls-button-container button:hover{
+    background-color: var(--replit-recent-repl-btn-hover-color);
+}
+
+
