@@ -1,38 +1,103 @@
+const loader = document.querySelector('.loader-container');
+const toggleButton = document.getElementById("toggleButton");
+const sidebar = document.getElementById("sidebar-container");
+const profileContainer = document.getElementById("profile-container");
+const navbar = document.getElementById("navbar");
+const mainLayout = document.getElementById("main-layout");
+
+function showLoader() {
+  if (loader) {
+    loader.classList.remove('hidden');
+    void loader.offsetWidth;
+  }
+}
+
+function hideLoader() {
+  if (loader) {
+    loader.classList.add('hidden');
+  }
+}
+
 async function loadPage() {
   const links = document.querySelectorAll(".nav-link");
   const contentArea = document.getElementById("content-area");
 
-  async function loadContent(page) {
-    const url = `/pages/${page}.html`;
-    const scriptUrl = `/js/${page}.js`;
+  async function loadContent(page, isComponent = false) {
+    hideLoader();
+    void loader.offsetWidth;
+    showLoader();
+
     try {
-        const response = await fetch(url);
-        if (response.ok) {
-            const content = await response.text();
-            contentArea.innerHTML = content;
-            await loadScript(scriptUrl);
-        } else {
-            contentArea.innerHTML = '<p>Error loading content. Please try again later.</p>';
+      if (isComponent) {
+        const response = await fetch(`/components/${page}.html`);
+        if (!response.ok) {
+          throw new Error(`Failed to load ${page} component`);
         }
+        const content = await response.text();
+        contentArea.innerHTML = content;
+        
+        const { initialize } = await import(`/components/js/${page}.js`);
+        if (initialize) {
+          await initialize();
+        }
+      } else {
+        const url = `/pages/${page}.html`;
+        const scriptUrl = `/js/${page}.js`;
+        const response = await fetch(url);
+        
+        if (response.ok) {
+          const content = await response.text();
+          contentArea.innerHTML = content;
+          await loadScript(scriptUrl);
+        } else {
+          contentArea.innerHTML = '<p>Error loading content. Please try again later.</p>';
+        }
+      }
+      setupEventListeners();
     } catch (error) {
-        console.error("Error fetching content:", error);
-        contentArea.innerHTML = '<p>Error loading content. Please try again later.</p>';
+      console.error("Error fetching content:", error);
+      contentArea.innerHTML = '<p>Error loading content. Please try again later.</p>';
+    } finally {
+      setTimeout(() => {
+        hideLoader();
+      },1000);
     }
   }
 
   async function loadScript(scriptUrl) {
     try {
-        const existingScript = document.querySelector(`script[src="${scriptUrl}"]`);
-        if (existingScript) {
-            existingScript.remove();
-        }
-        const module = await import(scriptUrl);
-        if (module.initialize) {
-            module.initialize();
-        }
+      const existingScript = document.querySelector(`script[src="${scriptUrl}"]`);
+      if (existingScript) {
+        existingScript.remove();
+      }
+      const module = await import(scriptUrl);
+      if (module.initialize) {
+        await module.initialize();
+      }
     } catch (error) {
-        console.error(`Error loading ${scriptUrl}:`, error);
+      console.error(`Error loading ${scriptUrl}:`, error);
     }
+  }
+
+  function setupEventListeners() {
+    const createReplButtons = document.querySelectorAll('.create-repl-btn');
+    createReplButtons.forEach(button => {
+      button.removeEventListener('click', handleCreateReplClick);
+      button.addEventListener('click', handleCreateReplClick);
+    });
+  }
+
+  async function handleCreateReplClick(e) {
+    e.preventDefault();
+    hideLoader();
+    void loader.offsetWidth;
+    showLoader();
+    
+    await loadContent('create-repl', true);
+    
+    links.forEach(link => {
+      link.classList.toggle("active", link.getAttribute("data-page") === "create-repl");
+    });
   }
 
   const defaultPage = "home";
@@ -40,39 +105,28 @@ async function loadPage() {
 
   links.forEach(link => {
     const page = link.getAttribute("data-page");
-    if (page === defaultPage) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
-
-  links.forEach(link => {
+    link.classList.toggle("active", page === defaultPage);
+    
     link.addEventListener("click", async (e) => {
       e.preventDefault();
       const page = link.getAttribute("data-page");
+      
+      hideLoader();
+      void loader.offsetWidth;
+      showLoader();
+      
       await loadContent(page);
-
-      links.forEach(link => link.classList.remove("active"));
-      link.classList.add("active");
+      
+      links.forEach(l => l.classList.toggle("active", l === link));
     });
   });
-}
 
-const toggleButton = document.getElementById("toggleButton");
-const sidebar = document.getElementById("sidebar-container");
-const profileContainer = document.getElementById("profile-container");
-const navbar = document.getElementById("navbar");
-const mainLayout = document.getElementById("main-layout");
+  setupEventListeners();
+}
 
 profileContainer.addEventListener("click", () => {
   const dropdownList = document.getElementById("dropdown-list");
-
-  if (dropdownList.style.display === "block") {
-    dropdownList.style.display = "none";
-  } else {
-    dropdownList.style.display = "block";
-  }
+  dropdownList.style.display = dropdownList.style.display === "block" ? "none" : "block";
 });
 
 document.addEventListener("click", (event) => {
@@ -101,7 +155,7 @@ function updateLayout() {
   const isClosed = sidebar.classList.contains("closed");
   const isMobile = window.innerWidth <= 768;
 
-  mainLayout.style.gridTemplateColumns = isClosed ? "0 1fr" : "240px 1fr";
+  mainLayout.classList.toggle('sidebar-closed', isClosed);
   toggleButton.setAttribute("aria-expanded", !isClosed);
   toggleButton.classList.toggle("open", !isClosed);
 
@@ -122,7 +176,6 @@ function updateLayout() {
   } else {
     navbar.classList.remove("open");
     profileContainer.classList.toggle("hidden", isClosed);
-
     navbarCenter.style.display = "";
     navbarRight.style.display = "";
   }
@@ -133,7 +186,20 @@ toggleButton.addEventListener("click", () => {
   updateLayout();
 });
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await loadPage();
+window.addEventListener('resize', () => {
   updateLayout();
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
+  showLoader();
+  try {
+    await loadPage();
+    updateLayout();
+  } catch (error) {
+    console.error("Error initializing application:", error);
+  }
+});
+
+window.addEventListener('load', () => {
+  hideLoader();
 });

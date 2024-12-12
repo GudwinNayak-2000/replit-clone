@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/create-repls.css">
+    <title>Create a new repl</title>
+</head>
+
+<body>
+    <div class="create-repl-container">
+        <h2 class="repl-heading">Create a new repl</h2>
+        <div class="tabs">
+            <div class="tab" data-tab="tab1">Create with Replit Agent</div>
+            <div class="tabs-divider"></div>
+            <div class="tab" data-tab="tab2">Chose a Template</div>
+            <div class="tabs-divider"></div>
+            <div class="tab" data-tab="tab3">Import from Github</div>
+        </div>
+
+        <div class="tab-content" id="tab1">
+            <div class="home-page" id="home-page"></div>
+        </div>
+        <div class="tab-content hidden" id="tab2">
+            <div class="templates-container">
+                <div class="template-card-left">
+                    <p class="template-card-left-heading">Template</p>
+                    <div class="template-search-container">
+                        <input type="text" id="template-search" class="template-search" placeholder="Type to search...">
+                        <div class="template-results" id="template-results"></div>
+                    </div>
+                </div>
+                <div class="template-card-right">
+                    <p class="template-card-right-heading">Title</p>
+                    <input type="text" id="template-title" class="template-title"
+                        placeholder="Enter a title for your repl">
+                    <div class="privacy-container">
+                        <label for="" class="privacy-label">Privacy</label>
+                        <div class="privacy-option-container">
+                            <span><input type="radio" name="privacy" id="privacy-public"></span>
+                            <p class="privacy-option">
+                                <label for="privacy-public">Public <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M2.78 11.25h4.502a16.05 16.05 0 0 1 3.014-8.343A9.255 9.255 0 0 0 2.78 11.25ZM12 3.149a14.55 14.55 0 0 0-3.214 8.101h6.428A14.55 14.55 0 0 0 12 3.149Zm3.214 9.601A14.55 14.55 0 0 1 12 20.851a14.55 14.55 0 0 1-3.214-8.101h6.428Zm-7.932 0H2.78a9.255 9.255 0 0 0 7.516 8.343 16.051 16.051 0 0 1-3.014-8.343Zm6.422 8.343a16.051 16.051 0 0 0 3.014-8.343h4.502a9.255 9.255 0 0 1-7.516 8.343Zm7.516-9.843h-4.502a16.05 16.05 0 0 0-3.014-8.343 9.255 9.255 0 0 1 7.516 8.343ZM1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12 17.937 22.75 12 22.75 1.25 17.937 1.25 12Z" clip-rule="evenodd"></path></svg></label>
+                                <span className="privacy-description">Anyone can view and fork this Repl.</span>
+                            </p>
+                        </div>
+                        <div class="privacy-option-container">
+                            <span><input type="radio" name="privacy" id="privacy-private"></span>
+                            <p class="privacy-option">
+                                <label for="privacy-private">Private <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12 2.75c-1.154 0-2.245.408-3.037 1.112-.79.702-1.213 1.633-1.213 2.582V9.25h8.5V6.444c0-.949-.424-1.88-1.213-2.582C14.245 3.158 13.154 2.75 12 2.75Zm5.75 6.525v-2.83c0-1.409-.63-2.738-1.716-3.704C14.95 1.778 13.498 1.25 12 1.25c-1.498 0-2.95.528-4.034 1.491C6.88 3.707 6.25 5.036 6.25 6.444v2.83c-.595.098-1.078.471-1.405.93-.382.536-.595 1.237-.595 1.978v7.636c0 .74.213 1.442.595 1.978.38.535.975.954 1.71.954h10.89c.735 0 1.33-.42 1.71-.954.382-.536.595-1.237.595-1.978v-7.636c0-.74-.213-1.442-.595-1.978-.327-.459-.81-.832-1.405-.93ZM6.556 10.75c-.124 0-.308.07-.49.324-.18.254-.316.643-.316 1.108v7.636c0 .465.135.854.316 1.108.182.255.366.324.49.324h10.888c.124 0 .308-.07.49-.324.18-.254.316-.643.316-1.108v-7.636c0-.465-.135-.854-.316-1.108-.182-.255-.366-.324-.49-.324H6.556Z" clip-rule="evenodd"></path></svg></label>
+                                <span className="privacy-description">Only you can view and fork this Repl.</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="create-repl-button-container">
+                        <button class="create-repl-button">
+                            <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
+                            Create Repl</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content hidden" id="tab3">
+            <div class="import-from-github-container">
+                <div class="import-from-github-top">
+                   <div class="import-github-tabs">
+                    <div class="import-github-tab" data-tab="github-tab1">
+                        <p>My Repositories</p>
+                    </div>
+                    <div class="tabs-divider"></div>
+                    <div class="import-github-tab" data-tab="github-tab2">
+                        <p>From URL</p>
+                    </div>
+
+                   </div>
+                   <div class="import-github-tab-content" id="github-tab1">
+                     <button>Connect Your Github account</button>
+                   </div>
+                   <div class="import-github-tab-content hidden" id="github-tab2">
+                    yes
+                   </div>
+                </div>
+                <div class="import-from-github-bottom">
+                    <div class="">
+                        <div class="privacy-container">
+                            <label for="" class="privacy-label">Privacy</label>
+                            <div class="privacy-option-container">
+                                <span><input type="radio" name="privacy" id="privacy-public"></span>
+                                <p class="privacy-option">
+                                    <label for="privacy-public">Public <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M2.78 11.25h4.502a16.05 16.05 0 0 1 3.014-8.343A9.255 9.255 0 0 0 2.78 11.25ZM12 3.149a14.55 14.55 0 0 0-3.214 8.101h6.428A14.55 14.55 0 0 0 12 3.149Zm3.214 9.601A14.55 14.55 0 0 1 12 20.851a14.55 14.55 0 0 1-3.214-8.101h6.428Zm-7.932 0H2.78a9.255 9.255 0 0 0 7.516 8.343 16.051 16.051 0 0 1-3.014-8.343Zm6.422 8.343a16.051 16.051 0 0 0 3.014-8.343h4.502a9.255 9.255 0 0 1-7.516 8.343Zm7.516-9.843h-4.502a16.05 16.05 0 0 0-3.014-8.343 9.255 9.255 0 0 1 7.516 8.343ZM1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12 17.937 22.75 12 22.75 1.25 17.937 1.25 12Z" clip-rule="evenodd"></path></svg></label>
+                                    <span className="privacy-description">Anyone can view and fork this Repl.</span>
+                                </p>
+                            </div>
+                            <div class="privacy-option-container">
+                                <span><input type="radio" name="privacy" id="privacy-private"></span>
+                                <p class="privacy-option">
+                                    <label for="privacy-private">Private <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12 2.75c-1.154 0-2.245.408-3.037 1.112-.79.702-1.213 1.633-1.213 2.582V9.25h8.5V6.444c0-.949-.424-1.88-1.213-2.582C14.245 3.158 13.154 2.75 12 2.75Zm5.75 6.525v-2.83c0-1.409-.63-2.738-1.716-3.704C14.95 1.778 13.498 1.25 12 1.25c-1.498 0-2.95.528-4.034 1.491C6.88 3.707 6.25 5.036 6.25 6.444v2.83c-.595.098-1.078.471-1.405.93-.382.536-.595 1.237-.595 1.978v7.636c0 .74.213 1.442.595 1.978.38.535.975.954 1.71.954h10.89c.735 0 1.33-.42 1.71-.954.382-.536.595-1.237.595-1.978v-7.636c0-.74-.213-1.442-.595-1.978-.327-.459-.81-.832-1.405-.93ZM6.556 10.75c-.124 0-.308.07-.49.324-.18.254-.316.643-.316 1.108v7.636c0 .465.135.854.316 1.108.182.255.366.324.49.324h10.888c.124 0 .308-.07.49-.324.18-.254.316-.643.316-1.108v-7.636c0-.465-.135-.854-.316-1.108-.182-.255-.366-.324-.49-.324H6.556Z" clip-rule="evenodd"></path></svg></label>
+                                    <span className="privacy-description">Only you can view and fork this Repl.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="repl-limit-container-bottom">
+                        <div class="repl-limit-container-bottom-left">
+                            <p>You have 2 free Repls left</p>
+                            <div class="remaining-progress-bar-container">
+                            <div class="remaining-progress-bar"></div>
+                            <div class="remaining-progress-bar"></div>
+                            <div class="remaining-progress-bar"></div>
+                            </div>
+                        </div>
+                        <div class="repl-limit-container-bottom-right">
+                            <button class="import-github-button">
+                                <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v10.19l3.72-3.72a.75.75 0 1 1 1.06 1.06l-5 5a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06l3.72 3.72V3a.75.75 0 0 1 .75-.75Zm-9 12a.75.75 0 0 1 .75.75v4A1.25 1.25 0 0 0 5 20.25h14A1.25 1.25 0 0 0 20.25 19v-4a.75.75 0 0 1 1.5 0v4A2.75 2.75 0 0 1 19 21.75H5A2.75 2.75 0 0 1 2.25 19v-4a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
+                                Import From Github
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -33,7 +33,7 @@
             </span>
             <div id="dropdown-list" class="dropdown-list hidden">
               <div class="dropdown-list-container-top">
-                <h2 class="dropdown-list-title">Switch organization</h2>
+                <p class="dropdown-list-title">Switch organization</p>
                 <div class="list-divider"></div>
                 <div class="organization-info-container">
                   <label for="" class="organization-title">Personal account</label>
@@ -42,13 +42,13 @@
                     <span>gudwinnayak4320 (you)</span>
                   </div>
                   <div class="list-divider"></div>
-                  <p class="list-item"><i class="list-item-icon"><svg preserveAspectRatio="xMidYMin" width="16"
-                        height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9"
-                        style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
-                        <path fill-rule="evenodd"
-                          d="M5.25 3A.75.75 0 0 1 6 2.25h12a.75.75 0 0 1 .75.75v17.25H21a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1 0-1.5h2.25V3Zm1.5 17.25h10.5V3.75H6.75v16.5Zm8.25-9a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-1.5 0V12a.75.75 0 0 1 .75-.75Z"
-                          clip-rule="evenodd"></path>
-                      </svg></i><span>join organization</span></p>
+                  <div class="join-organization-container"><p class="list-item" id="join-organization"><i class="list-item-icon"><svg preserveAspectRatio="xMidYMin" width="16"
+                    height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9"
+                    style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                    <path fill-rule="evenodd"
+                      d="M5.25 3A.75.75 0 0 1 6 2.25h12a.75.75 0 0 1 .75.75v17.25H21a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1 0-1.5h2.25V3Zm1.5 17.25h10.5V3.75H6.75v16.5Zm8.25-9a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-1.5 0V12a.75.75 0 0 1 .75-.75Z"
+                      clip-rule="evenodd"></path>
+                  </svg></i><span>join organization</span></p></div>
                 </div>
               </div>
               <div class="dropdown-list-container-bottom">
@@ -228,7 +228,7 @@
         <div class="sidebar-top-content">
 
           <div class="create-repl-btn-container">
-            <button class="create-repl-btn"><span><svg preserveAspectRatio="xMidYMin" width="16" height="16"
+            <button class="create-repl-btn" data-page="create-repl"><span><svg preserveAspectRatio="xMidYMin" width="16" height="16"
                   viewBox="0 0 24 24" fill="var(--replit-text-color)" aria-hidden="true" class="css-492dz9"
                   style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
                   <path fill-rule="evenodd"
@@ -407,13 +407,14 @@
       <div class="main-right-container">
         <div class="body-container" id="content-area"></div>
       </div>
-
   </main>
 
-
-
+  <div class="loader-container hidden">
+    <span class="loader"></span>
+  </div>
+  
   <script type="module" src="js/home.js" defer></script>
-
+  <script type="module" src="components/js/create-repl.js" defer></script>
   <script type="module" src="script.js"></script>
   <script type="module" src="js/theme-switcher.js"></script>
 </body>

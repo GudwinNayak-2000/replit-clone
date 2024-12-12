@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/repls.css">
+    <title>Repls</title>
 </head>
+
 <body>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam delectus molestiae eos similique laudantium nulla dignissimos, ipsum est harum cumque natus voluptatibus eaque provident qui officiis ullam nesciunt quia. Ipsa labore nostrum adipisci, necessitatibus aspernatur harum veritatis id deserunt dignissimos!
+    <main>
+        <div class="repls-container">
+            <div class="repls-header">
+                <div class="repls-header-left">
+                    <svg preserveAspectRatio="xMidYMin" width="24" height="24" viewBox="0 0 24 24" fill="var(--replit-folder-icon)"
+                        aria-hidden="true" class="css-492dz9"
+                        style="--size: 24px; --rotate: 0deg; width: 24px; height: 24px;">
+                        <path fill-rule="evenodd"
+                            d="M4 21.75A2.75 2.75 0 0 1 1.25 19V5A2.75 2.75 0 0 1 4 2.25h5a.75.75 0 0 1 .624.334l1.777 2.666H20A2.75 2.75 0 0 1 22.75 8v1.213c.835.559 1.34 1.56 1.2 2.643l-.98 7.5a2.75 2.75 0 0 1-2.726 2.394H4ZM3.116 4.116A1.25 1.25 0 0 1 4 3.75h4.599l1.777 2.666A.75.75 0 0 0 11 6.75h9A1.25 1.25 0 0 1 21.25 8v.75H5.256a2.75 2.75 0 0 0-2.506 1.617V5c0-.332.132-.65.366-.884ZM4.278 20.25h15.966a1.25 1.25 0 0 0 1.24-1.088l.978-7.5a1.25 1.25 0 0 0-1.24-1.412H5.256a1.25 1.25 0 0 0-1.24 1.088l-.978 7.5a1.25 1.25 0 0 0 1.24 1.412Z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <h2>
+                        Repls
+                    </h2>
+                    <button class="no-of-repls-btn">(1/3) Repls</button>
+                </div>
+                <div class="repls-header-right">
+                    <button class="create-repl-btn"> <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
+                        Create </button>
+                </div>
+            </div>
+            <div class="repls-folders-container">
+                <div class="all-available-folders">
+                    <p>All /</p>
+                    <div class="create-new-folder">
+                        <button><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M4 3.75A1.25 1.25 0 0 0 2.75 5v14A1.25 1.25 0 0 0 4 20.25h16A1.25 1.25 0 0 0 21.25 19V8A1.25 1.25 0 0 0 20 6.75h-9a.75.75 0 0 1-.624-.334L8.599 3.75H4Zm-1.945-.695A2.75 2.75 0 0 1 4 2.25h5a.75.75 0 0 1 .624.334l1.777 2.666H20A2.75 2.75 0 0 1 22.75 8v11A2.75 2.75 0 0 1 20 21.75H4A2.75 2.75 0 0 1 1.25 19V5c0-.73.29-1.429.805-1.945ZM12 10.25a.75.75 0 0 1 .75.75v2.25H15a.75.75 0 0 1 0 1.5h-2.25V17a.75.75 0 0 1-1.5 0v-2.25H9a.75.75 0 0 1 0-1.5h2.25V11a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
+                        New Folder</button>
+                    </div>
+                    <div class="shared-folder">
+                        <button><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M9 3.75a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5ZM4.25 7a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0Zm11.023-4.056a.75.75 0 0 1 .913-.54 4.75 4.75 0 0 1 0 9.203.75.75 0 0 1-.372-1.454 3.25 3.25 0 0 0 0-6.296.75.75 0 0 1-.54-.913ZM1.641 15.641A4.75 4.75 0 0 1 5 14.25h8A4.75 4.75 0 0 1 17.75 19v2a.75.75 0 0 1-1.5 0v-2A3.25 3.25 0 0 0 13 15.75H5A3.25 3.25 0 0 0 1.75 19v2a.75.75 0 0 1-1.5 0v-2c0-1.26.5-2.468 1.391-3.359Zm17.633-.698a.75.75 0 0 1 .913-.54A4.75 4.75 0 0 1 23.75 19V21a.75.75 0 0 1-1.5 0v-2a3.25 3.25 0 0 0-2.437-3.144.75.75 0 0 1-.54-.913Z" clip-rule="evenodd"></path></svg>
+                            Shared with me</button>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>

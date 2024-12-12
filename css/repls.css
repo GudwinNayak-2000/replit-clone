@@ -1,0 +1,112 @@
+:root{
+    --replit-header-left-btn-color-light:#EBE1AD;
+    --replit-header-left-btn-color-dark:#2E2A12;
+    --replit-header-left-btn-color-spooky:#3c3201;
+    --replit-create-repl-btn-color-light:#0F87FF;
+    --replit-create-repl-btn-color-dark:#0079F2;
+    --replit-create-repl-btn-color-spooky:#D96D00;
+    --replit-folder-icon-light:#07080A;
+    --replit-folder-icon-dark:#F5F9FC;
+    --replit-folder-icon-spooky:#F5F9FC;
+    --replit-folder-bg-color-light:#F0F1F2;
+    --replit-folder-bg-color-dark:#2B3245;
+    --replit-folder-bg-color-spooky:#292C33;
+}
+
+body.light-theme{
+    --replit-header-left-btn-color:var(--replit-header-left-btn-color-light);
+    --replit-create-repl-btn-color:var(--replit-create-repl-btn-color-light);
+    --replit-folder-icon:var(--replit-folder-icon-light);
+    --replit-folder-bg-color:var(--replit-folder-bg-color-light);
+}
+body.dark-theme{
+    --replit-header-left-btn-color:var(--replit-header-left-btn-color-dark);
+    --replit-create-repl-btn-color:var(--replit-create-repl-btn-color-dark);
+    --replit-folder-icon:var(--replit-folder-icon-dark);
+    --replit-folder-bg-color:var(--replit-folder-bg-color-dark);
+    }
+body.spooky-theme{
+    --replit-header-left-btn-color:var(--replit-header-left-btn-color-spooky);
+    --replit-create-repl-btn-color:var(--replit-create-repl-btn-color-spooky);
+    --replit-folder-icon:var(--replit-folder-icon-spooky);
+    --replit-folder-bg-color:var(--replit-folder-bg-color-spooky);
+}
+
+.repls-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.repls-header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.repls-header-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.repls-header-left .no-of-repls-btn{
+    background-color: var(--replit-header-left-btn-color);
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.repls-header-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.repls-header-right .create-repl-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background-color: var(--replit-create-repl-btn-color);
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+.repls-folders-container{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.all-available-folders{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-new-folder{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.shared-folder{
+  display: flex;
+  align-items: center;
+}
+.create-new-folder button, .shared-folder button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--replit-folder-bg-color);
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  gap: 4px;
+}
