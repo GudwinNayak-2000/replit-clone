@@ -1,12 +1,15 @@
+import { getEnvironmentConfig } from '../../config/path.js';
+const config = getEnvironmentConfig();
+
 async function loadHomeContent() {
     try {
-        const response = await fetch('pages/home.html');
+        const response = await fetch(`${config.basePath}/pages/home.html`);
         if (response.ok) {
             const content = await response.text();
             const homeContent = document.getElementById('home-page');
             if (homeContent) {
                 homeContent.innerHTML = content;
-                await import('../../js/home.js')
+                await import(`${config.basePath}/js/home.js`)
                     .then(module => {
                         if (module.initialize) {
                             module.initialize();
@@ -61,7 +64,7 @@ function switchGithubTabs(){
 async function searchTemplates() {
     let data;
     try {
-        const response = await fetch('/data/templates.json');
+        const response = await fetch(`${config.basePath}/data/templates.json`);
         const jsonData = await response.json();
         data = jsonData.templates;
     } catch (error) {

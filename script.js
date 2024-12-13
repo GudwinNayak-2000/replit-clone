@@ -1,3 +1,11 @@
+import { getEnvironmentConfig } from './config/path.js';
+
+const config = getEnvironmentConfig();
+const BASE_PATH = config.basePath;
+
+
+
+
 const loader = document.querySelector('.loader-container');
 const toggleButton = document.getElementById("toggleButton");
 const sidebar = document.getElementById("sidebar-container");
@@ -29,20 +37,20 @@ async function loadPage() {
 
     try {
       if (isComponent) {
-        const response = await fetch(`/components/${page}.html`);
+        const response = await fetch(`${BASE_PATH}/components/${page}.html`);
         if (!response.ok) {
           throw new Error(`Failed to load ${page} component`);
         }
         const content = await response.text();
         contentArea.innerHTML = content;
         
-        const { initialize } = await import(`/components/js/${page}.js`);
+        const { initialize } = await import(`${BASE_PATH}/components/js/${page}.js`);
         if (initialize) {
           await initialize();
         }
       } else {
-        const url = `/pages/${page}.html`;
-        const scriptUrl = `/js/${page}.js`;
+        const url = `${BASE_PATH}/pages/${page}.html`;
+        const scriptUrl = `${BASE_PATH}/js/${page}.js`;
         const response = await fetch(url);
         
         if (response.ok) {
