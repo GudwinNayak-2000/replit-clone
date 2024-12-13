@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Replit-clone</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/repls.css">
+  <link rel="stylesheet" href="css/create-repls.css">
 
 </head>
 
@@ -142,7 +145,7 @@
 
         <!-- Right section -->
         <div class="navbar-right">
-          <span class="action-icons">
+          <span class="action-icons" data-page="create-repl" >
             <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24"
               fill="var(--replit-text-color)" aria-hidden="false" class="css-492dz9"
               style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
@@ -262,6 +265,11 @@
                       d="m17.53 16.47-5-5a.75.75 0 0 0-1.06 0l-5 5a.75.75 0 1 0 1.06 1.06l3.72-3.72V23a.75.75 0 0 0 1.5 0v-9.19l3.72 3.72a.75.75 0 1 0 1.06-1.06Z">
                     </path>
                   </svg></i> Deployments</a></li>
+            <li>
+              <a href="#" class="nav-link" data-page="compiler">
+                compiler
+              </a>
+            </li>
             <li><a class="nav-link" data-page="usage" href="#"><i class="icon"><svg preserveAspectRatio="xMidYMin"
                     width="16" height="16" viewBox="0 0 24 24" fill="var(--replit-text-color)" aria-hidden="true"
                     class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
@@ -416,6 +424,7 @@
   <script type="module" src="js/home.js" defer></script>
   <script type="module" src="components/js/create-repl.js" defer></script>
   <script type="module" src="script.js"></script>
+  <script type="module" src="js/compiler.js"></script>
   <script type="module" src="js/theme-switcher.js"></script>
 </body>
 

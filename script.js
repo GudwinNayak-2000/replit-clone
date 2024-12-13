@@ -44,10 +44,17 @@ async function loadPage() {
         const content = await response.text();
         contentArea.innerHTML = content;
         
-        const { initialize } = await import(`${BASE_PATH}/components/js/${page}.js`);
-        if (initialize) {
-          await initialize();
-        }
+        if (page === 'compiler') {
+          const { initialize: compilerInitialize } = await import(`${BASE_PATH}/components/js/compiler.js`);
+          if (compilerInitialize) {
+              await compilerInitialize();
+          }
+      } else {
+          const { initialize } = await import(`${BASE_PATH}/components/js/${page}.js`);
+          if (initialize) {
+              await initialize();
+          }
+      }
       } else {
         const url = `${BASE_PATH}/pages/${page}.html`;
         const scriptUrl = `${BASE_PATH}/js/${page}.js`;
@@ -88,7 +95,7 @@ async function loadPage() {
   }
 
   function setupEventListeners() {
-    const createReplButtons = document.querySelectorAll('.create-repl-btn');
+    const createReplButtons = document.querySelectorAll('.create-repl-btn,.action-icons[data-page="create-repl"]');
     createReplButtons.forEach(button => {
       button.removeEventListener('click', handleCreateReplClick);
       button.addEventListener('click', handleCreateReplClick);

@@ -287,21 +287,31 @@ textarea {
   display: flex;
   flex-direction: column;
 }
-
-.import-from-github-top{
+.import-from-github-top {
   width: 100%;
   height: 250px;
   border-radius: 8px;
-  background-color: var();
+  position: relative;
   border: 1px solid var(--replit-template-card-border);
 }
 
-.import-github-tabs{
+.import-github-tabs {
   display: flex;
   align-items: center;
   cursor: pointer;
   gap: 10px;
   border-bottom: 1px solid var(--replit-tabs-bottom-border);
+  position: relative; /* Add this */
+  z-index: 2; /* Add this */
+  background-color: inherit; /* Add this */
+}
+.import-github-tab:hover{
+  background-color: var(--replit-active-tab-hover-bg);
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.import-github-tab.active{
+  border-bottom: 1px solid var(--replit-active-tab-bottom-border);
 }
 
 .import-github-tab{
@@ -313,10 +323,48 @@ textarea {
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
 }
-.import-github-tab.active{
-  border-bottom: 1px solid var(--replit-active-tab-bottom-border);
+#github-tab1 .connect-github-button{
+  padding: 8px 14px;
+  border: none;
+  margin: 10px;
+  border-radius: 4px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 1px solid var(--replit-import-github-button-bg);
 }
 
+#github-tab2 .import-github-url-input{
+  width: 250px;
+  margin: 10px;
+  padding: 8px;
+  border: 1px solid var(--replit-template-card-border);
+  background-color: var(--replit-input-search-bg);
+  border-radius: 4px;
+}
+
+.import-github-tab-content {
+  width: 100%;
+  height: calc(100% - 41px); /* Subtract tabs height */
+  position: absolute;
+  top: 41px; /* Height of tabs */
+  left: 0;
+  right: 0;
+  z-index: 1; /* Add this */
+}
+
+/* Add this class */
+.import-github-tab-content.hidden {
+  display: none;
+}
+
+/* Rest of your CSS remains the same */
 
 
 
