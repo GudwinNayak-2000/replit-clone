@@ -1,0 +1,228 @@
+:root{
+    --replit-table-bg-light:#FCFCFC;
+    --replit-table-bg-dark:#1C2333;
+    --replit-table-bg-spooky:#292C33;
+    --replit-border-color-dark: #3c445c;
+    --replit-border-color-spooky: #4e5569;
+    --replit-border-color-light:#d2d4d6;
+}
+
+
+body.light-theme{
+    --replit-table-bg:var(--replit-table-bg-light);
+    --replit-border-color:var(--replit-border-color-light);
+}
+body.dark-theme{
+    --replit-table-bg:var(--replit-table-bg-dark);
+    --replit-border-color:var(--replit-border-color-dark);
+}
+body.spooky-theme{
+    --replit-table-bg:var(--replit-table-bg-spooky);
+    --replit-border-color:var(--replit-border-color-spooky);
+}
+
+
+
+main{
+    height: 100%;
+    width: 100%;
+}
+.usage-container {
+   height: 100%;
+}
+
+.alert-banner {
+    background-color: #8B4513;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.billing-section {
+    margin-top: 30px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.billing-grid {
+    background-color: var(--replit-table-bg);
+    border-radius: 8px;
+    padding: 12px 20px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.billing-item {
+    padding: 15px 0;
+}
+
+.billing-item:last-child {
+    border-bottom: none;
+}
+
+.billing-label {
+    margin-bottom: 8px;
+}
+
+.billing-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.upgrade-link, .manage-link, .add-payment-link {
+    text-decoration: none;
+}
+
+.usage-number {
+}
+
+.usage-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.reset-text {
+}
+
+
+/* Mobile layout adjustments */
+@media screen and (max-width: 768px) {
+
+    .resource-table{
+        width: 100%;
+    }
+    .resource-table{
+        width: 100%;
+    }
+    .billing-grid {
+        padding: 15px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .billing-item {
+        padding: 12px 0;
+    }
+
+    .billing-content {
+        gap: 6px;
+    }
+}
+
+
+
+/* Container styles */
+.resource-section{
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Table styles */
+.resource-table,.workspace-table,.deployment-table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 40px 0;
+    border-radius: 6px;
+    background-color: var(--replit-table-bg);
+    overflow: hidden;
+}
+
+/* Header styles */
+.resource-table thead {
+    /* background-color: #f5f5f5; */
+}
+
+.resource-table th, .workspace-table th, .deployment-table th{
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--replit-border-color);
+}
+
+.resource-table th:first-child {
+}
+
+/* Cell styles */
+.resource-table td, .workspace-table td, .deployment-table td {
+    padding: 12px 15px;
+}
+
+.resource-table tbody tr:last-child td  {
+    border-bottom: none;
+}
+
+/* Hover effect */
+.resource-table tbody tr:hover {
+    /* background-color: #f8f9fa; */
+}
+
+/* Usage bar styles */
+.usage-bar {
+    width: 100px;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.usage-progress {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.progress-low {
+}
+
+.progress-medium {
+}
+
+.progress-high {
+}
+
+/* Usage percentage text */
+.usage-bar + span {
+    vertical-align: middle;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+    .resource-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* Additional styling for specific columns */
+.resource-table td:last-child {
+}
+
+/* Unit price column */
+.resource-table td:nth-last-child(2) {
+}
+
+/* Empty state styling */
+.resource-table td:empty::before,
+.resource-table td:contains("-") {
+    content: "-";
+}
+
+/* Resource name styling */
+.resource-table td:first-child {
+}
+
+/* Optional: Alternating row colors */
+.resource-table tbody tr:nth-child(even) {
+
+}
+
+
+
+

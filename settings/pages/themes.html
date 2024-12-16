@@ -1,0 +1,69 @@
+<!-- themes.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/themes.css">
+    <title>themes settings</title>  
+</head>
+<body>
+    <div class="themes-container">
+        <div class="themes-header">
+            <div>
+                <h2>Themes</h2>
+            </div>
+            <div class="themes-header-buttons">
+                <button>Browse themes</button>
+                <button>Create theme</button>
+            </div>
+        </div>
+        <div class="themes-section">
+            <p>Official themes</p>
+            <div class="theme-options">
+                <div class="theme-card" data-theme="dark">
+                    <div class="theme-preview dark-preview">
+                        <div class="code-lines"></div>
+                        <div class="theme-controls">
+                            <div class="play-button"></div>
+                            <div class="color-picker"></div>
+                        </div>
+                    </div>
+                    <div class="theme-info">
+                        <input type="radio" name="theme" id="dark" value="dark" checked>
+                        <label for="dark">dark</label>
+                    </div>
+                </div>
+
+                <div class="theme-card" data-theme="light">
+                    <div class="theme-preview light-preview">
+                        <div class="code-lines"></div>
+                        <div class="theme-controls">
+                            <div class="play-button"></div>
+                            <div class="color-picker"></div>
+                        </div>
+                    </div>
+                    <div class="theme-info">
+                        <input type="radio" name="theme" id="light" value="light">
+                        <label for="light">light</label>
+                    </div>
+                </div>
+
+                <div class="theme-card" data-theme="spooky">
+                    <div class="theme-preview spooky-preview">
+                        <div class="code-lines"></div>
+                        <div class="theme-controls">
+                            <div class="play-button"></div>
+                            <div class="color-picker"></div>
+                        </div>
+                    </div>
+                    <div class="theme-info">
+                        <input type="radio" name="theme" id="spooky" value="spooky">
+                        <label for="spooky">spooky</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

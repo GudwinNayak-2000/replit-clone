@@ -1,191 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repl Compiler</title>
-    <link rel="stylesheet" href="../css/compiler.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/monokai.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
-  
-    <!-- Language modes -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/python/python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/xml/xml.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/css/css.min.js"></script>
-  
-    <!-- Add-ons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/closebrackets.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchbrackets.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/closetag.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/foldcode.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/foldgutter.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/show-hint.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/javascript-hint.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/search/search.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/search/searchcursor.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/dialog/dialog.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/comment/comment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/lint/lint.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repl Compiler</title>
+  <link rel="stylesheet" href="../css/compiler.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/monokai.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/show-hint.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/anyword-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/css-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/html-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/xml-hint.min.js"></script>
+
+  <!-- Language modes -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/python/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/css/css.min.js"></script>
+
+  <!-- Add-ons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/closebrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchbrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/closetag.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/foldcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/foldgutter.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/show-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/javascript-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/search/search.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/search/searchcursor.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/dialog/dialog.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/comment/comment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/lint/lint.min.js"></script>
 </head>
+
 <body>
-   <nav class="nav-container">
+  <nav class="nav-container">
     <div class="nav-left">
-      <button class="home-dir-btn"><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="false" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><title>Home</title><path fill-rule="evenodd" d="M11.54 1.408a.75.75 0 0 1 .92 0l9 7a.75.75 0 0 1 .29.592v11A2.75 2.75 0 0 1 19 22.75H5A2.75 2.75 0 0 1 2.25 20V9a.75.75 0 0 1 .29-.592l9-7ZM3.75 9.367V20A1.25 1.25 0 0 0 5 21.25h3.25V13.5a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 .75.75v7.75H19A1.25 1.25 0 0 0 20.25 20V9.367L12 2.95 3.75 9.367Zm10.5 11.883v-7h-4.5v7h4.5Z" clip-rule="evenodd"></path></svg></button>
+      <button class="home-dir-btn"><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24"
+          fill="currentColor" aria-hidden="false" class="css-492dz9"
+          style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+          <title>Home</title>
+          <path fill-rule="evenodd"
+            d="M11.54 1.408a.75.75 0 0 1 .92 0l9 7a.75.75 0 0 1 .29.592v11A2.75 2.75 0 0 1 19 22.75H5A2.75 2.75 0 0 1 2.25 20V9a.75.75 0 0 1 .29-.592l9-7ZM3.75 9.367V20A1.25 1.25 0 0 0 5 21.25h3.25V13.5a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 .75.75v7.75H19A1.25 1.25 0 0 0 20.25 20V9.367L12 2.95 3.75 9.367Zm10.5 11.883v-7h-4.5v7h4.5Z"
+            clip-rule="evenodd"></path>
+        </svg></button>
       <div class="template-info-container">
         <img id="template-icon" class="template-icon" src="" alt="">
         <p id="repl-title" class="repl-title"></p>
-        <button class="resources-btn"><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M19.125 1.2H4.875A3.675 3.675 0 0 0 1.2 4.875v14.25A3.675 3.675 0 0 0 4.875 22.8h14.25a3.675 3.675 0 0 0 3.675-3.675V4.875A3.675 3.675 0 0 0 19.125 1.2ZM3 4.875C3 3.839 3.84 3 4.875 3h14.25C20.161 3 21 3.84 21 4.875V10.5H3V4.875ZM3 12.3v6.825C3 20.16 3.84 21 4.875 21h14.25C20.161 21 21 20.16 21 19.125V12.3H3Zm4.8-5.4a.9.9 0 0 1-.9.9h-.3a.9.9 0 1 1 0-1.8h.3a.9.9 0 0 1 .9.9Zm-.9 11.4a.9.9 0 1 0 0-1.8h-.3a.9.9 0 1 0 0 1.8h.3ZM17.25 7.65H11.1a.9.9 0 1 1 0-1.8h6.15a.9.9 0 0 1 0 1.8Zm-6.15 10.5h6.15a.9.9 0 0 0 0-1.8H11.1a.9.9 0 0 0 0 1.8Z" clip-rule="evenodd"></path></svg>
-         Limited
+        <button class="resources-btn"><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24"
+            fill="currentColor" aria-hidden="true" class="css-492dz9"
+            style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+            <path fill-rule="evenodd"
+              d="M19.125 1.2H4.875A3.675 3.675 0 0 0 1.2 4.875v14.25A3.675 3.675 0 0 0 4.875 22.8h14.25a3.675 3.675 0 0 0 3.675-3.675V4.875A3.675 3.675 0 0 0 19.125 1.2ZM3 4.875C3 3.839 3.84 3 4.875 3h14.25C20.161 3 21 3.84 21 4.875V10.5H3V4.875ZM3 12.3v6.825C3 20.16 3.84 21 4.875 21h14.25C20.161 21 21 20.16 21 19.125V12.3H3Zm4.8-5.4a.9.9 0 0 1-.9.9h-.3a.9.9 0 1 1 0-1.8h.3a.9.9 0 0 1 .9.9Zm-.9 11.4a.9.9 0 1 0 0-1.8h-.3a.9.9 0 1 0 0 1.8h.3ZM17.25 7.65H11.1a.9.9 0 1 1 0-1.8h6.15a.9.9 0 0 1 0 1.8Zm-6.15 10.5h6.15a.9.9 0 0 0 0-1.8H11.1a.9.9 0 0 0 0 1.8Z"
+              clip-rule="evenodd"></path>
+          </svg>
+          Limited
         </button>
       </div>
     </div>
-    <div class="nav-center"> 
-      <button id="run-code" class="run-button"> 
-        <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;"><path fill-rule="evenodd" d="M20.593 10.91a1.25 1.25 0 0 1 0 2.18l-14.48 8.145a1.25 1.25 0 0 1-1.863-1.09V3.855a1.25 1.25 0 0 1 1.863-1.09l14.48 8.146Z" clip-rule="evenodd"></path></svg>
+    <div class="nav-center">
+      <button id="run-code" class="run-button">
+        <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
+          aria-hidden="true" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;">
+          <path fill-rule="evenodd"
+            d="M20.593 10.91a1.25 1.25 0 0 1 0 2.18l-14.48 8.145a1.25 1.25 0 0 1-1.863-1.09V3.855a1.25 1.25 0 0 1 1.863-1.09l14.48 8.146Z"
+            clip-rule="evenodd"></path>
+        </svg>
         Run
       </button>
     </div>
     <div class="nav-right">
-      <i><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M11 3.75a7.25 7.25 0 1 0 5.044 12.457.753.753 0 0 1 .163-.163A7.25 7.25 0 0 0 11 3.75Zm6.695 12.884a8.75 8.75 0 1 0-1.06 1.06l3.835 3.836a.75.75 0 1 0 1.06-1.06l-3.835-3.836Z" clip-rule="evenodd"></path></svg>
+      <i><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--replit-home-dir-btn-bg-color)"
+          aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+          <path fill-rule="evenodd"
+            d="M11 3.75a7.25 7.25 0 1 0 5.044 12.457.753.753 0 0 1 .163-.163A7.25 7.25 0 0 0 11 3.75Zm6.695 12.884a8.75 8.75 0 1 0-1.06 1.06l3.835 3.836a.75.75 0 1 0 1.06-1.06l-3.835-3.836Z"
+            clip-rule="evenodd"></path>
+        </svg>
       </i>
       <button class="invite-button">
-        <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M8.5 3.75a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5ZM3.75 7a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0ZM20 7.25a.75.75 0 0 1 .75.75v2.25H23a.75.75 0 0 1 0 1.5h-2.25V14a.75.75 0 0 1-1.5 0v-2.25H17a.75.75 0 0 1 0-1.5h2.25V8a.75.75 0 0 1 .75-.75ZM1.641 15.641A4.75 4.75 0 0 1 5 14.25h7A4.75 4.75 0 0 1 16.75 19v2a.75.75 0 0 1-1.5 0v-2A3.25 3.25 0 0 0 12 15.75H5A3.25 3.25 0 0 0 1.75 19v2a.75.75 0 0 1-1.5 0v-2c0-1.26.5-2.468 1.391-3.359Z" clip-rule="evenodd"></path></svg>
-         Invite
+        <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+          aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+          <path fill-rule="evenodd"
+            d="M8.5 3.75a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5ZM3.75 7a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0ZM20 7.25a.75.75 0 0 1 .75.75v2.25H23a.75.75 0 0 1 0 1.5h-2.25V14a.75.75 0 0 1-1.5 0v-2.25H17a.75.75 0 0 1 0-1.5h2.25V8a.75.75 0 0 1 .75-.75ZM1.641 15.641A4.75 4.75 0 0 1 5 14.25h7A4.75 4.75 0 0 1 16.75 19v2a.75.75 0 0 1-1.5 0v-2A3.25 3.25 0 0 0 12 15.75H5A3.25 3.25 0 0 0 1.75 19v2a.75.75 0 0 1-1.5 0v-2c0-1.26.5-2.468 1.391-3.359Z"
+            clip-rule="evenodd"></path>
+        </svg>
+        Invite
       </button>
       <button class="deploy-button">
-        <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M14.409 9.75c-.039.434-.101.865-.188 1.29l1.241 1.24c.233-.822.385-1.67.452-2.53h3.298a7.226 7.226 0 0 1-1.995 4.285l1.06 1.06a8.75 8.75 0 1 0-12.555 0l1.061-1.06A7.226 7.226 0 0 1 4.788 9.75h3.298c.067.86.219 1.708.452 2.53l1.24-1.24c-.086-.425-.149-.856-.187-1.29h4.818Zm-9.62-1.5h3.297c.176-2.262.94-4.433 2.209-6.298A7.256 7.256 0 0 0 4.788 8.25ZM12 2.16a11.49 11.49 0 0 0-2.409 6.09h4.818A11.49 11.49 0 0 0 12 2.16Zm7.212 6.09h-3.298a12.99 12.99 0 0 0-2.209-6.298 7.256 7.256 0 0 1 5.507 6.298Z" clip-rule="evenodd"></path><path d="m17.53 16.47-5-5a.75.75 0 0 0-1.06 0l-5 5a.75.75 0 1 0 1.06 1.06l3.72-3.72V23a.75.75 0 0 0 1.5 0v-9.19l3.72 3.72a.75.75 0 1 0 1.06-1.06Z"></path></svg>
+        <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+          aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+          <path fill-rule="evenodd"
+            d="M14.409 9.75c-.039.434-.101.865-.188 1.29l1.241 1.24c.233-.822.385-1.67.452-2.53h3.298a7.226 7.226 0 0 1-1.995 4.285l1.06 1.06a8.75 8.75 0 1 0-12.555 0l1.061-1.06A7.226 7.226 0 0 1 4.788 9.75h3.298c.067.86.219 1.708.452 2.53l1.24-1.24c-.086-.425-.149-.856-.187-1.29h4.818Zm-9.62-1.5h3.297c.176-2.262.94-4.433 2.209-6.298A7.256 7.256 0 0 0 4.788 8.25ZM12 2.16a11.49 11.49 0 0 0-2.409 6.09h4.818A11.49 11.49 0 0 0 12 2.16Zm7.212 6.09h-3.298a12.99 12.99 0 0 0-2.209-6.298 7.256 7.256 0 0 1 5.507 6.298Z"
+            clip-rule="evenodd"></path>
+          <path
+            d="m17.53 16.47-5-5a.75.75 0 0 0-1.06 0l-5 5a.75.75 0 1 0 1.06 1.06l3.72-3.72V23a.75.75 0 0 0 1.5 0v-9.19l3.72 3.72a.75.75 0 1 0 1.06-1.06Z">
+          </path>
+        </svg>
         Deploy
       </button>
-      <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M7.227 3.227A6.75 6.75 0 0 1 18.75 8c0 3.39.725 5.514 1.409 6.766.342.628.678 1.044.917 1.296a3.254 3.254 0 0 0 .338.312l.009.007A.75.75 0 0 1 21 17.75H3a.75.75 0 0 1-.423-1.37l.009-.006.063-.05c.06-.05.156-.136.275-.262.239-.252.575-.668.918-1.296C4.525 13.514 5.25 11.39 5.25 8a6.75 6.75 0 0 1 1.977-4.773ZM4.69 16.25h14.62a8.795 8.795 0 0 1-.468-.766C18.025 13.986 17.25 11.611 17.25 8a5.25 5.25 0 0 0-10.5 0c0 3.61-.775 5.986-1.592 7.484a8.77 8.77 0 0 1-.468.766Zm5.204 4.101a.75.75 0 0 1 1.025.273 1.25 1.25 0 0 0 2.162 0 .75.75 0 0 1 1.298.752 2.749 2.749 0 0 1-4.758 0 .75.75 0 0 1 .273-1.025Z" clip-rule="evenodd"></path></svg>
+      <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--replit-home-dir-btn-bg-color)"
+        aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+        <path fill-rule="evenodd"
+          d="M7.227 3.227A6.75 6.75 0 0 1 18.75 8c0 3.39.725 5.514 1.409 6.766.342.628.678 1.044.917 1.296a3.254 3.254 0 0 0 .338.312l.009.007A.75.75 0 0 1 21 17.75H3a.75.75 0 0 1-.423-1.37l.009-.006.063-.05c.06-.05.156-.136.275-.262.239-.252.575-.668.918-1.296C4.525 13.514 5.25 11.39 5.25 8a6.75 6.75 0 0 1 1.977-4.773ZM4.69 16.25h14.62a8.795 8.795 0 0 1-.468-.766C18.025 13.986 17.25 11.611 17.25 8a5.25 5.25 0 0 0-10.5 0c0 3.61-.775 5.986-1.592 7.484a8.77 8.77 0 0 1-.468.766Zm5.204 4.101a.75.75 0 0 1 1.025.273 1.25 1.25 0 0 0 2.162 0 .75.75 0 0 1 1.298.752 2.749 2.749 0 0 1-4.758 0 .75.75 0 0 1 .273-1.025Z"
+          clip-rule="evenodd"></path>
+      </svg>
 
     </div>
-   </nav>
-   <div class="workspace">
+  </nav>
+  <div class="workspace">
     <div class="left-side-panel">
       <div class="left-panel-top-container">
-        <button id="sidebar-toggle" class="sidebar-toggle" aria-label="directory-manage" class="directory-manage" id="directory-manage">
-          <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M1.25 5A2.75 2.75 0 0 1 4 2.25h4.999c.251 0 .485.126.625.334L11.4 5.25H20A2.75 2.75 0 0 1 22.75 8v4.5a.75.75 0 0 1-1.5 0V8c0-.69-.56-1.25-1.25-1.25h-9a.751.751 0 0 1-.625-.335L8.598 3.75H4c-.69 0-1.25.56-1.25 1.25v14c0 .69.56 1.25 1.25 1.25h4a.75.75 0 0 1 0 1.5H4A2.75 2.75 0 0 1 1.25 19V5Z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M22.55 17.646a.854.854 0 0 1 0 1.208l-3.696 3.696a.855.855 0 0 1-1.208-1.209l3.091-3.091-3.091-3.091a.855.855 0 0 1 1.208-1.209l3.696 3.696Z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M17.376 18.854 13.68 22.55a.854.854 0 0 1-1.208-1.209l3.092-3.091-3.092-3.091a.855.855 0 0 1 1.208-1.209l3.696 3.696a.854.854 0 0 1 0 1.208Z" clip-rule="evenodd"></path></svg>
+        <button id="sidebar-toggle" class="sidebar-toggle" aria-label="directory-manage" class="directory-manage"
+          id="directory-manage">
+          <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+            aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+            <path fill-rule="evenodd"
+              d="M1.25 5A2.75 2.75 0 0 1 4 2.25h4.999c.251 0 .485.126.625.334L11.4 5.25H20A2.75 2.75 0 0 1 22.75 8v4.5a.75.75 0 0 1-1.5 0V8c0-.69-.56-1.25-1.25-1.25h-9a.751.751 0 0 1-.625-.335L8.598 3.75H4c-.69 0-1.25.56-1.25 1.25v14c0 .69.56 1.25 1.25 1.25h4a.75.75 0 0 1 0 1.5H4A2.75 2.75 0 0 1 1.25 19V5Z"
+              clip-rule="evenodd"></path>
+            <path fill-rule="evenodd"
+              d="M22.55 17.646a.854.854 0 0 1 0 1.208l-3.696 3.696a.855.855 0 0 1-1.208-1.209l3.091-3.091-3.091-3.091a.855.855 0 0 1 1.208-1.209l3.696 3.696Z"
+              clip-rule="evenodd"></path>
+            <path fill-rule="evenodd"
+              d="M17.376 18.854 13.68 22.55a.854.854 0 0 1-1.208-1.209l3.092-3.091-3.092-3.091a.855.855 0 0 1 1.208-1.209l3.696 3.696a.854.854 0 0 1 0 1.208Z"
+              clip-rule="evenodd"></path>
+          </svg>
         </button>
       </div>
       <div class="left-panel-center-container">
-        <i><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill="var(--accent-teal-default)" d="M7.714 0a3.429 3.429 0 0 1 3.429 3.429v.026a5.143 5.143 0 0 0 5.137 5.116h.006a3.429 3.429 0 0 1 0 6.858 5.143 5.143 0 0 0-5.143 5.142 3.429 3.429 0 1 1-3.429-3.428h.007a5.143 5.143 0 0 0-.007-10.286 3.429 3.429 0 0 1 0-6.857Z"></path><path fill="var(--accent-teal-stronger)" d="M11.143 12a3.429 3.429 0 1 0-6.857 0 3.429 3.429 0 0 0 6.857 0Z"></path><path fill="url(#paint0_radial_7329_267)" d="M7.714 0a3.429 3.429 0 0 1 3.429 3.429v.026a5.143 5.143 0 0 0 5.137 5.116h.006a3.429 3.429 0 0 1 0 6.858 5.143 5.143 0 0 0-5.143 5.142 3.429 3.429 0 1 1-3.429-3.428h.007a5.143 5.143 0 0 0-.007-10.286 3.429 3.429 0 0 1 0-6.857Z" opacity=".5"></path><path fill="url(#paint1_radial_7329_267)" d="M7.714 8.571a3.429 3.429 0 1 1 0 6.858 3.429 3.429 0 0 1 0-6.858Z" opacity=".5"></path><defs><radialGradient id="paint0_radial_7329_267" cx="0" cy="0" r="1" gradientTransform="rotate(44.479 -2.762 5.679)scale(29.1694)" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" stop-opacity=".79"></stop><stop offset="1"></stop></radialGradient><radialGradient id="paint1_radial_7329_267" cx="0" cy="0" r="1" gradientTransform="rotate(44.479 -2.763 5.679)scale(29.1694)" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" stop-opacity=".79"></stop><stop offset="1"></stop></radialGradient></defs></svg></i>
-        <i><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M3.47 4.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 0 1-1.06-1.06L8.94 11 3.47 5.53a.75.75 0 0 1 0-1.06ZM11.25 19a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5h-8a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path></svg></i>
-        <i><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M4 3.75c-.69 0-1.25.56-1.25 1.25v10c0 .69.56 1.25 1.25 1.25h16c.69 0 1.25-.56 1.25-1.25V5c0-.69-.56-1.25-1.25-1.25H4Zm8.75 14H20A2.75 2.75 0 0 0 22.75 15V5A2.75 2.75 0 0 0 20 2.25H4A2.75 2.75 0 0 0 1.25 5v10A2.75 2.75 0 0 0 4 17.75h7.25v2.5H8a.75.75 0 0 0 0 1.5h8a.75.75 0 0 0 0-1.5h-3.25v-2.5Z" clip-rule="evenodd"></path></svg></i>
-        <i><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M14.409 9.75c-.039.434-.101.865-.188 1.29l1.241 1.24c.233-.822.385-1.67.452-2.53h3.298a7.226 7.226 0 0 1-1.995 4.285l1.06 1.06a8.75 8.75 0 1 0-12.555 0l1.061-1.06A7.226 7.226 0 0 1 4.788 9.75h3.298c.067.86.219 1.708.452 2.53l1.24-1.24c-.086-.425-.149-.856-.187-1.29h4.818Zm-9.62-1.5h3.297c.176-2.262.94-4.433 2.209-6.298A7.256 7.256 0 0 0 4.788 8.25ZM12 2.16a11.49 11.49 0 0 0-2.409 6.09h4.818A11.49 11.49 0 0 0 12 2.16Zm7.212 6.09h-3.298a12.99 12.99 0 0 0-2.209-6.298 7.256 7.256 0 0 1 5.507 6.298Z" clip-rule="evenodd"></path><path d="m17.53 16.47-5-5a.75.75 0 0 0-1.06 0l-5 5a.75.75 0 1 0 1.06 1.06l3.72-3.72V23a.75.75 0 0 0 1.5 0v-9.19l3.72 3.72a.75.75 0 1 0 1.06-1.06Z"></path></svg></i>
-        <i><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M1.25 3c0-.966.784-1.75 1.75-1.75h6c.966 0 1.75.784 1.75 1.75v6A1.75 1.75 0 0 1 9 10.75H3A1.75 1.75 0 0 1 1.25 9V3ZM3 2.75a.25.25 0 0 0-.25.25v6c0 .138.112.25.25.25h6A.25.25 0 0 0 9.25 9V3A.25.25 0 0 0 9 2.75H3ZM13.25 3c0-.966.784-1.75 1.75-1.75h6c.966 0 1.75.784 1.75 1.75v6A1.75 1.75 0 0 1 21 10.75h-6A1.75 1.75 0 0 1 13.25 9V3ZM15 2.75a.25.25 0 0 0-.25.25v6c0 .138.112.25.25.25h6a.25.25 0 0 0 .25-.25V3a.25.25 0 0 0-.25-.25h-6ZM1.25 15c0-.966.784-1.75 1.75-1.75h6c.966 0 1.75.784 1.75 1.75v6A1.75 1.75 0 0 1 9 22.75H3A1.75 1.75 0 0 1 1.25 21v-6ZM3 14.75a.25.25 0 0 0-.25.25v6c0 .138.112.25.25.25h6a.25.25 0 0 0 .25-.25v-6a.25.25 0 0 0-.25-.25H3Zm10.25.25c0-.966.784-1.75 1.75-1.75h6c.966 0 1.75.784 1.75 1.75v6A1.75 1.75 0 0 1 21 22.75h-6A1.75 1.75 0 0 1 13.25 21v-6Zm1.75-.25a.25.25 0 0 0-.25.25v6c0 .138.112.25.25.25h6a.25.25 0 0 0 .25-.25v-6a.25.25 0 0 0-.25-.25h-6Z" clip-rule="evenodd"></path></svg></i>
+        <i><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--replit-assistant-btn-bg-color)"
+            aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+            <path fill="var(--accent-teal-default)"
+              d="M7.714 0a3.429 3.429 0 0 1 3.429 3.429v.026a5.143 5.143 0 0 0 5.137 5.116h.006a3.429 3.429 0 0 1 0 6.858 5.143 5.143 0 0 0-5.143 5.142 3.429 3.429 0 1 1-3.429-3.428h.007a5.143 5.143 0 0 0-.007-10.286 3.429 3.429 0 0 1 0-6.857Z">
+            </path>
+            <path fill="var(--accent-teal-stronger)"
+              d="M11.143 12a3.429 3.429 0 1 0-6.857 0 3.429 3.429 0 0 0 6.857 0Z"></path>
+            <path fill="url(#paint0_radial_7329_267)"
+              d="M7.714 0a3.429 3.429 0 0 1 3.429 3.429v.026a5.143 5.143 0 0 0 5.137 5.116h.006a3.429 3.429 0 0 1 0 6.858 5.143 5.143 0 0 0-5.143 5.142 3.429 3.429 0 1 1-3.429-3.428h.007a5.143 5.143 0 0 0-.007-10.286 3.429 3.429 0 0 1 0-6.857Z"
+              opacity=".5"></path>
+            <path fill="url(#paint1_radial_7329_267)"
+              d="M7.714 8.571a3.429 3.429 0 1 1 0 6.858 3.429 3.429 0 0 1 0-6.858Z" opacity=".5"></path>
+            <defs>
+              <radialGradient id="paint0_radial_7329_267" cx="0" cy="0" r="1"
+                gradientTransform="rotate(44.479 -2.762 5.679)scale(29.1694)" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#fff" stop-opacity=".79"></stop>
+                <stop offset="1"></stop>
+              </radialGradient>
+              <radialGradient id="paint1_radial_7329_267" cx="0" cy="0" r="1"
+                gradientTransform="rotate(44.479 -2.763 5.679)scale(29.1694)" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#fff" stop-opacity=".79"></stop>
+                <stop offset="1"></stop>
+              </radialGradient>
+            </defs>
+          </svg></i>
+        <i><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--replit-console-btn-bg-color)"
+            aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+            <path fill-rule="evenodd"
+              d="M3.47 4.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 0 1-1.06-1.06L8.94 11 3.47 5.53a.75.75 0 0 1 0-1.06ZM11.25 19a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5h-8a.75.75 0 0 1-.75-.75Z"
+              clip-rule="evenodd"></path>
+          </svg></i>
+        <i><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--replit-webview-and-other-btn-bg-color)"
+            aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+            <path fill-rule="evenodd"
+              d="M4 3.75c-.69 0-1.25.56-1.25 1.25v10c0 .69.56 1.25 1.25 1.25h16c.69 0 1.25-.56 1.25-1.25V5c0-.69-.56-1.25-1.25-1.25H4Zm8.75 14H20A2.75 2.75 0 0 0 22.75 15V5A2.75 2.75 0 0 0 20 2.25H4A2.75 2.75 0 0 0 1.25 5v10A2.75 2.75 0 0 0 4 17.75h7.25v2.5H8a.75.75 0 0 0 0 1.5h8a.75.75 0 0 0 0-1.5h-3.25v-2.5Z"
+              clip-rule="evenodd"></path>
+          </svg></i>
+        <i><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--replit-deploy-btn-bg-color)"
+            aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+            <path fill-rule="evenodd"
+              d="M14.409 9.75c-.039.434-.101.865-.188 1.29l1.241 1.24c.233-.822.385-1.67.452-2.53h3.298a7.226 7.226 0 0 1-1.995 4.285l1.06 1.06a8.75 8.75 0 1 0-12.555 0l1.061-1.06A7.226 7.226 0 0 1 4.788 9.75h3.298c.067.86.219 1.708.452 2.53l1.24-1.24c-.086-.425-.149-.856-.187-1.29h4.818Zm-9.62-1.5h3.297c.176-2.262.94-4.433 2.209-6.298A7.256 7.256 0 0 0 4.788 8.25ZM12 2.16a11.49 11.49 0 0 0-2.409 6.09h4.818A11.49 11.49 0 0 0 12 2.16Zm7.212 6.09h-3.298a12.99 12.99 0 0 0-2.209-6.298 7.256 7.256 0 0 1 5.507 6.298Z"
+              clip-rule="evenodd"></path>
+            <path
+              d="m17.53 16.47-5-5a.75.75 0 0 0-1.06 0l-5 5a.75.75 0 1 0 1.06 1.06l3.72-3.72V23a.75.75 0 0 0 1.5 0v-9.19l3.72 3.72a.75.75 0 1 0 1.06-1.06Z">
+            </path>
+          </svg></i>
+        <i><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--replit-webview-and-other-btn-bg-color)"
+            aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+            <path fill-rule="evenodd"
+              d="M1.25 3c0-.966.784-1.75 1.75-1.75h6c.966 0 1.75.784 1.75 1.75v6A1.75 1.75 0 0 1 9 10.75H3A1.75 1.75 0 0 1 1.25 9V3ZM3 2.75a.25.25 0 0 0-.25.25v6c0 .138.112.25.25.25h6A.25.25 0 0 0 9.25 9V3A.25.25 0 0 0 9 2.75H3ZM13.25 3c0-.966.784-1.75 1.75-1.75h6c.966 0 1.75.784 1.75 1.75v6A1.75 1.75 0 0 1 21 10.75h-6A1.75 1.75 0 0 1 13.25 9V3ZM15 2.75a.25.25 0 0 0-.25.25v6c0 .138.112.25.25.25h6a.25.25 0 0 0 .25-.25V3a.25.25 0 0 0-.25-.25h-6ZM1.25 15c0-.966.784-1.75 1.75-1.75h6c.966 0 1.75.784 1.75 1.75v6A1.75 1.75 0 0 1 9 22.75H3A1.75 1.75 0 0 1 1.25 21v-6ZM3 14.75a.25.25 0 0 0-.25.25v6c0 .138.112.25.25.25h6a.25.25 0 0 0 .25-.25v-6a.25.25 0 0 0-.25-.25H3Zm10.25.25c0-.966.784-1.75 1.75-1.75h6c.966 0 1.75.784 1.75 1.75v6A1.75 1.75 0 0 1 21 22.75h-6A1.75 1.75 0 0 1 13.25 21v-6Zm1.75-.25a.25.25 0 0 0-.25.25v6c0 .138.112.25.25.25h6a.25.25 0 0 0 .25-.25v-6a.25.25 0 0 0-.25-.25h-6Z"
+              clip-rule="evenodd"></path>
+          </svg></i>
       </div>
       <div class="left-panel-bottom-container">
         <i>
-          <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path d="M12.554.492c.49 3.288 1.307 7.363 2.448 8.505 1.142 1.142 5.22 1.959 8.51 2.449.651.097.65 1.01 0 1.107-3.29.49-7.367 1.307-8.51 2.448-1.143 1.143-1.96 5.227-2.45 8.518-.096.642-1.009.641-1.104 0-.49-3.291-1.308-7.374-2.45-8.517-1.142-1.143-5.217-1.959-8.506-2.45a.558.558 0 0 1 0-1.107c3.289-.49 7.363-1.307 8.505-2.448 1.142-1.142 1.959-5.216 2.45-8.505a.558.558 0 0 1 1.107 0Z"></path></svg>
+          <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--replit-webview-and-other-btn-bg-color)"
+            aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+            <path
+              d="M12.554.492c.49 3.288 1.307 7.363 2.448 8.505 1.142 1.142 5.22 1.959 8.51 2.449.651.097.65 1.01 0 1.107-3.29.49-7.367 1.307-8.51 2.448-1.143 1.143-1.96 5.227-2.45 8.518-.096.642-1.009.641-1.104 0-.49-3.291-1.308-7.374-2.45-8.517-1.142-1.143-5.217-1.959-8.506-2.45a.558.558 0 0 1 0-1.107c3.289-.49 7.363-1.307 8.505-2.448 1.142-1.142 1.959-5.216 2.45-8.505a.558.558 0 0 1 1.107 0Z">
+            </path>
+          </svg>
         </i>
         <i>
-          <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path d="M12.213 16.012a.5.5 0 0 1-.5.5h-.568a.5.5 0 0 1-.5-.5v-2.726c0-.809.647-1.452 1.44-1.61 2.387-.475 3.74-1.94 3.74-4.04v-.532c0-2.1-1.456-3.528-3.78-3.528-2.203 0-3.539 1.172-4.18 2.98a.532.532 0 0 1-.671.337l-.53-.19a.478.478 0 0 1-.3-.606c.813-2.295 2.632-3.977 5.737-3.977 3.36 0 5.46 2.044 5.46 5.18 0 3.274-2.201 5.106-4.92 5.64a.522.522 0 0 0-.428.505v2.567Zm-.784 6.24c-.896 0-1.316-.476-1.316-1.26v-.308c0-.784.42-1.26 1.316-1.26.924 0 1.344.476 1.344 1.26v.308c0 .784-.42 1.26-1.344 1.26Z"></path></svg>
+          <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--replit-webview-and-other-btn-bg-color)"
+            aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+            <path
+              d="M12.213 16.012a.5.5 0 0 1-.5.5h-.568a.5.5 0 0 1-.5-.5v-2.726c0-.809.647-1.452 1.44-1.61 2.387-.475 3.74-1.94 3.74-4.04v-.532c0-2.1-1.456-3.528-3.78-3.528-2.203 0-3.539 1.172-4.18 2.98a.532.532 0 0 1-.671.337l-.53-.19a.478.478 0 0 1-.3-.606c.813-2.295 2.632-3.977 5.737-3.977 3.36 0 5.46 2.044 5.46 5.18 0 3.274-2.201 5.106-4.92 5.64a.522.522 0 0 0-.428.505v2.567Zm-.784 6.24c-.896 0-1.316-.476-1.316-1.26v-.308c0-.784.42-1.26 1.316-1.26.924 0 1.344.476 1.344 1.26v.308c0 .784-.42 1.26-1.344 1.26Z">
+            </path>
+          </svg>
         </i>
       </div>
-      
+
     </div>
-     <!-- File Directory Panel --> 
-   <div class="file-directory" id="file-directory">
-        <div class="directory-header">
-            <div class="directory-header-left">
-              <p>Files</p>
-              <i class="file-save"><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path d="M20.149 12.072a3.857 3.857 0 0 0-2.024-1.015l1.22-1.22a5.314 5.314 0 0 1 1.844 1.154 5.044 5.044 0 0 1 1.561 3.634 5.044 5.044 0 0 1-1.56 3.634 5.385 5.385 0 0 1-3.734 1.491h-8.18a8.23 8.23 0 0 1-4.233-1.164 7.852 7.852 0 0 1-2.967-3.16 7.524 7.524 0 0 1-.785-4.211 7.607 7.607 0 0 1 1.646-3.97A8.01 8.01 0 0 1 6.495 4.73a8.287 8.287 0 0 1 4.387-.32c1.465.29 2.819.97 3.907 1.967.29.265.557.55.802.852l-1.068 1.068a6.347 6.347 0 0 0-.747-.814 6.62 6.62 0 0 0-3.185-1.603 6.787 6.787 0 0 0-3.593.263 6.51 6.51 0 0 0-2.892 2.043 6.106 6.106 0 0 0-1.323 3.187 6.024 6.024 0 0 0 .63 3.373 6.352 6.352 0 0 0 2.4 2.554 6.73 6.73 0 0 0 3.463.951h8.18a3.885 3.885 0 0 0 2.693-1.072 3.544 3.544 0 0 0 1.101-2.553c0-.952-.393-1.871-1.101-2.553Z"></path><path d="M12.03 15.03a.75.75 0 0 1-1.06 0l-3.5-3.5a.75.75 0 1 1 1.06-1.06l2.97 2.97 7.97-7.97a.75.75 0 1 1 1.06 1.06l-8.5 8.5Z"></path></svg></i>
-            </div>
-            <div class="directory-header-right">
-              <span>
-                <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M10.25 5a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Zm0 7a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Zm0 7a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Z" clip-rule="evenodd"></path></svg>
-              </span>
-            </div>
+    <!-- File Directory Panel -->
+    <div class="file-directory" id="file-directory">
+      <div class="directory-header">
+        <div class="directory-header-left">
+          <p>Files</p>
+          <i class="file-save"><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24"
+              fill="currentColor" aria-hidden="true" class="css-492dz9"
+              style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+              <path
+                d="M20.149 12.072a3.857 3.857 0 0 0-2.024-1.015l1.22-1.22a5.314 5.314 0 0 1 1.844 1.154 5.044 5.044 0 0 1 1.561 3.634 5.044 5.044 0 0 1-1.56 3.634 5.385 5.385 0 0 1-3.734 1.491h-8.18a8.23 8.23 0 0 1-4.233-1.164 7.852 7.852 0 0 1-2.967-3.16 7.524 7.524 0 0 1-.785-4.211 7.607 7.607 0 0 1 1.646-3.97A8.01 8.01 0 0 1 6.495 4.73a8.287 8.287 0 0 1 4.387-.32c1.465.29 2.819.97 3.907 1.967.29.265.557.55.802.852l-1.068 1.068a6.347 6.347 0 0 0-.747-.814 6.62 6.62 0 0 0-3.185-1.603 6.787 6.787 0 0 0-3.593.263 6.51 6.51 0 0 0-2.892 2.043 6.106 6.106 0 0 0-1.323 3.187 6.024 6.024 0 0 0 .63 3.373 6.352 6.352 0 0 0 2.4 2.554 6.73 6.73 0 0 0 3.463.951h8.18a3.885 3.885 0 0 0 2.693-1.072 3.544 3.544 0 0 0 1.101-2.553c0-.952-.393-1.871-1.101-2.553Z">
+              </path>
+              <path
+                d="M12.03 15.03a.75.75 0 0 1-1.06 0l-3.5-3.5a.75.75 0 1 1 1.06-1.06l2.97 2.97 7.97-7.97a.75.75 0 1 1 1.06 1.06l-8.5 8.5Z">
+              </path>
+            </svg></i>
+        </div>
+        <div class="directory-header-right">
+          <span>
+            <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+              aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+              <path fill-rule="evenodd"
+                d="M10.25 5a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Zm0 7a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Zm0 7a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </span>
+        </div>
 
-        </div>
-        <div class="directory-content" id="directory-content">
-           <input type="text" class="search-input" id="search-input" placeholder="Search">
-        </div>
-
-        <div class="directory-buttons">
-          <button>
-            <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;"><path fill-rule="evenodd" d="M4.055 2.055A2.75 2.75 0 0 1 6 1.25h8a.75.75 0 0 1 .53.22l6 6c.141.14.22.331.22.53v12A2.75 2.75 0 0 1 18 22.75H6A2.75 2.75 0 0 1 3.25 20V4c0-.73.29-1.429.805-1.945ZM6 2.75A1.25 1.25 0 0 0 4.75 4v16A1.25 1.25 0 0 0 6 21.25h12A1.25 1.25 0 0 0 19.25 20V8.75H14a.75.75 0 0 1-.75-.75V2.75H6Zm8.75 1.06 3.44 3.44h-3.44V3.81ZM12 11.25a.75.75 0 0 1 .75.75v2.25H15a.75.75 0 0 1 0 1.5h-2.25V18a.75.75 0 0 1-1.5 0v-2.25H9a.75.75 0 0 1 0-1.5h2.25V12a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
-            File
+      </div>
+      <div class="directory-content" id="directory-content">
+        <input type="text" class="search-input" id="search-input" placeholder="Search">
+      </div>
+      <!-- Add this to your file directory HTML -->
+      <div class="file-item">
+        <div class="file-info">
+          <span class="file-name">
+            <img src="" alt="" class="template-icon" id="template-icon">
+            main.js</span>
+          <button class="file-menu-btn" aria-label="File Menu">
+            <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M10.25 5a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Zm0 7a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Zm0 7a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Z" clip-rule="evenodd"></path></svg>
           </button>
-          <button>
-            <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;"><path fill-rule="evenodd" d="M4 3.75A1.25 1.25 0 0 0 2.75 5v14A1.25 1.25 0 0 0 4 20.25h16A1.25 1.25 0 0 0 21.25 19V8A1.25 1.25 0 0 0 20 6.75h-9a.75.75 0 0 1-.624-.334L8.599 3.75H4Zm-1.945-.695A2.75 2.75 0 0 1 4 2.25h5a.75.75 0 0 1 .624.334l1.777 2.666H20A2.75 2.75 0 0 1 22.75 8v11A2.75 2.75 0 0 1 20 21.75H4A2.75 2.75 0 0 1 1.25 19V5c0-.73.29-1.429.805-1.945ZM12 10.25a.75.75 0 0 1 .75.75v2.25H15a.75.75 0 0 1 0 1.5h-2.25V17a.75.75 0 0 1-1.5 0v-2.25H9a.75.75 0 0 1 0-1.5h2.25V11a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
-            Folder
-          </button>
         </div>
-    </div> 
+        <div class="file-menu">
+          <ul>
+            <li><button class="menu-item"><i class="fas fa-edit"></i> Rename</button></li>
+            <li><button class="menu-item"><i class="fas fa-copy"></i> Duplicate</button></li>
+            <li><button class="menu-item"><i class="fas fa-download"></i> Download</button></li>
+            <li><button class="menu-item delete"><i class="fas fa-trash"></i> Delete</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="directory-buttons">
+        <button>
+          <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
+            aria-hidden="true" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;">
+            <path fill-rule="evenodd"
+              d="M4.055 2.055A2.75 2.75 0 0 1 6 1.25h8a.75.75 0 0 1 .53.22l6 6c.141.14.22.331.22.53v12A2.75 2.75 0 0 1 18 22.75H6A2.75 2.75 0 0 1 3.25 20V4c0-.73.29-1.429.805-1.945ZM6 2.75A1.25 1.25 0 0 0 4.75 4v16A1.25 1.25 0 0 0 6 21.25h12A1.25 1.25 0 0 0 19.25 20V8.75H14a.75.75 0 0 1-.75-.75V2.75H6Zm8.75 1.06 3.44 3.44h-3.44V3.81ZM12 11.25a.75.75 0 0 1 .75.75v2.25H15a.75.75 0 0 1 0 1.5h-2.25V18a.75.75 0 0 1-1.5 0v-2.25H9a.75.75 0 0 1 0-1.5h2.25V12a.75.75 0 0 1 .75-.75Z"
+              clip-rule="evenodd"></path>
+          </svg>
+          File
+        </button>
+        <button>
+          <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
+            aria-hidden="true" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;">
+            <path fill-rule="evenodd"
+              d="M4 3.75A1.25 1.25 0 0 0 2.75 5v14A1.25 1.25 0 0 0 4 20.25h16A1.25 1.25 0 0 0 21.25 19V8A1.25 1.25 0 0 0 20 6.75h-9a.75.75 0 0 1-.624-.334L8.599 3.75H4Zm-1.945-.695A2.75 2.75 0 0 1 4 2.25h5a.75.75 0 0 1 .624.334l1.777 2.666H20A2.75 2.75 0 0 1 22.75 8v11A2.75 2.75 0 0 1 20 21.75H4A2.75 2.75 0 0 1 1.25 19V5c0-.73.29-1.429.805-1.945ZM12 10.25a.75.75 0 0 1 .75.75v2.25H15a.75.75 0 0 1 0 1.5h-2.25V17a.75.75 0 0 1-1.5 0v-2.25H9a.75.75 0 0 1 0-1.5h2.25V11a.75.75 0 0 1 .75-.75Z"
+              clip-rule="evenodd"></path>
+          </svg>
+          Folder
+        </button>
+      </div>
+    </div>
 
     <!-- Main Content Area -->
     <div class="main-content">
-        <!-- Compiler Header -->
-        
-       
-        <!-- Editor and Output Container -->
-        <div class="editor-output-container">
-            <!-- Editor Panel -->
-            <div class="panel editor-panel" id="editor-panel">
-                <div class="panel-header">
-                    <div class="panel-file-header">
-                      <img src="" alt="" class="template-icon" id="template-icon">
-                      <span id="file-name" class="file-name"></span>
-                      <i class="close-btn" id="close-btn">
-                        <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path></svg>
-                      </i>
-                    </div>
-                    <div class="panel-controls">
-                        <button class="minimize-btn" aria-label="Minimize">
-                          <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M2.25 7A4.75 4.75 0 0 1 7 2.25h10A4.75 4.75 0 0 1 21.75 7v10A4.75 4.75 0 0 1 17 21.75H7A4.75 4.75 0 0 1 2.25 17V7ZM7 3.75A3.25 3.25 0 0 0 3.75 7v10A3.25 3.25 0 0 0 7 20.25h4.25V3.75H7Zm5.75 0v16.5H17A3.25 3.25 0 0 0 20.25 17V7A3.25 3.25 0 0 0 17 3.75h-4.25Z" clip-rule="evenodd"></path></svg>
-                        </button>
-                        <button class="maximize-btn" aria-label="Maximize">
-                          <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M14.25 3a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 .75.75v6a.75.75 0 0 1-1.5 0V4.81l-5.72 5.72a.75.75 0 1 1-1.06-1.06l5.72-5.72H15a.75.75 0 0 1-.75-.75Zm-3.72 10.47a.75.75 0 0 1 0 1.06l-5.72 5.72H9a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75v-6a.75.75 0 0 1 1.5 0v4.19l5.72-5.72a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>
-                        </button>
-                        <button class="clear-btn" aria-label="Clear">
-                          <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M10.25 5a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Zm0 7a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Zm0 7a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Z" clip-rule="evenodd"></path></svg>
-                        </button>
-                    </div>
-                </div>
-                <textarea id="code-editor" class="code-editor" spellcheck="false"></textarea>
-            </div>
 
-            <!-- Vertical Resizer -->
-            <div class="v-resizer" id="vertical-resizer"></div>
-
-            <!-- Output Panel -->
-            <div class="panel output-panel" id="output-panel">
-                <div class="panel-header">
-                  <div class="panel-file-header">
-                    <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M3.47 4.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 0 1-1.06-1.06L8.94 11 3.47 5.53a.75.75 0 0 1 0-1.06ZM11.25 19a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5h-8a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path></svg>
-                    <span>Console</span>
-                    <i class="close-btn" id="close-btn">
-                      <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path></svg>
-                    </i>
-                  </div>
-                    <div class="panel-controls">
-                        <button class="minimize-btn" aria-label="Minimize">
-                          <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M2.25 7A4.75 4.75 0 0 1 7 2.25h10A4.75 4.75 0 0 1 21.75 7v10A4.75 4.75 0 0 1 17 21.75H7A4.75 4.75 0 0 1 2.25 17V7ZM7 3.75A3.25 3.25 0 0 0 3.75 7v10A3.25 3.25 0 0 0 7 20.25h4.25V3.75H7Zm5.75 0v16.5H17A3.25 3.25 0 0 0 20.25 17V7A3.25 3.25 0 0 0 17 3.75h-4.25Z" clip-rule="evenodd"></path></svg>
-                        </button>
-                        <button class="maximize-btn" aria-label="Maximize">
-                          <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M14.25 3a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 .75.75v6a.75.75 0 0 1-1.5 0V4.81l-5.72 5.72a.75.75 0 1 1-1.06-1.06l5.72-5.72H15a.75.75 0 0 1-.75-.75Zm-3.72 10.47a.75.75 0 0 1 0 1.06l-5.72 5.72H9a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75v-6a.75.75 0 0 1 1.5 0v4.19l5.72-5.72a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>
-                        </button>
-                        <button id="clear-output" class="clear-button" aria-label="Clear">Clear</button>
-                    </div>
-                </div>
-                <pre id="output" class="output"></pre>
+      <!-- Editor and Output Container -->
+      <div class="editor-output-container">
+        <!-- Editor Panel -->
+        <div class="panel editor-panel" id="editor-panel">
+          <div class="panel-header">
+            <div class="panel-file-header">
+              <img src="" alt="" class="template-icon" id="template-icon">
+              <span id="file-name" class="file-name"></span>
+              <i class="close-btn" id="close-btn">
+                <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="var(--replit-close-btn-color)"
+                  aria-hidden="true" class="css-492dz9"
+                  style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;">
+                  <path fill-rule="evenodd"
+                    d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </i>
             </div>
+            <div class="panel-controls">
+              <button class="minimize-btn" aria-label="Minimize">
+                <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  aria-hidden="true" class="css-492dz9"
+                  style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                  <path fill-rule="evenodd"
+                    d="M2.25 7A4.75 4.75 0 0 1 7 2.25h10A4.75 4.75 0 0 1 21.75 7v10A4.75 4.75 0 0 1 17 21.75H7A4.75 4.75 0 0 1 2.25 17V7ZM7 3.75A3.25 3.25 0 0 0 3.75 7v10A3.25 3.25 0 0 0 7 20.25h4.25V3.75H7Zm5.75 0v16.5H17A3.25 3.25 0 0 0 20.25 17V7A3.25 3.25 0 0 0 17 3.75h-4.25Z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </button>
+              <button class="maximize-btn" aria-label="Maximize">
+                <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  aria-hidden="true" class="css-492dz9"
+                  style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                  <path fill-rule="evenodd"
+                    d="M14.25 3a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 .75.75v6a.75.75 0 0 1-1.5 0V4.81l-5.72 5.72a.75.75 0 1 1-1.06-1.06l5.72-5.72H15a.75.75 0 0 1-.75-.75Zm-3.72 10.47a.75.75 0 0 1 0 1.06l-5.72 5.72H9a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75v-6a.75.75 0 0 1 1.5 0v4.19l5.72-5.72a.75.75 0 0 1 1.06 0Z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </button>
+              <button class="clear-btn" aria-label="Clear">
+                <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  aria-hidden="true" class="css-492dz9"
+                  style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                  <path fill-rule="evenodd"
+                    d="M10.25 5a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Zm0 7a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Zm0 7a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <textarea id="code-editor" class="code-editor" spellcheck="false"></textarea>
         </div>
+
+        <!-- Vertical Resizer -->
+        <div class="v-resizer" id="vertical-resizer"></div>
+        <div class="-resizer" id="vertical-resizer"></div>
+
+        <!-- Output Panel -->
+        <div class="panel output-panel" id="output-panel">
+          <div class="panel-header">
+            <div class="panel-file-header">
+              <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--replit-console-btn-bg-color)"
+                aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                <path fill-rule="evenodd"
+                  d="M3.47 4.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 0 1-1.06-1.06L8.94 11 3.47 5.53a.75.75 0 0 1 0-1.06ZM11.25 19a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5h-8a.75.75 0 0 1-.75-.75Z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <span>Console</span>
+              <i class="close-btn" id="close-btn">
+                <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="var(--replit-close-btn-color)"
+                  aria-hidden="true" class="css-492dz9"
+                  style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;">
+                  <path fill-rule="evenodd"
+                    d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </i>
+            </div>
+            <div class="panel-controls">
+              <button class="minimize-btn" aria-label="Minimize">
+                <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  aria-hidden="true" class="css-492dz9"
+                  style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                  <path fill-rule="evenodd"
+                    d="M2.25 7A4.75 4.75 0 0 1 7 2.25h10A4.75 4.75 0 0 1 21.75 7v10A4.75 4.75 0 0 1 17 21.75H7A4.75 4.75 0 0 1 2.25 17V7ZM7 3.75A3.25 3.25 0 0 0 3.75 7v10A3.25 3.25 0 0 0 7 20.25h4.25V3.75H7Zm5.75 0v16.5H17A3.25 3.25 0 0 0 20.25 17V7A3.25 3.25 0 0 0 17 3.75h-4.25Z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </button>
+              <button class="maximize-btn" aria-label="Maximize">
+                <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  aria-hidden="true" class="css-492dz9"
+                  style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                  <path fill-rule="evenodd"
+                    d="M14.25 3a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 .75.75v6a.75.75 0 0 1-1.5 0V4.81l-5.72 5.72a.75.75 0 1 1-1.06-1.06l5.72-5.72H15a.75.75 0 0 1-.75-.75Zm-3.72 10.47a.75.75 0 0 1 0 1.06l-5.72 5.72H9a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75v-6a.75.75 0 0 1 1.5 0v4.19l5.72-5.72a.75.75 0 0 1 1.06 0Z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </button>
+              <button id="clear-output" class="clear-button" aria-label="Clear">Clear</button>
+            </div>
+          </div>
+          <pre id="output" class="output"></pre>
+          <div id="debug-output"></div>
+
+        </div>
+
+      </div>
     </div>
-   </div>
-  
-    <script type="module">
-        import { initialize } from '../js/compiler.js';
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            initialize();
-        });
-    </script>
-    <script type="module">
-  
-</script>
+  </div>
+
+   <div class="mobile-menu-toggle-bottom">
+    <div>
+      <button class="mobile-toggle-btn" aria-label="mobile-toggle">
+        <svg preserveAspectRatio="xMidYMin" width="24" height="24" viewBox="0 0 24 24" fill="var(--replit-webview-and-other-btn-bg-color)" aria-hidden="true" class="css-492dz9" style="--size: 24px; --rotate: 0deg; width: 24px; height: 24px;"><path fill-rule="evenodd" d="M2.25 4.5A2.25 2.25 0 0 1 4.5 2.25h15a2.25 2.25 0 0 1 2.25 2.25v3c0 .576-.217 1.102-.573 1.5.356.398.573.924.573 1.5v3c0 .576-.217 1.102-.573 1.5.356.398.573.924.573 1.5v3a2.25 2.25 0 0 1-2.25 2.25h-11a2.25 2.25 0 0 1-2.25-2.25v-3c0-.576.217-1.102.573-1.5a2.242 2.242 0 0 1-.573-1.5v-3c0-.263.045-.515.128-.75H4.5A2.25 2.25 0 0 1 2.25 7.5v-3ZM19.5 8.25a.75.75 0 0 0 .75-.75v-3a.75.75 0 0 0-.75-.75h-15a.75.75 0 0 0-.75.75v3c0 .414.336.75.75.75h15Zm-11 1.5a.75.75 0 0 0-.75.75v3c0 .414.336.75.75.75h11a.75.75 0 0 0 .75-.75v-3a.75.75 0 0 0-.75-.75h-11Zm11 6h-11a.75.75 0 0 0-.75.75v3c0 .414.336.75.75.75h11a.75.75 0 0 0 .75-.75v-3a.75.75 0 0 0-.75-.75Z" clip-rule="evenodd"></path></svg>
+      </button>
+    </div>
+    <div>
+      <button class="run-btn" aria-label="Run">
+        Run
+      </button>
+    </div>
+    <div>
+      <button class="tabs-btn" aria-label="tabs-btn">
+        <svg preserveAspectRatio="xMidYMin" width="24" height="24" viewBox="0 0 24 24" fill="var(--replit-webview-and-other-btn-bg-color)" aria-hidden="true" class="css-492dz9" style="--size: 24px; --rotate: 0deg; width: 24px; height: 24px;"><path fill-rule="evenodd" d="M1.25 3c0-.966.784-1.75 1.75-1.75h6c.966 0 1.75.784 1.75 1.75v6A1.75 1.75 0 0 1 9 10.75H3A1.75 1.75 0 0 1 1.25 9V3ZM3 2.75a.25.25 0 0 0-.25.25v6c0 .138.112.25.25.25h6A.25.25 0 0 0 9.25 9V3A.25.25 0 0 0 9 2.75H3ZM13.25 3c0-.966.784-1.75 1.75-1.75h6c.966 0 1.75.784 1.75 1.75v6A1.75 1.75 0 0 1 21 10.75h-6A1.75 1.75 0 0 1 13.25 9V3ZM15 2.75a.25.25 0 0 0-.25.25v6c0 .138.112.25.25.25h6a.25.25 0 0 0 .25-.25V3a.25.25 0 0 0-.25-.25h-6ZM1.25 15c0-.966.784-1.75 1.75-1.75h6c.966 0 1.75.784 1.75 1.75v6A1.75 1.75 0 0 1 9 22.75H3A1.75 1.75 0 0 1 1.25 21v-6ZM3 14.75a.25.25 0 0 0-.25.25v6c0 .138.112.25.25.25h6a.25.25 0 0 0 .25-.25v-6a.25.25 0 0 0-.25-.25H3Zm10.25.25c0-.966.784-1.75 1.75-1.75h6c.966 0 1.75.784 1.75 1.75v6A1.75 1.75 0 0 1 21 22.75h-6A1.75 1.75 0 0 1 13.25 21v-6Zm1.75-.25a.25.25 0 0 0-.25.25v6c0 .138.112.25.25.25h6a.25.25 0 0 0 .25-.25v-6a.25.25 0 0 0-.25-.25h-6Z" clip-rule="evenodd"></path></svg>
+      </button>
+    </div>
+  </div> 
+
+  <script type="module">
+    import { initialize } from '../components/js/compiler.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initialize();
+    });
+  </script>
+  <script type="module" src="../js/theme-switcher.js"></script>
 </body>
+
 </html>

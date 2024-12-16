@@ -1,0 +1,65 @@
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  /* Container for the banner */
+  .container {
+    width: 90%;
+    max-width: 900px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  /* Banner Styling */
+  .banner {
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .banner h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .banner p {
+    color: #5f6368;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Buttons */
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .btn-learn-more {
+    color: #3c4043;
+  }
+  
+  .btn-get-started {
+    color: #ffffff;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  

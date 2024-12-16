@@ -1,0 +1,68 @@
+:root{
+    --account-setting-link-bg-light:#FCFCFC;
+    --account-setting-link-bg-dark:#1C2333;
+    --account-setting-link-bg-spooky:#292C33;
+}
+body.light-theme{
+    --account-setting-link-bg:var(--account-setting-link-bg-light);
+}
+body.dark-theme{
+    --account-setting-link-bg:var(--account-setting-link-bg-dark);
+}
+body.spooky-theme{
+    --account-setting-link-bg:var(--account-setting-link-bg-spooky);
+}
+.account-container{
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    width: 100%;
+    position: relative;
+}
+.account-sidebar{
+    width: 200px;
+    height: 100%;
+    position: sticky;
+    height: fit-content;
+}
+.account-sidebar-header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+}
+.account-sidebar-header img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.account-sidebar-header-info{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.account-sidebar-links{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 10px 0;
+}
+.account-sidebar-links li{
+    list-style: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.account-content{
+    max-width: 600px;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.account-sidebar-links li.active {
+    background-color: var(--account-setting-link-bg);
+}

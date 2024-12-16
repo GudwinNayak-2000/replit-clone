@@ -2,7 +2,7 @@
 
 :root {
     --replit-font-family: "IBM Plex Sans", sans-serif;
-    --reolit-bg-light: #ebeced;
+    --replit-bg-light: #ebeced;
     --replit-bg-dark: #0e1525;
     --replit-bg-spooky: #020203;
     --replit-modal-bg-dark: #1c2333;
@@ -12,11 +12,6 @@
     --replit-modal-container-bg-light: #f9f5fc;
     --replit-modal-container-bg-spooky: #020203;
     --replit-border-color-dark: #3c445c;
-    --replit-title-size: 24px;
-    --replit-text-size: 14px;
-    --replit-text-color-dark: #f9f5fc;
-    --replit-text-color-light: #0e1525;
-    --replit-text-color-spooky: #f9f5fc;
     --replit-border-radius: 8px;
 
   }
@@ -24,13 +19,6 @@ body {
     width: 100vw;
     height: 100vh;
     font-family: var(--replit-font-family);
-    color: var(--replit-text-color);
-  }
-  h1,h2,h3,h4,h5,h6{
-    font-size: var(--replit-title-size);
-  }
-  span,p,label,input,select,textarea{
-    font-size: var(--replit-text-size);
   }
   
   body.dark-theme {
@@ -175,7 +163,6 @@ body {
     border-radius: 6px;
     gap: 6px;
     cursor: pointer;
-    font-size: 14px;
   }
   
   .btn-container #backBtn {
@@ -188,7 +175,6 @@ body {
     border-radius: 6px;
     gap: 6px;
     cursor: pointer;
-    font-size: 14px;
   }
   
   .btn:hover {
@@ -256,7 +242,6 @@ body {
   .name-container .name-input label {
     width: 100%;
     text-align: left;
-    font-size: 14px;
   }
   
   .name-container .name-input input {
@@ -435,7 +420,6 @@ body {
     }
   
     .modal-title {
-      font-size: var(--replit-title-size);
       padding: 10px 0;
     }
   

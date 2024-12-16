@@ -1,18 +1,36 @@
-
-export const CONFIG={
-    development:{
-        basePath:'',
-        apiUrl:'http://localhost:3000'
+// config/path.js
+export const CONFIG = {
+    development: {
+        basePath: '',
+        apiUrl: 'http://localhost:3000',
+        paths: {
+            components: '/components',
+            settings: '/settings',
+            pages: '/pages',
+            js: '/js'
+        }
     },
-    staging:{
-        basePath:'/replit-clone',
-        apiUrl:'https://gudwinnayak-2000.github.io/replit-clone'
+    staging: {
+        basePath: '/replit-clone',
+        apiUrl: 'https://gudwinnayak-2000.github.io/replit-clone',
+        paths: {
+            components: '/replit-clone/components',
+            settings: '/replit-clone/settings',
+            pages: '/replit-clone/pages',
+            js: '/replit-clone/js'
+        }
     },
-    production:{
-        basePath:'',
-        apiUrl:''
+    production: {
+        basePath: '',
+        apiUrl: '',
+        paths: {
+            components: '/components',
+            settings: '/settings',
+            pages: '/pages',
+            js: '/js'
+        }
     }
-}
+};
 
 export const getEnvironmentConfig = () => {
     const hostname = window.location.hostname;

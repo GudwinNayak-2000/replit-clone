@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/usage.css">
+    <title>Usage Page</title>
+</head>
+
+<body>
+    <main>
+        <div class="usage-container">
+            <h1>Usage</h1>
+
+            <!-- Alert Banner -->
+            <div class="alert-banner">
+                <i class="fas fa-credit-card"></i>
+                <span>You don't have a payment method on file. Click here to add one and avoid service
+                    interruptions.</span>
+            </div>
+
+            <section class="billing-section">
+                <h2>Billing overview</h2>
+                <div class="billing-grid">
+                    <div class="billing-item">
+                        <div class="billing-label">Your plan</div>
+                        <div class="billing-content">
+                            <span>Starter</span>
+                            <a href="#" class="upgrade-link">Upgrade to Replit Core</a>
+                        </div>
+                    </div>
+
+                    <div class="billing-item">
+                        <div class="billing-label">Usage total</div>
+                        <div class="billing-content">
+                            <span class="usage-number">0</span>
+                            <div class="usage-details">
+                                <p>Usage alert: Not set</p>
+                                <p>Usage budget: Not set</p>
+                                <a href="#" class="manage-link">Manage</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="billing-item">
+                        <div class="billing-label">Usage period</div>
+                        <div class="billing-content">
+                            <span>Dec 06, 2024 - Jan 06, 2025</span>
+                            <span class="reset-text">Resets in 22 days</span>
+                        </div>
+                    </div>
+
+                    <div class="billing-item">
+                        <div class="billing-label">Payment method</div>
+                        <div class="billing-content">
+                            <span>None</span>
+                            <a href="#" class="add-payment-link">Add payment</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Resource Usage Section -->
+            <section class="resource-section">
+                <h2>Resource usage</h2>
+                <p class="update-note">Updates take up to 1 hour and may not reflect the latest usage data.</p>
+
+                <div class="resource-section">
+                    <!-- AI Resources -->
+                    <table class="resource-table">
+                        <thead>
+                            <tr>
+                                <th>AI</th>
+                                <th>Resource</th>
+                                <th>Quota Used</th>
+                                <th>Starter Quota</th>
+                                <th>Usage Total</th>
+                                <th>Unit Price</th>
+                                <th>Cost Accrued</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Agent (Checkpoints)</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>0</td>
+                                <td>$0.25 / checkpoint</td>
+                                <td>$0.00</td>
+                                <td>$0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Assistant (Edit requests)</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>0</td>
+                                <td>$0.25 / checkpoint</td>
+                                <td>$0.00</td>
+                                <td>$0.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+                    <!-- Workspace Development -->
+                    <table class="workspace-table">
+                        <thead>
+                            <tr>
+                                <th>Workspace Development</th>
+                                <th>Resource</th>
+                                <th>Quota Used</th>
+                                <th>Starter Quota</th>
+                                <th>Usage Total</th>
+                                <th>Unit Price</th>
+                                <th>Cost Accrued</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Development Compute (Compute hours)</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>0</td>
+                                <td>-</td>
+                                <td>$0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Storage (GiB)</td>
+                                <td>
+                                    <div class="usage-bar">
+                                        <div class="usage-progress progress-low" style="width: 3%"></div>
+                                        <span>3%</span>
+                                    </div>
+                                </td>
+                                <td>2</td>
+                                <td>0.05 GiB</td>
+                                <td>$0.15 / GiB</td>
+                                <td>$0.00</td>
+                                <td>$0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Outbound Data Transfer (GiB)</td>
+                                <td>
+                                    <div class="usage-bar">
+                                        <div class="usage-progress progress-high" style="width: 91%"></div>
+                                        <span>91%</span>
+                                    </div>
+                                </td>
+                                <td>1</td>
+                                <td>0.91 GiB</td>
+                                <td>$0.1 / GiB</td>
+                                <td>$0.00</td>
+                                <td>$0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Repls</td>
+                                <td>-</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Collaborators</td>
+                                <td>-</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Development Time (Minutes)</td>
+                                <td>
+                                    <div class="usage-bar">
+                                        <div class="usage-progress progress-medium" style="width: 67%"></div>
+                                        <span>67%</span>
+                                    </div>
+                                </td>
+                                <td>1200</td>
+                                <td>805</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+                    <!-- Deployment -->
+                    <table class="deployment-table">
+                        <thead>
+                            <tr>
+                                <th>Deployment</th>
+                                <th>Resource</th>
+                                <th>Quota Used</th>
+                                <th>Starter Quota</th>
+                                <th>Usage Total</th>
+                                <th>Unit Price</th>
+                                <th>Cost Accrued</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Outbound Data Transfer (GiB)</td>
+                                <td>
+                                    <div class="usage-bar">
+                                        <div class="usage-progress" style="width: 0%"></div>
+                                        <span>0%</span>
+                                    </div>
+                                </td>
+                                <td>-</td>
+                                <td>0.00 GiB</td>
+                                <td>$0.1 / GiB</td>
+                                <td>$0.00</td>
+                                <td>$0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Reserved VM Deployment (Compute hours)</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>0</td>
+                                <td>-</td>
+                                <td>$0.00</td>
+                                <td>$0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Autoscale Deployment (Compute units)</td>
+                                <td>
+                                    <div class="usage-bar">
+                                        <div class="usage-progress" style="width: 0%"></div>
+                                        <span>0%</span>
+                                    </div>
+                                </td>
+                                <td>-</td>
+                                <td>0</td>
+                                <td>$1.25 / 1 million</td>
+                                <td>$0.00</td>
+                                <td>$0.00</td>
+                            </tr>
+                            <tr>
+                                <td>PostgreSQL Storage (GiB)</td>
+                                <td>
+                                    <div class="usage-bar">
+                                        <div class="usage-progress" style="width: 0%"></div>
+                                        <span>0%</span>
+                                    </div>
+                                </td>
+                                <td>-</td>
+                                <td>0.00 GiB</td>
+                                <td>$1.5 / GiB</td>
+                                <td>$0.00</td>
+                                <td>$0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Object Storage (GiB-months)</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>0.00</td>
+                                <td>$0.03 / GiB / month</td>
+                                <td>$0.00</td>
+                                <td>$0.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

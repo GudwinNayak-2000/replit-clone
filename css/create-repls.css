@@ -13,8 +13,6 @@
     --replit-bg-light: #ebeced;
     --replit-bg-dark: #0e1525;
     --replit-bg-spooky: #020203;
-    --replit-title-size: 24px;
-    --replit-text-size: 14px;
     --replit-text-color-dark: #f9f5fc;
     --replit-text-color-light: #0e1525;
     --replit-text-color-spooky: #f9f5fc;
@@ -90,26 +88,6 @@ body.spooky-theme{
   --replit-create-repl-button-bg: var(--replit-create-repl-button-bg-spooky);
   --replit-import-github-button-bg: var(--replit-import-github-button-bg-spooky);
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: var(--replit-title-size);
-}
-
-span,
-p,
-label,
-input,
-select,
-a,
-button,
-li,
-textarea {
-  font-size: var(--replit-text-size);
-}
 
 
 .create-repl-container{
@@ -136,6 +114,12 @@ textarea {
 .tab {
   padding: 8px 14px;
   border-right:none;
+}
+.tab .desktop-text{
+  display: inline;
+}
+.tab .mobile-text{
+  display: none;
 }
 
 .tab.active{
@@ -212,7 +196,6 @@ textarea {
   border: 1px solid var(--replit-template-card-border);
   background-color: var(--replit-input-search-bg);
   border-radius: 4px;
-  color: #020203;
 }
 
 .template-result-item img {
@@ -326,7 +309,8 @@ textarea {
 #github-tab1 .connect-github-button{
   padding: 8px 14px;
   border: none;
-  margin: 10px;
+  width: fit-content;
+  /* margin: 10px; */
   border-radius: 4px;
   background-color: transparent;
   display: flex;
@@ -406,3 +390,40 @@ textarea {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+  .tab-content{
+    padding: 0px;
+  }
+  .templates-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .tab .desktop-text{
+    display: none;
+  }
+  .tab .mobile-text{
+    display: inline;
+  }
+.repl-limit-container-bottom{
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+}
