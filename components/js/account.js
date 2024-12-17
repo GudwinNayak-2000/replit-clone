@@ -1,23 +1,16 @@
-import { getEnvironmentConfig } from '../../config/path.js';
-
 let contentDiv;
 let sidebarLinks;
 let mobileDropdown;
-const config = getEnvironmentConfig();
-const BASE_PATH = config.basePath;
 
 async function loadContent(page) {
     try {
-        const response = await fetch(`${BASE_PATH}/settings/pages/${page}.html`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        const response = await fetch(`../../settings/pages/${page}.html`);
         const content = await response.text();
         contentDiv.innerHTML = content;
         updateActiveStates(page);
 
         try {
-            const module = await import(`${BASE_PATH}/settings/js/${page}.js`);
+            const module = await import(`../../settings/js/${page}.js`);
             if (module.initialize) {
                 await module.initialize();
             }
@@ -25,15 +18,8 @@ async function loadContent(page) {
             console.warn(`No script found for ${page}:`, error);
         }
     } catch (error) {
+        contentDiv.innerHTML = '<h2>Error loading content</h2>';
         console.error('Error loading content:', error);
-        contentDiv.innerHTML = `
-            <div class="error-container">
-                <h2>Error Loading Content</h2>
-                <p>The requested page could not be loaded.</p>
-                <p>Error: ${error.message}</p>
-                <p>Page: ${page}</p>
-            </div>
-        `;
     }
 }
 
@@ -155,6 +141,3 @@ export function initialize() {
     loadContent('profile');
     console.log("Account page initialized");
 }
-
-// Add this for debugging
-console.log('Account.js loaded, BASE_PATH:', BASE_PATH);
