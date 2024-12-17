@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/deployments.css">
+    <link rel="stylesheet" href="/css/deployments.css">
     <title>Deployements</title>
 </head>
 
@@ -25,14 +25,15 @@
                             </path>
                         </svg>
                     </i>
-                    <div>
-                        <p>No deployments yet<br>But we have good news: you're one click away from changing that</p>
+                    <div class="deployments-desc-text-container">
+                        <p class="deployments-desc-text">No deployments yet</p>
+                        <span class="deployments-desc-text-span">But we have good news: you're one click away from changing that</span>
                     </div>
                 </div>
             </section>
 
             <section class="deploy-section">
-                <p>Deploy one of your Repls</p>
+                <p class="deploy-section-heading">Deploy one of your Repls</p>
                 <div class="deploy-cards">
                     <div class="card">
                         <p>BonyWastefulInstitutes</p>
@@ -46,31 +47,55 @@
             </section>
 
             <section class="templates-section">
-                <p>Get started with a template</p>
+                <p class="templates-section-heading">Get started with a template</p>
                 <div class="template-cards">
                     <div class="template-card">
-                        <img src="react-logo.png" alt="React">
-                        <h3>React Javascript</h3>
-                        <p>Type: Static<br>No cost with a plan</p>
-                        <button class="template-card-btn">+ Upgrade plan to deploy</button>
+                        <div class="template-card-img-container">
+                            <img src="https://cdn.worldvectorlogo.com/logos/react-1.svg" alt="React">
+                        </div>
+                        <div class="template-card-content">
+                            <p class="template-card-heading">React Javascript</p>
+                            <p class="template-card-desc">Type</p>
+                            <span class="type">static</span>
+                            <span class="template-card-desc-span">No cost with a plan</span>
+                            <button class="template-card-btn">+ Upgrade plan to deploy</button>
+                        </div>
                     </div>
                     <div class="template-card">
-                        <img src="vite-logo.png" alt="Vite">
-                        <h3>Vanilla Vite</h3>
-                        <p>Type: Static<br>No cost with a plan</p>
-                        <button class="template-card-btn">+ Upgrade plan to deploy</button>
+                        <div class="template-card-img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/2078px-Vitejs-logo.svg.png" alt="Vite">
+                        </div>
+                        <div class="template-card-content">
+                            <p class="template-card-heading">Vanilla Vite</p>
+                            <p class="template-card-desc">Type</p>
+                            <span class="type">static</span>
+                            <span class="template-card-desc-span">No cost with a plan</span>
+                            <button class="template-card-btn">+ Upgrade plan to deploy</button>
+                        </div>
                     </div>
                     <div class="template-card">
-                        <img src="hugo-logo.png" alt="Hugo">
-                        <h3>Hugo</h3>
-                        <p>Type: Static<br>No cost with a plan</p>
-                        <button class="template-card-btn">+ Upgrade plan to deploy</button>
+                        <div class="template-card-img-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThRq3qdqIVLjJeLZE9q1Vl2KJkIyq6ORNbtA&s" alt="Hugo">
+                        </div>
+                        <div class="template-card-content">
+                            <p class="template-card-heading">Hugo</p>
+                            <p class="template-card-desc">Type</p>
+                            <span class="type">static</span>
+                            <span class="template-card-desc-span">No cost with a plan</span>
+                            <button class="template-card-btn">+ Upgrade plan to deploy</button>
+                        </div>
                     </div>
                     <div class="template-card">
-                        <img src="flask-logo.png" alt="Flask">
-                        <h3>Flask</h3>
-                        <p>Type: Autoscale<br>19 compute units/sec</p>
-                        <button class="template-card-btn">+ Upgrade plan to deploy</button>
+                        <div class="template-card-img-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmD38KsMgEwahtWc_Nfs5ZVktP9dBc36MUZA&s" alt="Flask">
+                        </div>
+                        <div class="template-card-content">
+                            <p class="template-card-heading">Flask</p>
+                            <p class="template-card-desc">Type</p>
+                            <span class="type">autoscale</span>
+                            <span class="template-card-desc-span">No cost with a plan</span>
+                            <button class="template-card-btn">+ Upgrade plan to deploy</button>
+                        </div>
                     </div>
                 </div>
             </section>

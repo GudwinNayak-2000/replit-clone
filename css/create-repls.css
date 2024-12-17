@@ -1,12 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
-  
 
 :root{
     --replit-font-family: "IBM Plex Sans", sans-serif;
@@ -23,7 +14,7 @@
     --replit-active-tab-bottom-border-light:#3c2f31;
     --replit-active-tab-bottom-border-dark:#c4c7bd;
     --replit-active-tab-bottom-border-spooky:#f5f9fc;
-    --replit-tabs-divider-border-light:#ebeced;
+    --replit-tabs-divider-border-light:#d6d8d9;
     --replit-tabs-divider-border-dark:#2b3245;
     --replit-tabs-divider-border-spooky:#4e5569;
     --replit-active-tab-hover-bg-light:#fcfcfc;
@@ -41,9 +32,15 @@
     --replit-create-repl-button-bg-light:#6bb5ff;
     --replit-create-repl-button-bg-dark:#0053a6;
     --replit-create-repl-button-bg-spooky:#9c4e00;
-    --replit-import-github-button-bg-light:#ebeced;
+    --replit-import-github-button-bg-light:#b2d9ff;
     --replit-import-github-button-bg-dark:#004182;
     --replit-import-github-button-bg-spooky:#753b00;
+    --replit-repl-left-bg-light:#fcfcfc;
+    --replit-repl-left-bg-dark:#1c2333;
+    --replit-repl-left-bg-spooky:#292c33;
+    --replit-connect-github-button-bg-light:#6bb5ff;
+    --replit-connect-github-button-bg-dark:#0053a6;
+    --replit-connect-github-button-bg-spooky:#9c4e00;
 }
 
 
@@ -65,6 +62,9 @@ body.light-theme{
   --replit-input-search-bg: var(--replit-input-search-bg-light);
   --replit-create-repl-button-bg: var(--replit-create-repl-button-bg-light);
   --replit-import-github-button-bg: var(--replit-import-github-button-bg-light);
+  --replit-connect-github-button-bg: var(--replit-connect-github-button-bg-light);
+  --replit-left-bg: var(--replit-repl-left-bg-light);
+  --replit-text-color: var(--replit-text-color-light);
 }
 body.dark-theme{
   --replit-tabs-bottom-border: var(--replit-tabs-bottom-border-dark);
@@ -76,6 +76,9 @@ body.dark-theme{
   --replit-input-search-bg: var(--replit-input-search-bg-dark);
   --replit-create-repl-button-bg: var(--replit-create-repl-button-bg-dark);
   --replit-import-github-button-bg: var(--replit-import-github-button-bg-dark);
+  --replit-connect-github-button-bg: var(--replit-connect-github-button-bg-dark);
+  --replit-left-bg: var(--replit-repl-left-bg-dark);
+  --replit-text-color: var(--replit-text-color-dark);
 }
 body.spooky-theme{
   --replit-tabs-bottom-border: var(--replit-tabs-bottom-border-spooky);
@@ -87,6 +90,9 @@ body.spooky-theme{
   --replit-input-search-bg: var(--replit-input-search-bg-spooky);
   --replit-create-repl-button-bg: var(--replit-create-repl-button-bg-spooky);
   --replit-import-github-button-bg: var(--replit-import-github-button-bg-spooky);
+  --replit-left-bg: var(--replit-repl-left-bg-spooky);
+  --replit-connect-github-button-bg: var(--replit-connect-github-button-bg-spooky);
+  --replit-text-color: var(--replit-text-color-spooky);
 }
 
 
@@ -94,6 +100,10 @@ body.spooky-theme{
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.create-repl-container .repl-heading{
+  font-size: var(--text-size-2xl);
+  font-weight: 600;
 }
 .tabs {
   display: flex;
@@ -216,6 +226,7 @@ body.spooky-theme{
   padding: 6px 0;
   margin-top: 8px;
 }
+
 .privacy-option-container{
   display: flex;
   gap: 10px;
@@ -224,12 +235,6 @@ body.spooky-theme{
 .privacy-input-box{
   display: flex;
   align-items: start;
-  /* align-items: center; */
-  /* gap: 10px; */
-}
-.privacy-input-box #privacy-public, .privacy-input-box #privacy-private{
-  width: 16px;
-  height: 16px;
 }
 
 .privacy-input-box input{
@@ -240,7 +245,10 @@ body.spooky-theme{
 .privacy-option{
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0px;
+}
+.privacy-option span{
+  font-size: var(--text-size-xs);
 }
 .privacy-option label{
   display: flex;
@@ -275,7 +283,7 @@ body.spooky-theme{
   height: 250px;
   border-radius: 8px;
   position: relative;
-  border: 1px solid var(--replit-template-card-border);
+  border: 1px solid var(--replit-tabs-bottom-border);
 }
 
 .import-github-tabs {
@@ -288,6 +296,14 @@ body.spooky-theme{
   z-index: 2; /* Add this */
   background-color: inherit; /* Add this */
 }
+
+.tab-heading{
+  font-size: var(--text-size-sm);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
 .import-github-tab:hover{
   background-color: var(--replit-active-tab-hover-bg);
   border-top-right-radius: 4px;
@@ -298,7 +314,7 @@ body.spooky-theme{
 }
 
 .import-github-tab{
-  padding: 8px 14px;
+  padding: 4px 14px;
   border-right:none;
 }
 .import-github-tab:hover{
@@ -310,7 +326,6 @@ body.spooky-theme{
   padding: 8px 14px;
   border: none;
   width: fit-content;
-  /* margin: 10px; */
   border-radius: 4px;
   background-color: transparent;
   display: flex;
@@ -321,7 +336,8 @@ body.spooky-theme{
   position: absolute;
   left: 50%;
   transform: translate(-50%,-50%);
-  border: 1px solid var(--replit-import-github-button-bg);
+  border:1px solid var(--replit-connect-github-button-bg);
+  color: var(--replit-connect-github-button-bg);
 }
 
 #github-tab2 .import-github-url-input{
@@ -363,7 +379,13 @@ body.spooky-theme{
 .repl-limit-container-bottom-left{
   display: flex;
   align-items: center;
+  background-color: var(--replit-left-bg);
+  border-radius: 4px;
+  padding: 4px 8px;
   gap: 10px;
+}
+.repl-limit-container-bottom-left-heading{
+  font-size: var(--text-size-sm);
 }
 .remaining-progress-bar-container{
   display: flex;
@@ -374,7 +396,7 @@ body.spooky-theme{
 .remaining-progress-bar{
   width: 16px;
   height: 12px;
-  background-color: var(--replit-template-card-bg);
+  background-color: var(--replit-import-github-button-bg);
   border-radius: 4px;
 }
 
@@ -385,6 +407,7 @@ body.spooky-theme{
   justify-content: center;
   gap: 6px;
   border: none;
+  color: var(--replit-text-color);
   background-color: var(--replit-import-github-button-bg);
   border-radius: 4px;
 }

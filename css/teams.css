@@ -1,65 +1,75 @@
+:root{
+  --replit-teams-container-bg-light:#FCFCFC;
+  --replit-teams-container-bg-dark:#1C2333;
+  --replit-teams-container-bg-spooky:#292C33;
+  --replit-teams-learn-button-bg-light:#898989;
+  --replit-teams-learn-button-bg-dark:#545454;
+  --replit-teams-learn-button-bg-spooky:#808080;
+  --replit-teams-get-started-button-bg-light:#0F87FF;
+  --replit-teams-get-started-button-bg-dark:#0079f2;
+  --replit-teams-get-started-button-bg-spooky:#D96D00;
+}
 
-  body {
+body.light-theme{
+  --replit-teams-container-bg:var(--replit-teams-container-bg-light);
+  --replit-teams-learn-button-bg:var(--replit-teams-learn-button-bg-light);
+  --replit-teams-get-started-button-bg:var(--replit-teams-get-started-button-bg-light);
+}
+body.dark-theme{
+  --replit-teams-container-bg:var(--replit-teams-container-bg-dark);
+  --replit-teams-learn-button-bg:var(--replit-teams-learn-button-bg-dark);
+  --replit-teams-get-started-button-bg:var(--replit-teams-get-started-button-bg-dark);
+}
+body.spooky-theme{
+  --replit-teams-container-bg:var(--replit-teams-container-bg-spooky);
+  --replit-teams-learn-button-bg:var(--replit-teams-learn-button-bg-spooky);
+  --replit-teams-get-started-button-bg:var(--replit-teams-get-started-button-bg-spooky);
+}
+.teams-main-container{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-  }
-  
-  /* Container for the banner */
-  .container {
-    width: 90%;
-    max-width: 900px;
-  }
-  
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-  }
-  
-  /* Banner Styling */
-  .banner {
+    flex-direction: column;
+    gap: 20px;
+}
+.teams-main-container h2{
+    font-size: var(--text-size-2xl);
+    font-weight: 500;
+}
+.teams-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--replit-teams-container-bg);
     border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .banner h2 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .banner p {
-    color: #5f6368;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Buttons */
-  .buttons {
+}
+.teams-content{
     display: flex;
-    gap: 10px;
-  }
-  
-  button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
+    max-width: 400px;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+}
+.teams-title{
+    font-size: var(--text-size-md);
+    font-weight: 500;
+}
+.teams-description{
+    font-size: var(--text-size-sm);
+    font-weight: 400;
+}
+.teams-button-container{
+    display: flex;
+    gap: 14px;
+}
+.teams-button-container .teams-learn-more-button{
+    padding: 8px 12px;
     border-radius: 4px;
-  }
-  
-  .btn-learn-more {
-    color: #3c4043;
-  }
-  
-  .btn-get-started {
-    color: #ffffff;
-  }
-  
-  button:hover {
-    opacity: 0.9;
-  }
-  
+    border: none;
+    background-color: var(--replit-teams-learn-button-bg);
+}
+.teams-button-container .teams-get-started-button{
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+    background-color: var(--replit-teams-get-started-button-bg);
+}
+

@@ -1,5 +1,25 @@
+:root{
+    --theme-container-bg-light:#FCFCFC;
+    --theme-container-bg-dark:#1C2333;  
+    --theme-container-bg-spooky:#292C33;
+    --theme-text-color-light:#07080A;
+    --theme-text-color-dark:#F5F9FC;
+    --theme-text-color-spooky:#F5F9FC;
 
+}
 
+body.light-theme{
+    --theme-container-bg:var(--theme-container-bg-light);
+    --theme-text-color:var(--theme-text-color-light);
+}
+body.dark-theme{
+    --theme-container-bg:var(--theme-container-bg-dark);
+    --theme-text-color:var(--theme-text-color-dark);
+}
+body.spooky-theme{
+    --theme-container-bg:var(--theme-container-bg-spooky);
+    --theme-text-color:var(--theme-text-color-spooky);
+}
 .themes-container{
     display: flex;
     width: 100%;
@@ -17,11 +37,23 @@
 }
 .themes-container .themes-header-buttons button{
     padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
     border-radius: 4px;
+    color: var(--theme-text-color);
     border: none;
     background-color: var(--account-setting-link-bg);
 }
-
+.themes-section{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--theme-container-bg);
+    padding: 10px;
+    border-radius: 8px;
+}
 
 .theme-options {
     display: grid;
@@ -92,5 +124,14 @@
     gap: 10px;
 }
 
-.theme-info label {
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .themes-container .themes-header{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 }

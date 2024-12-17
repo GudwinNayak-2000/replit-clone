@@ -30,11 +30,7 @@ body.spooky-theme{
     gap: 10px;
     padding: 10px 12px;
 }
-.account-sidebar-header img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
+ 
 .account-sidebar-header-info{
     display: flex;
     flex-direction: column;
@@ -65,4 +61,107 @@ body.spooky-theme{
 
 .account-sidebar-links li.active {
     background-color: var(--account-setting-link-bg);
+}
+
+.mobile-nav-wrapper {
+    display: none;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.selected-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+    background: var(--account-setting-link-bg, #fff);
+    border: 1px solid var(--border-color, #e1e1e1);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.selected-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.selected-item svg,
+.select-option svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.dropdown-arrow {
+    transition: transform 0.2s ease;
+}
+
+.select-options.show ~ .selected-display .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.select-options {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    background:var(--account-setting-link-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.select-options.show {
+    display: block;
+}
+
+.select-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    font-size: var(--text-size-base);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.select-option:hover {
+    background-color: var(--hover-color, rgba(0, 0, 0, 0.05));
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .account-container{
+        grid-template-columns: 1fr;
+    }
+    .account-sidebar{
+        display: none;
+    }
+    .select-options::-webkit-scrollbar {
+        width: 8px;
+    }
+    .mobile-nav-wrapper {
+        display: block;
+    }
+    
+    .select-options::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    .select-options::-webkit-scrollbar-thumb {
+        background-color: var(--border-color, #e1e1e1);
+        border-radius: 4px;
+    }
 }

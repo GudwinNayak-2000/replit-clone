@@ -1,0 +1,96 @@
+:root {
+    --text-size-xs: 12px;
+    --text-size-sm: 14px;
+    --text-size-base: 16px;
+    --text-size-md: 18px;
+    --text-size-lg: 20px;
+    --text-size-xl: 24px;
+    --text-size-2xl: 30px;
+    --text-size-3xl: 36px;
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+
+  }
+    h1 {
+    font-size: var(--text-size-2xl);
+    line-height: var(--line-height-tight);
+    font-weight: 600;
+  }
+  
+  h2 {
+    font-size: var(--text-size-xl);
+    line-height: var(--line-height-tight);
+    font-weight: 600;
+  }
+  
+  h3 {
+    font-size: var(--text-size-lg);
+    line-height: var(--line-height-tight);
+    font-weight: 600;
+  }
+  
+  h4 {
+    font-size: var(--text-size-md);
+    line-height: var(--line-height-tight);
+    font-weight: 600;
+  }
+  
+  p {
+    font-size: var(--text-size-base);
+    line-height: var(--line-height-normal);
+  }
+  label{
+    font-size: var(--text-size-sm);
+  }
+  span{
+    font-size: var(--text-size-sm);
+  }
+  a{
+    font-size: var(--text-size-sm);
+  }
+  .text-xs {
+    font-size: var(--text-size-xs);
+  }
+  
+  .text-sm {
+    font-size: var(--text-size-sm);
+  }
+  
+  .text-base {
+    font-size: var(--text-size-base);
+  }
+  
+  .text-md {
+    font-size: var(--text-size-md);
+  }
+  
+  .text-lg {
+    font-size: var(--text-size-lg);
+  }
+  
+  .text-xl {
+    font-size: var(--text-size-xl);
+  }
+  
+  .text-2xl {
+    font-size: var(--text-size-2xl);
+  }
+  
+  .text-3xl {
+    font-size: var(--text-size-3xl);
+  }
+
+
+  @media screen and (max-width: 768px) {
+    :root {
+      --text-size-2xl: 24px;
+      --text-size-xl: 20px;
+      --text-size-lg: 18px;
+      --text-size-md: 16px;
+      --text-size-base: 14px;
+      --text-size-sm: 12px;
+      --text-size-xs: 8px;
+    }
+
+  }
