@@ -97,17 +97,33 @@ async function loadPage() {
     }
 
     function getPagePath(page) {
-        const segments = page.split('/');
-        if (segments[0] === 'settings') return `${BASE_PATH}/settings/pages/${segments[1]}.html`;
-        if (page === 'account') return `${BASE_PATH}/components/account.html`;
-        return `${BASE_PATH}/pages/${page}.html`;
+        if (!page) return `${BASE_PATH}/pages/404.html`;  // Handle empty/null page names
+        
+        const segments = page.split('/').filter(Boolean);  // Remove empty segments
+        
+        switch(segments[0]) {
+            case 'settings':
+                return `${BASE_PATH}/settings/pages/${segments[1] || 'index'}.html`;
+            case 'account':
+                return `${BASE_PATH}/components/account.html`;
+            default:
+                return `${BASE_PATH}/pages/${page}.html`;
+        }
     }
-
+    
     function getScriptPath(page) {
-        const segments = page.split('/');
-        if (segments[0] === 'settings') return `${BASE_PATH}/settings/js/${segments[1]}.js`;
-        if (page === 'account') return `${BASE_PATH}/components/js/account.js`;
-        return `${BASE_PATH}/js/${page}.js`;
+        if (!page) return null;  // Handle empty/null page names
+        
+        const segments = page.split('/').filter(Boolean);  // Remove empty segments
+        
+        switch(segments[0]) {
+            case 'settings':
+                return `${BASE_PATH}/settings/js/${segments[1] || 'index'}.js`;
+            case 'account':
+                return `${BASE_PATH}/components/js/account.js`;
+            default:
+                return `${BASE_PATH}/js/${page}.js`;
+        }
     }
 
     function setupEventListeners() {
