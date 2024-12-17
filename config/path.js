@@ -7,7 +7,8 @@ export const CONFIG = {
             components: '/components',
             settings: '/settings',
             pages: '/pages',
-            js: '/js'
+            js: '/js',
+            css: '/css'
         }
     },
     staging: {
@@ -17,7 +18,8 @@ export const CONFIG = {
             components: '/replit-clone/components',
             settings: '/replit-clone/settings',
             pages: '/replit-clone/pages',
-            js: '/replit-clone/js'
+            js: '/replit-clone/js',
+            css: '/replit-clone/css'
         }
     },
     production: {
@@ -27,7 +29,8 @@ export const CONFIG = {
             components: '/components',
             settings: '/settings',
             pages: '/pages',
-            js: '/js'
+            js: '/js',
+            css: '/css'
         }
     }
 };
