@@ -2,15 +2,32 @@ let contentDiv;
 let sidebarLinks;
 let mobileDropdown;
 
+import { getEnvironmentConfig } from '../../config/path.js';
+
+const config = getEnvironmentConfig();
+const { basePath, paths } = config;
+
 async function loadContent(page) {
     try {
-        const response = await fetch(`../../settings/pages/${page}.html`);
+        // Construct full paths using basePath
+        const htmlPath = `${basePath}/settings/pages/${page}.html`;
+        const jsPath = `${basePath}/settings/js/${page}.js`;
+
+        console.log('Attempting to fetch:', htmlPath); // Debug log
+
+        const response = await fetch(htmlPath);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const content = await response.text();
         contentDiv.innerHTML = content;
         updateActiveStates(page);
 
         try {
-            const module = await import(`../../settings/js/${page}.js`);
+            console.log('Attempting to load JS:', jsPath); // Debug log
+            
+            const module = await import(jsPath);
             if (module.initialize) {
                 await module.initialize();
             }
@@ -18,8 +35,15 @@ async function loadContent(page) {
             console.warn(`No script found for ${page}:`, error);
         }
     } catch (error) {
-        contentDiv.innerHTML = '<h2>Error loading content</h2>';
         console.error('Error loading content:', error);
+        contentDiv.innerHTML = `
+            <div class="error-container">
+                <h2>Error Loading Content</h2>
+                <p>Failed to load: ${page}</p>
+                <p>Error: ${error.message}</p>
+                <p>Path attempted: ${basePath}/settings/pages/${page}.html</p>
+            </div>
+        `;
     }
 }
 
