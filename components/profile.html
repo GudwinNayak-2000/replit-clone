@@ -3,9 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
-    profile
+    <div class="profile-main-container">
+        <div class="profile-option-header">
+            <div class="profile-option-cover-photo">
+                <button class="profile-option-camera-btn" aria-label="camera-btn">
+                    <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M8.376 2.584A.75.75 0 0 1 9 2.25h6a.75.75 0 0 1 .624.334l1.777 2.666H21A2.75 2.75 0 0 1 23.75 8v11A2.75 2.75 0 0 1 21 21.75H3A2.75 2.75 0 0 1 .25 19V8A2.75 2.75 0 0 1 3 5.25h3.599l1.777-2.666ZM9.401 3.75 7.624 6.416A.75.75 0 0 1 7 6.75H3A1.25 1.25 0 0 0 1.75 8v11A1.25 1.25 0 0 0 3 20.25h18A1.25 1.25 0 0 0 22.25 19V8A1.25 1.25 0 0 0 21 6.75h-4a.75.75 0 0 1-.624-.334L14.599 3.75H9.4Zm2.599 6a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5ZM7.25 13a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0Z" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+            
+            <div class="profile-option-info">
+              <div class="profile-option-avatar-container">
+                <div class="profile-option-avatar">
+                    <div class="profile-option-avatar">GN</div>
+                </div>
+                <div class="edit-options">
+                    <button class="copy-link-btn" aria-label="copy-link">
+                        <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12.949 2.93a5.75 5.75 0 0 1 8.13 8.131l-.009.01-3 3a5.749 5.749 0 0 1-8.67-.622.75.75 0 1 1 1.2-.898 4.251 4.251 0 0 0 6.41.459l2.995-2.995a4.25 4.25 0 0 0-6.01-6.01l-1.716 1.707a.75.75 0 1 1-1.058-1.064l1.728-1.717ZM7.986 8.609a5.75 5.75 0 0 1 6.615 1.943.75.75 0 1 1-1.202.898 4.251 4.251 0 0 0-6.409-.459l-2.995 2.996a4.25 4.25 0 0 0 6.01 6.009l1.705-1.705a.75.75 0 0 1 1.06 1.06l-1.719 1.72a5.75 5.75 0 0 1-8.13-8.131l.009-.01 3-3a5.75 5.75 0 0 1 2.056-1.321Z" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <button class="edit-btn" aria-label="edit">
+                        <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M19 2.922a2.079 2.079 0 0 0-1.47.608L4.171 16.89 3.07 20.93 7.11 19.83 20.47 6.469A2.078 2.078 0 0 0 19 2.923Zm-1.37-1.228a3.579 3.579 0 0 1 3.9 5.836l-13.5 13.5a.75.75 0 0 1-.333.194l-5.5 1.5a.75.75 0 0 1-.92-.921l1.5-5.5a.75.75 0 0 1 .193-.333l13.5-13.5a3.579 3.579 0 0 1 1.16-.776Z" clip-rule="evenodd"></path></svg>
+                        Edit
+                    </button>
+                </div>
+              </div>
+                <div class="profile-option-details">
+                    <h1>Gudwin Nayak</h1>
+                    <p class="username">@gudwinnayak4320</p>
+                    <div class="profile-status">
+                        <button class="status-btn"><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="css-1qwpkkd" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M8 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" clip-rule="evenodd"></path></svg>
+                        Online</button>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        <div class="profile-option-content">
+            <div class="profile-option-public-repls">
+                <div class="profile-option-section-header">
+                    <h2>Public Repls</h2>
+                    <div class="search-container">
+                        <input type="text" placeholder="Search Repls" class="search-input">
+                    </div>
+                </div>
+                
+                <div class="profile-option-repls-list">
+                    <div class="profile-option-repl-item">
+                        <div class="profile-option-repl-icon">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/>
+                            </svg>
+                        </div>
+                        <div class="profile-option-repl-details">
+                            <h3>BonyWastefulInstitutes</h3>
+                            <p>5 days ago</p>
+                        </div>
+                    </div>
+                    <div class="profile-option-repl-item">
+                            <div class="profile-option-repl-icon">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/>
+                            </svg>
+                        </div>
+                        <div class="profile-option-repl-details">
+                            <h3>PositiveCheerfulTaskscheduling</h3>
+                            <p>1 week ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/profile.js"></script>
 </body>
 </html>

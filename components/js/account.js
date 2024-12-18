@@ -9,11 +9,10 @@ const { basePath, paths } = config;
 
 async function loadContent(page) {
     try {
-        // Construct full paths using basePath
         const htmlPath = `${basePath}/settings/pages/${page}.html`;
         const jsPath = `${basePath}/settings/js/${page}.js`;
 
-        console.log('Attempting to fetch:', htmlPath); // Debug log
+        console.log('Attempting to fetch:', htmlPath);
 
         const response = await fetch(htmlPath);
         if (!response.ok) {
@@ -25,7 +24,7 @@ async function loadContent(page) {
         updateActiveStates(page);
 
         try {
-            console.log('Attempting to load JS:', jsPath); // Debug log
+            console.log('Attempting to load JS:', jsPath);
             
             const module = await import(jsPath);
             if (module.initialize) {
@@ -48,7 +47,6 @@ async function loadContent(page) {
 }
 
 function updateActiveStates(page) {
-    // Update sidebar active state
     sidebarLinks.forEach(link => {
         if (link.getAttribute('data-page') === page) {
             link.classList.add('active');
@@ -57,7 +55,6 @@ function updateActiveStates(page) {
         }
     });
 
-    // Update mobile dropdown
     if (mobileDropdown) {
         const selectedOption = mobileDropdown.querySelector('.selected-display');
         const matchingLink = Array.from(sidebarLinks).find(link => 
@@ -71,7 +68,6 @@ function updateActiveStates(page) {
 }
 
 function attachNavigationListeners() {
-    // Sidebar links
     sidebarLinks.forEach(link => {
         const newLink = link.cloneNode(true);
         link.parentNode.replaceChild(newLink, link);
@@ -85,19 +81,15 @@ function attachNavigationListeners() {
 }
 
 function createMobileDropdown() {
-    // Create wrapper
     const dropdownWrapper = document.createElement('div');
     dropdownWrapper.className = 'mobile-nav-wrapper';
 
-    // Create custom select
     const customSelect = document.createElement('div');
     customSelect.className = 'custom-select';
 
-    // Create selected display
     const selectedDisplay = document.createElement('div');
     selectedDisplay.className = 'selected-display';
     
-    // Get first link's content for initial display
     const firstLink = sidebarLinks[0];
     selectedDisplay.innerHTML = `
         <div class="selected-item">
@@ -112,11 +104,10 @@ function createMobileDropdown() {
     const optionsList = document.createElement('div');
     optionsList.className = 'select-options';
 
-    // Create options from sidebar links
     sidebarLinks.forEach(link => {
         const option = document.createElement('div');
         option.className = 'select-option';
-        option.innerHTML = link.innerHTML; // This preserves both SVG and text
+        option.innerHTML = link.innerHTML; 
         option.setAttribute('data-page', link.getAttribute('data-page') || '');
         
         option.addEventListener('click', () => {
@@ -146,7 +137,6 @@ function createMobileDropdown() {
     customSelect.appendChild(optionsList);
     dropdownWrapper.appendChild(customSelect);
 
-    // Insert dropdown before content div
     contentDiv.parentNode.insertBefore(dropdownWrapper, contentDiv);
     return dropdownWrapper;
 }
@@ -155,13 +145,10 @@ export function initialize() {
     contentDiv = document.querySelector('.account-content');
     sidebarLinks = document.querySelectorAll('.account-sidebar-links li');
     
-    // Create and initialize mobile dropdown
     mobileDropdown = createMobileDropdown();
     
-    // Attach all navigation listeners
     attachNavigationListeners();
     
-    // Load initial content
     loadContent('profile');
     console.log("Account page initialized");
 }

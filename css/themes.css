@@ -123,6 +123,12 @@ body.spooky-theme{
     align-items: center;
     gap: 10px;
 }
+.theme-info .dark-label,
+.theme-info .light-label,
+.theme-info .spooky-label{
+    color: #fff;
+}
+
 
 
 

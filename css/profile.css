@@ -1,0 +1,225 @@
+
+
+:root {
+    --bg-dark: #0e1525;
+    --text-dark: #f9f5fc;
+    --border-dark: #3c445c;
+    --hover-dark: #1c2333;
+    --font-family: "IBM Plex Sans", sans-serif;
+}
+
+
+.profile-main-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    /* gap: 40px; */
+}
+
+
+.profile-option-header {
+    position: relative;
+}
+
+.profile-option-cover-photo {
+    height: 120px;
+    max-width: 400px;
+    background: linear-gradient(45deg, #4776E6, #8E54E9);
+    position: relative;
+    border-radius: 6px;
+}
+
+.profile-option-camera-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-option-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: -60px;
+}
+
+.profile-option-avatar-container{
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.profile-option-avatar {
+    position: relative;
+    width:fit-content;
+    height: 100%;
+}
+.edit-options{
+    margin-top: 60px;
+    margin-left: 10px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.copy-link-btn{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-btn{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profile-option-avatar {
+    width: 100px;
+    height: 100px;
+    background-color: #2b3245;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-size-2xl);
+}
+
+.profile-option-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.profile-option-details h1 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.profile-option-username {
+    margin-bottom: 8px;
+}
+
+
+.profile-status{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-btn{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profile-option-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+ 
+
+.profile-option-search-input {
+    padding: 8px 12px;
+    background: var(--hover-dark);
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    width: 200px;
+}
+
+.profile-option-repls-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.profile-option-repl-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 12px;
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profile-option-repl-item:hover {
+    background: var(--hover-dark);
+}
+
+.profile-option-repl-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--hover-dark);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-option-repl-details h3 {
+    margin-bottom: 4px;
+    font-size: var(--text-size-base);
+}
+
+.profile-option-repl-details p {
+    font-size: var(--text-size-sm);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-option-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-option-section-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .profile-option-search-input {
+        width: 100%;
+    }
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .profile-main-container{
+        grid-template-columns: 1fr;
+    }
+}

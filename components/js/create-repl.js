@@ -49,27 +49,21 @@ function switchGithubTabs(){
     const githubTabs = document.querySelectorAll('.import-github-tab');
     const githubTabContents = document.querySelectorAll('.import-github-tab-content');
 
-    // Set initial state - show first tab and content
     githubTabs[0]?.classList.add('active');
     githubTabContents[0]?.classList.remove('hidden');
     githubTabContents[1]?.classList.add('hidden');
 
     githubTabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            // Remove active class from all tabs
             githubTabs.forEach(t => t.classList.remove('active'));
-            // Add active class to clicked tab
             tab.classList.add('active');
             
-            // Get the target tab content id
             const tabId = tab.getAttribute('data-tab');
             
-            // Hide all tab contents
             githubTabContents.forEach(content => {
                 content.classList.add('hidden');
             });
             
-            // Show the selected tab content
             document.getElementById(tabId)?.classList.remove('hidden');
         });
     });
@@ -122,7 +116,6 @@ async function searchTemplates() {
                     searchInput.style.backgroundPosition = '5px center';
                     searchInput.style.backgroundSize = '20px 20px';
                     
-                    // Store the selected template
                     selectedTemplate = item;
                 });
 
@@ -137,7 +130,6 @@ async function searchTemplates() {
         }
     });
 
-    // Add click handler for create repl button
     createReplButton.addEventListener('click', () => {
         const templateTitle = document.getElementById('template-title');
         const title = templateTitle.value.trim();
@@ -152,10 +144,8 @@ async function searchTemplates() {
             return;
         }
 
-        // Get existing repls or initialize empty array
         const savedRepls = JSON.parse(localStorage.getItem('repls') || '[]');
 
-        // Create new repl object
         const newRepl = {
             id: Date.now(),
             title: title,
@@ -165,14 +155,11 @@ async function searchTemplates() {
             lastModified: new Date().toISOString()
         };
 
-        // Add to saved repls
         savedRepls.push(newRepl);
         
-        // Save to localStorage
         localStorage.setItem('repls', JSON.stringify(savedRepls));
         localStorage.setItem('currentReplId', newRepl.id);
 
-        // Redirect to compiler
         window.location.href = `${config.basePath}/components/compiler.html`;
     });
 }
@@ -182,7 +169,6 @@ function getDefaultCode(templateName) {
         'JavaScript': '// Write your JavaScript code here\n\nconsole.log("Hello, World!");',
         'Python': '# Write your Python code here\n\nprint("Hello, World!")',
         'Node.js': '// Write your Node.js code here\n\nconst http = require("http");\n\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, {"Content-Type": "text/plain"});\n  res.end("Hello, World!");\n});\n\nserver.listen(3000, () => {\n  console.log("Server running on port 3000");\n});',
-        // Add more templates as needed
     };
     return defaultCodes[templateName] || '// Start coding here';
 }

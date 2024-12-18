@@ -1,17 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bounties.css">
-    <title>Bounties</title>
+    <title>Bounties - Replit</title>
+    <link rel="stylesheet" href="css/bounties.css">
 </head>
+
 <body>
     <div class="bounties-container">
-        <div class="bounties-header">
-            <h2>Bounties</h2>
+        <div class="header">
+            <div class="header-top">
+                <h1 id="pageTitle">Bounties</h1>
+                <button class="create-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path
+                            d="M8 2a.75.75 0 01.75.75v4.5h4.5a.75.75 0 010 1.5h-4.5v4.5a.75.75 0 01-1.5 0v-4.5h-4.5a.75.75 0 010-1.5h4.5v-4.5A.75.75 0 018 2z" />
+                    </svg>
+                    Create a Bounty
+                </button>
+            </div>
+            <p class="subtitle" id="pageSubtitle">Work with top Replit creators to bring your ideas to life.</p>
+        </div>
+        <div class="tabs">
+            <button class="tab" data-tab="tab1">
+                <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                    aria-hidden="true" class="css-492dz9"
+                    style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                    <path fill-rule="evenodd"
+                        d="M22.555 4.496a.75.75 0 0 1-.05 1.059l-5.5 5a.75.75 0 0 1-1.01 0l-2.5-2.273a.75.75 0 1 1 1.01-1.11L16.5 8.986l4.996-4.541a.75.75 0 0 1 1.059.05ZM2.25 8A.75.75 0 0 1 3 7.25h6a.75.75 0 1 1 0 1.5H3A.75.75 0 0 1 2.25 8Zm20.305 4.496a.75.75 0 0 1-.05 1.059l-5.5 5a.75.75 0 0 1-1.01 0l-2.5-2.273a.75.75 0 1 1 1.01-1.11l1.995 1.814 4.996-4.54a.75.75 0 0 1 1.059.05ZM2.25 16a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75Z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                All Bounties
+            </button>
+            <button class="tab" data-tab="tab2">
+                <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                    aria-hidden="true" class="css-492dz9"
+                    style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                    <path fill-rule="evenodd"
+                        d="M11.47 2.47a.75.75 0 0 1 1.06 0l5 5a.75.75 0 0 1-1.06 1.06l-3.72-3.72V15a.75.75 0 0 1-1.5 0V4.81L7.53 8.53a.75.75 0 0 1-1.06-1.06l5-5ZM3 14.25a.75.75 0 0 1 .75.75v4A1.25 1.25 0 0 0 5 20.25h14A1.25 1.25 0 0 0 20.25 19v-4a.75.75 0 0 1 1.5 0v4A2.75 2.75 0 0 1 19 21.75H5A2.75 2.75 0 0 1 2.25 19v-4a.75.75 0 0 1 .75-.75Z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                Posted Bounties
+            </button>
+            <button class="tab" data-tab="tab3">
+                <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                    aria-hidden="true" class="css-492dz9"
+                    style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                    <path fill-rule="evenodd"
+                        d="M12 3.75a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5ZM7.25 7a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0Zm-2.609 8.641A4.75 4.75 0 0 1 8 14.25h8A4.75 4.75 0 0 1 20.75 19v2a.75.75 0 0 1-1.5 0v-2A3.25 3.25 0 0 0 16 15.75H8A3.25 3.25 0 0 0 4.75 19v2a.75.75 0 0 1-1.5 0v-2c0-1.26.5-2.468 1.391-3.359Z"
+                        clip-rule="evenodd"></path>
+                </svg>
+
+                Assigned Bounties
+            </button>
+            <button class="tab" data-tab="tab4">
+                <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                    aria-hidden="true" class="css-492dz9"
+                    style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                    <path fill-rule="evenodd"
+                        d="M6.25 6A2.75 2.75 0 0 1 9 3.25h6A2.75 2.75 0 0 1 17.75 6v1.25H19A2.75 2.75 0 0 1 21.75 10v8A2.75 2.75 0 0 1 19 20.75H5A2.75 2.75 0 0 1 2.25 18v-8A2.75 2.75 0 0 1 5 7.25h1.25V6Zm1.5 1.25h8.5V6c0-.69-.56-1.25-1.25-1.25H9c-.69 0-1.25.56-1.25 1.25v1.25ZM5 8.75c-.69 0-1.25.56-1.25 1.25v8c0 .69.56 1.25 1.25 1.25h14c.69 0 1.25-.56 1.25-1.25v-8c0-.69-.56-1.25-1.25-1.25H5Z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                Services
+            </button>
+        </div>
+        <div class="tab-content active" id="tab1">
+            <div class="services-carousel">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <div class="service-image">
+                                    <img src="path/to/app-image.jpg" alt="Finalize your app">
+                                </div>
+                                <div class="service-content">
+                                    <div class="service-price">
+                                        <span class="price">$85 - $950</span>
+                                        <span class="views">8,500 - 95K</span>
+                                    </div>
+                                    <h3>Finalize your app</h3>
+                                    <p>Hire a vetted developer from Replit's community to put the final touches on...
+                                    </p>
+                                    <div class="service-provider">
+                                        <img src="path/to/replit-logo.png" alt="Replit">
+                                        <span>replit</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <div class="service-image">
+                                    <img src="path/to/app-image.jpg" alt="Finalize your app">
+                                </div>
+                                <div class="service-content">
+                                    <div class="service-price">
+                                        <span class="price">$85 - $950</span>
+                                        <span class="views">8,500 - 95K</span>
+                                    </div>
+                                    <h3>Finalize your app</h3>
+                                    <p>Hire a vetted developer from Replit's community to put the final touches on...
+                                    </p>
+                                    <div class="service-provider">
+                                        <img src="path/to/replit-logo.png" alt="Replit">
+                                        <span>replit</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <div class="service-image">
+                                    <img src="path/to/app-image.jpg" alt="Finalize your app">
+                                </div>
+                                <div class="service-content">
+                                    <div class="service-price">
+                                        <span class="price">$85 - $950</span>
+                                        <span class="views">8,500 - 95K</span>
+                                    </div>
+                                    <h3>Finalize your app</h3>
+                                    <p>Hire a vetted developer from Replit's community to put the final touches on...
+                                    </p>
+                                    <div class="service-provider">
+                                        <img src="path/to/replit-logo.png" alt="Replit">
+                                        <span>replit</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <div class="service-image">
+                                    <img src="path/to/app-image.jpg" alt="Finalize your app">
+                                </div>
+                                <div class="service-content">
+                                    <div class="service-price">
+                                        <span class="price">$85 - $950</span>
+                                        <span class="views">8,500 - 95K</span>
+                                    </div>
+                                    <h3>Finalize your app</h3>
+                                    <p>Hire a vetted developer from Replit's community to put the final touches on...
+                                    </p>
+                                    <div class="service-provider">
+                                        <img src="path/to/replit-logo.png" alt="Replit">
+                                        <span>replit</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <div class="service-image">
+                                    <img src="path/to/app-image.jpg" alt="Finalize your app">
+                                </div>
+                                <div class="service-content">
+                                    <div class="service-price">
+                                        <span class="price">$85 - $950</span>
+                                        <span class="views">8,500 - 95K</span>
+                                    </div>
+                                    <h3>Finalize your app</h3>
+                                    <p>Hire a vetted developer from Replit's community to put the final touches on...
+                                    </p>
+                                    <div class="service-provider">
+                                        <img src="path/to/replit-logo.png" alt="Replit">
+                                        <span>replit</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <div class="service-image">
+                                    <img src="path/to/app-image.jpg" alt="Finalize your app">
+                                </div>
+                                <div class="service-content">
+                                    <div class="service-price">
+                                        <span class="price">$85 - $950</span>
+                                        <span class="views">8,500 - 95K</span>
+                                    </div>
+                                    <h3>Finalize your app</h3>
+                                    <p>Hire a vetted developer from Replit's community to put the final touches on...
+                                    </p>
+                                    <div class="service-provider">
+                                        <img src="path/to/replit-logo.png" alt="Replit">
+                                        <span>replit</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content hidden" id="tab2">
+            <div class="posted-bounties-container">
+                <div class="posted-bounties-top">
+                    <input type="text" placeholder="Search for bounties" class="search-bounties">
+                    <select name="Sort by recommended" id="sort-by-recommended">
+                        <option value="recommended">Recommended</option>
+                        <option value="newest">Sort by applications</option>
+                        <option value="oldest">Sort by Posting date</option>
+                        <option value="oldest">Sort by Reward</option>
+                    </select>
+                    <select name="all bounties" id="all-bounties">
+                        <option value="all">All bounties</option>
+                        <option value="Open">Open bounties</option>
+                        <option value="In-Progress">In-Progress bounties</option>
+                        <option value="Canceled">Canceled bounties</option>
+                    </select>
+                    <button><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24"
+                            fill="currentColor" aria-hidden="true" class="css-492dz9"
+                            style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                            <path fill-rule="evenodd"
+                                d="M12 2.75A5.25 5.25 0 0 0 6.75 8c0 1.451.579 2.27 1.308 3.303l.055.077c.683.969 1.436 2.083 1.603 3.87h4.568c.167-1.787.92-2.901 1.603-3.87l.055-.077C16.672 10.27 17.25 9.45 17.25 8c0-2.9-2.35-5.25-5.25-5.25ZM5.25 8a6.75 6.75 0 0 1 13.5 0c0 1.933-.823 3.095-1.548 4.119a83.9 83.9 0 0 0-.09.126c-.725 1.028-1.362 1.993-1.362 3.755a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75c0-1.762-.637-2.727-1.363-3.755l-.09-.126C6.074 11.095 5.25 9.933 5.25 8Zm3 11a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75Zm1 3a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75Z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Get Started</button>
+                </div>
+                <div class="posted-bounties-container">
+                    <div>
+                        You haven’t posted any Bounties yet.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content hidden" id="tab3">
+            <div class="assigned-bounties-container">
+                <div class="assigned-bounties-top">
+                    <div class="posted-bountied-top">
+                        <input type="text" placeholder="Search for bounties" class="search-bounties">
+                        <select name="Sort by recommended" id="sort-by-recommended">
+                            <option value="recommended">Recommended</option>
+                            <option value="newest">Sort by applications</option>
+                            <option value="oldest">Sort by Posting date</option>
+                            <option value="oldest">Sort by Reward</option>
+                        </select>
+                        <select name="all bounties" id="all-bounties">
+                            <option value="all">All bounties</option>
+                            <option value="Open">Open bounties</option>
+                            <option value="In-Progress">In-Progress bounties</option>
+                            <option value="Canceled">Canceled bounties</option>
+                        </select>
+                        <button><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" aria-hidden="true" class="css-492dz9"
+                                style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
+                                <path fill-rule="evenodd"
+                                    d="M12 2.75A5.25 5.25 0 0 0 6.75 8c0 1.451.579 2.27 1.308 3.303l.055.077c.683.969 1.436 2.083 1.603 3.87h4.568c.167-1.787.92-2.901 1.603-3.87l.055-.077C16.672 10.27 17.25 9.45 17.25 8c0-2.9-2.35-5.25-5.25-5.25ZM5.25 8a6.75 6.75 0 0 1 13.5 0c0 1.933-.823 3.095-1.548 4.119a83.9 83.9 0 0 0-.09.126c-.725 1.028-1.362 1.993-1.362 3.755a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75c0-1.762-.637-2.727-1.363-3.755l-.09-.126C6.074 11.095 5.25 9.933 5.25 8Zm3 11a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75Zm1 3a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Get Started</button>
+                    </div>
+                    <div class="posted-bounties-container">
+                        <div>
+                            You aren’t working on any Bounties yet.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content hidden" id="tab4">
+
         </div>
     </div>
 
+
 </body>
+
 </html>

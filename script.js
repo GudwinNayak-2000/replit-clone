@@ -23,6 +23,17 @@ function hideLoader() {
     }
 }
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.pageLoader = new PageLoader();
+});
+
+window.addEventListener('error', (event) => {
+    console.error('Resource loading error:', event.target);
+    if (window.pageLoader) {
+        window.pageLoader.hideLoader();
+    }
+});
 async function loadPage() {
     const links = document.querySelectorAll(".nav-link");
     const contentArea = document.getElementById("content-area");
@@ -106,21 +117,25 @@ async function loadPage() {
                 return `${BASE_PATH}/settings/pages/${segments[1] || 'index'}.html`;
             case 'account':
                 return `${BASE_PATH}/components/account.html`;
+            case 'profile':
+                return `${BASE_PATH}/components/profile.html`;
             default:
                 return `${BASE_PATH}/pages/${page}.html`;
         }
     }
     
     function getScriptPath(page) {
-        if (!page) return null;  // Handle empty/null page names
+        if (!page) return null;
         
-        const segments = page.split('/').filter(Boolean);  // Remove empty segments
+        const segments = page.split('/').filter(Boolean);
         
         switch(segments[0]) {
             case 'settings':
                 return `${BASE_PATH}/settings/js/${segments[1] || 'index'}.js`;
             case 'account':
                 return `${BASE_PATH}/components/js/account.js`;
+            case 'profile':
+                return `${BASE_PATH}/components/js/profile.js`;
             default:
                 return `${BASE_PATH}/js/${page}.js`;
         }
@@ -255,16 +270,14 @@ const items = [
     }
 ];
 
-// Show results on focus
 searchInput.addEventListener('focus', () => {
     searchResults.classList.add('active');
-    displayResults(items); // Show all items initially
+    displayResults(items);
 });
 
 searchInput.addEventListener('input', (e) => {
     const value = e.target.value.toLowerCase();
     
-    // Filter and display results
     const filteredItems = items.filter(item => 
         item.title.toLowerCase().includes(value) || 
         item.path.toLowerCase().includes(value)
@@ -273,14 +286,12 @@ searchInput.addEventListener('input', (e) => {
     displayResults(filteredItems);
 });
 
-// Close dropdown when clicking outside
 document.addEventListener('click', (e) => {
     if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
         searchResults.classList.remove('active');
     }
 });
 
-// Add keyboard shortcut (Ctrl + .)
 document.addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.key === '.') {
         e.preventDefault();
@@ -332,7 +343,6 @@ function displayResults(items) {
     </div>
 `;
     
-    // Ensure results are visible
     searchResults.classList.add('active');
 }
 
