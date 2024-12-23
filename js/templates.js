@@ -45,82 +45,6 @@ class SwiperController {
 }
 
 
-function initializeTabs() {
-    try {
-        const tabs = document.querySelectorAll('.tab');
-        const contents = document.querySelectorAll('.tab-content');
-
-        if (!tabs.length || !contents.length) {
-            console.warn('Tabs or content elements not found');
-            return;
-        }
-
-        setActiveTab(tabs[0], contents[0]);
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => handleTabClick(tab, tabs, contents));
-        });
-
-    } catch (error) {
-        console.error('Error initializing tabs:', error);
-    }
-}
-
-function setActiveTab(activeTab, activeContent) {
-    if (!activeTab || !activeContent) return;
-    
-    activeTab.classList.add('active');
-    activeContent.classList.remove('hidden');
-}
-function toggleServicesContent() {
-    try {
-        const servicesHeader = document.querySelector('.services-header');
-        const servicesContent = document.querySelector('.services-content');
-        const dropdownArrow = document.querySelector('.dropdown-arrow');
-
-        if (!servicesHeader || !servicesContent || !dropdownArrow) {
-            console.warn('Required elements for services toggle not found');
-            return;
-        }
-
-        servicesContent.style.display = 'block';
-        dropdownArrow.style.transform = 'rotate(180deg)';
-
-        servicesHeader.addEventListener('click', function() {
-            const isHidden = servicesContent.style.display === 'block';
-            
-            servicesContent.style.display = isHidden ? 'none' : 'block';
-            dropdownArrow.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
-        });
-
-    } catch (error) {
-        console.error('Error in toggleServicesContent:', error);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', toggleServicesContent);
-function handleTabClick(clickedTab, allTabs, allContents) {
-    try {
-        allTabs.forEach(tab => tab.classList.remove('active'));
-        allContents.forEach(content => content.classList.add('hidden'));
-
-        clickedTab.classList.add('active');
-
-        const activeTabId = clickedTab.getAttribute('data-tab');
-        const activeContent = document.getElementById(activeTabId);
-        
-        if (!activeContent) {
-            throw new Error(`Content not found for tab: ${activeTabId}`);
-        }
-
-        activeContent.classList.remove('hidden');
-
-    } catch (error) {
-        console.error('Error handling tab click:', error);
-    }
-}
-
-
 function loadSwiperScript() {
     return new Promise((resolve, reject) => {
         if (window.Swiper) {
@@ -164,16 +88,10 @@ async function initializeSwiper() {
 }
 
 
+
 async function initialize() {
     try {
-        initializeTabs();
-        toggleServicesContent()
-
         const swiper = await initializeSwiper();
-        
-        
-        window.dispatchEvent(new CustomEvent('bountiesInitialized'));
-
     } catch (error) {
         console.error('Error during initialization:', error);
     }
@@ -181,6 +99,5 @@ async function initialize() {
 
 export { 
     initialize,
-    initializeTabs,
     initializeSwiper,
 };

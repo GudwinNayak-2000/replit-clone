@@ -1,188 +1,357 @@
+@import url('/utils/root.css');
 
-:root{
-    --replit-tabs-bottom-border-light:#d2d4d6;
-    --replit-tabs-bottom-border-dark:#1c2435;
-    --replit-tabs-bottom-border-spooky:#4e5569;
-    --replit-active-tab-bottom-border-light:#3c2f31;
-    --replit-active-tab-bottom-border-dark:#c4c7bd;
-    --replit-active-tab-bottom-border-spooky:#f5f9fc;
-    --replit-tabs-divider-border-light:#d6d8d9;
-    --replit-tabs-divider-border-dark:#2b3245;
-    --replit-tabs-divider-border-spooky:#4e5569;
-    --replit-active-tab-hover-bg-light:#fcfcfc;
-    --replit-active-tab-hover-bg-dark:#1c2333;
-    --replit-active-tab-hover-bg-spooky:#292c33;
-}
-body.light-theme{
-    --replit-tabs-bottom-border:#d2d4d6;
-    --replit-active-tab-bottom-border:#3c2f31;
-    --replit-tabs-divider-border:#d6d8d9;
-    --replit-active-tab-hover-bg:#fcfcfc;
+
+:root {
+  --replit-tabs-bottom-border-light: #d2d4d6;
+  --replit-tabs-bottom-border-dark: #1c2435;
+  --replit-tabs-bottom-border-spooky: #4e5569;
+  --replit-active-tab-bottom-border-light: #3c2f31;
+  --replit-active-tab-bottom-border-dark: #c4c7bd;
+  --replit-active-tab-bottom-border-spooky: #f5f9fc;
+  --replit-tabs-divider-border-light: #d6d8d9;
+  --replit-tabs-divider-border-dark: #2b3245;
+  --replit-tabs-divider-border-spooky: #4e5569;
+  --replit-active-tab-hover-bg-light: #fcfcfc;
+  --replit-active-tab-hover-bg-dark: #1c2333;
+  --replit-active-tab-hover-bg-spooky: #292c33;
 }
 
-body.dark-theme{
-    --replit-tabs-bottom-border:#1c2435;
-    --replit-active-tab-bottom-border:#c4c7bd;
-    --replit-tabs-divider-border:#2b3245;
-    --replit-active-tab-hover-bg:#1c2333;
+body.light-theme {
+  --replit-tabs-bottom-border: #d2d4d6;
+  --replit-active-tab-bottom-border: #3c2f31;
+  --replit-tabs-divider-border: #d6d8d9;
+  --replit-active-tab-hover-bg: #fcfcfc;
 }
-body.spooky-theme{
-    --replit-tabs-bottom-border:#4e5569;
-    --replit-active-tab-bottom-border:#f5f9fc;
-    --replit-tabs-divider-border:#4e5569;
-    --replit-active-tab-hover-bg:#292c33;
+
+body.dark-theme {
+  --replit-tabs-bottom-border: #1c2435;
+  --replit-active-tab-bottom-border: #c4c7bd;
+  --replit-tabs-divider-border: #2b3245;
+  --replit-active-tab-hover-bg: #1c2333;
 }
-.bounties-container{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
+
+body.spooky-theme {
+  --replit-tabs-bottom-border: #4e5569;
+  --replit-active-tab-bottom-border: #f5f9fc;
+  --replit-tabs-divider-border: #4e5569;
+  --replit-active-tab-hover-bg: #292c33;
 }
-.bounties-container .header{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+
+.bounties-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
-.bounties-container .header-top{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+
+.bounties-container .header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
-.bounties-container .header-top .create-btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 12px;
-    gap: 10px;
+
+.bounties-container .header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
+
+.bounties-container .header-top .create-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  gap: 10px;
+}
+
 .tabs {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    border-bottom: 1px solid var(--replit-tabs-bottom-border);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--replit-tabs-bottom-border);
+}
+.tab.active {
+  border-bottom: 1px solid var(--replit-active-tab-bottom-border);
+}
+.tab {
+  padding: 8px 14px;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  color: var(--replit-text-color);
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+
+.tab-content {
+  padding: 14px 0;
+  border-radius: 0 0 5px 5px;
+  width: 100%;
+}
+
+.tab-content.hidden {
+  display: none;
+}
+
+/* Services Container */
+.services-container {
+  border-radius: 8px;
+  width: 100%;
+}
+
+
+/* Header Section */
+.services-header {
+  padding: 10px 0;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}
+
+/* Title Section */
+.services-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.services-title-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.services-title-left p {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Dropdown Arrow Button */
+.dropdown-arrow {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.services-header>div:last-child p {
+  margin: 0;
+  font-size: 14px;
+}
+
+
+.services-content {
+  padding: 10px;
+  width: 100%;
+}
+
+/* Service Cards */
+.service-card {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+
+.service-image {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+.service-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-weight: 600;
+}
+
+.views {
+  font-size: 14px;
+}
+
+.service-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.service-content p {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.service-provider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-provider img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.service-provider span {
+  font-size: 14px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 18px;
+  color: #333;
+}
+
+.swiper-button-disabled {
+  opacity: 0;
+  cursor: default;
+}
+
+
+
+.posted-bounties-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.posted-bounties-top .search-bounties {
+  border-radius: 6px;
+  padding: 8px 12px;
+  width: 400px;
+  display: flex;
+  background-color: var(--replit-search-input-bg-color);
+  border: 1px solid var(--replit-border-color);
+  align-items: center;
+  gap: 8px;
+}
+
+.posted-bounties-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+}
+
+
+.bounty-history-card{
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  width: 100%;
+  padding: 12px;
+}
+
+.bounty-history-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.bounty-history-top-left{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.bounty-history-top-right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.bounty-history-center{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.bounty-desc{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.bounty-history-end{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .services-header {
+    padding: 16px;
   }
 
-  .tab {
-    padding: 8px 14px;
-    border:none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }  
-  
-.tab.active{
-    border-bottom: 1px solid var(--replit-active-tab-bottom-border);
-  }
-  .tab:hover{
-    background-color: var(--replit-active-tab-hover-bg);
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px;
-  }
-  .tab.active:hover{
-    background-color: var(--replit-active-tab-hover-bg);
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
-  .tab-content {
-    padding: 14px;
-    border-radius: 0 0 5px 5px;
-  }
-  
-  .tab-content.hidden {
-    display: none;
+  .services-content {
+    padding: 16px;
   }
 
-  .services-carousel {
-    margin: 0 auto;
+  .services-title-left p {
+    font-size: 15px;
   }
-  
-  .swiper {
+
+  .services-header>div:last-child p {
+    font-size: 13px;
   }
-  
-  .service-card {
-    background: #1C2333;
-    border-radius: 8px;
-    overflow: hidden;
-    height: 100%;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .service-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-  }
-  
-  .service-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .service-content {
-  }
-  
-  .service-price {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .price {
-    color: #00FF00;
-    font-weight: bold;
-  }
-  
-  .views {
-    color: #666;
-  }
-  
-  .service-content h3 {
-    color: #fff;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-  }
-  
-  .service-content p {
-    color: #999;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-  }
-  
-  .service-provider {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .service-provider img {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-  }
-  
-  .service-provider span {
-    color: #666;
-    font-size: 0.9rem;
-  }
-  
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: #fff;
-    background: rgba(0, 0, 0, 0.5);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-  }
-  
-  .swiper-button-next:after,
-  .swiper-button-prev:after {
-    font-size: 18px;
-  }
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 18px;
+}

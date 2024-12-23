@@ -4,11 +4,11 @@ export const CONFIG = {
         basePath: '',
         apiUrl: 'http://localhost:3000',
         paths: {
-            components: '/components',
-            settings: '/settings',
-            pages: '/pages',
-            js: '/js',
-            css: '/css'
+            components: './components',
+            settings: './settings',
+            pages: './pages',
+            js: './js',
+            css: './css'
         }
     },
     staging: {

@@ -22,6 +22,9 @@ async function loadContent(page) {
         const content = await response.text();
         contentDiv.innerHTML = content;
         updateActiveStates(page);
+        
+
+    
 
         try {
             console.log('Attempting to load JS:', jsPath);
@@ -47,9 +50,14 @@ async function loadContent(page) {
 }
 
 function updateActiveStates(page) {
+    sidebarLinks = document.querySelectorAll('.account-sidebar-links>ul>li');
+    sidebarLinks.forEach(link => {
+        link.classList.remove('active');
+    });
     sidebarLinks.forEach(link => {
         if (link.getAttribute('data-page') === page) {
             link.classList.add('active');
+
         } else {
             link.classList.remove('active');
         }
@@ -75,7 +83,9 @@ function attachNavigationListeners() {
         newLink.addEventListener('click', function(e) {
             e.preventDefault();
             const page = this.getAttribute('data-page');
-            if (page) loadContent(page);
+            if (page) {
+                loadContent(page);
+            };
         });
     });
 }
@@ -143,7 +153,7 @@ function createMobileDropdown() {
 
 export function initialize() {
     contentDiv = document.querySelector('.account-content');
-    sidebarLinks = document.querySelectorAll('.account-sidebar-links li');
+    sidebarLinks = document.querySelectorAll('.account-sidebar-links>ul>li');
     
     mobileDropdown = createMobileDropdown();
     

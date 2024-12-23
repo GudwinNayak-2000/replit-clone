@@ -14,8 +14,9 @@ body.spooky-theme{
 }
 .account-container{
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 1fr 4fr;
     width: 100%;
+    gap: 40px;
     position: relative;
 }
 .account-sidebar{
@@ -52,17 +53,15 @@ body.spooky-theme{
 }
 
 .account-content{
-    max-width: 600px;
     display: flex;
     flex-shrink: 0;
+    max-width: 700px;
     flex-direction: column;
     overflow-y: auto;
 }
-
-.account-sidebar-links li.active {
+.account-sidebar-links>ul>li.active{
     background-color: var(--account-setting-link-bg);
 }
-
 .mobile-nav-wrapper {
     display: none;
     width: 100%;

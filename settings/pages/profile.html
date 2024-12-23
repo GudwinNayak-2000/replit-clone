@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/profile-settings.css">
     <title>profile settings</title>
 </head>
 <body>
-    <h2>Profile settings</h2>
+    <div class="profile-settings-container">
+        <h2>Profile</h2>
+        <div class="profile-container-card">
+            <div class="profile-left">
+                <span>GN</span>
+            </div>
+           <div class="profile-right">
+            <div class="profile-right-username">
+                <input type="text" placeholder="gudwinnayak444" class="username">
+                <span>* You can change your username through the CLI once you have logged in</span>
+            </div>
+           <div class="profile-right-name-container">
+            <div class="profile-right-name-container-first-name">
+                <label for="">First Name</label>
+                <input type="text" placeholder="Gudwinnayak" class="first-name">
+            </div>
+            <div class="profile-right-name-container-last-name">
+                <label for="">Last Name</label>
+                <input type="text" placeholder="Gudwinnayak" class="last-name">
+            </div>
+           </div>
+           <div class="profile-right-bio-container">
+            <label for=""> Bio</label>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Add a bio"></textarea>
+            <span>* 0 / 140 characters</span>
+           </div>
+            <div class="profile-right-button-container">
+                <button>
+                    View my public profile
+                </button>
+                <button>
+                    Save Changes
+                </button>
+            </div>
+           </div>
+        </div>
+    </div>
 </body>
 </html>

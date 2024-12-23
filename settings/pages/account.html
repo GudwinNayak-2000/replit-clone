@@ -7,6 +7,71 @@
     <title>account settings</title>
 </head>
 <body>
-    <h2>Account settings</h2>
+    <div class="account-settings-container">
+        <h2>Account</h2>
+        <div class="account-settings-container-card">
+            <div class="account-settings-container-card-left">
+                <div>
+                    <label for="">Your Email</label>
+                    <p>example@gmail.com</p>
+                </div>
+                <div class="account-settings-container-card-right-button">
+                    <button>Edit</button>
+                </div>
+            </div>
+            <div class="account-settings-container-card-left">
+                <div>
+                    <label for="">Your Email</label>
+                    <p>example@gmail.com</p>
+                </div>
+                <div>
+                    <button>Edit</button>
+                </div>
+            </div>
+            <div class="account-settings-container-card-left">
+                <div>
+                    <label for="">Your Email</label>
+                    <p>example@gmail.com</p>
+                </div>
+                <div class="account-settings-container-card-right-button">
+                    <select name="region" id="account-settings-region-btn" class="account-settings-region-btn">
+                        <option value="1">United States</option>
+                        <option value="2">Canada</option>
+                        <option value="3">United Kingdom</option>
+                        <option value="4">Australia</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <p>Receive transactional notifications via email</p>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="account-settings-transactional-notifications-btn" class="account-settings-transactional-notifications-btn">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div>
+
+                <p>Receive marketing notifications</p>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="account-settings-transactional-notifications-btn" class="account-settings-transactional-notifications-btn">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div>
+                <p>Export Repls</p>
+                <span>Bulk export personal Repls</span>
+                <button>
+                    Start Export
+                </button>
+            </div>
+            <div>
+                <p>Danger Zone</p>
+                <span>Irreversible and destructive actions</span>
+                <button>
+                    Request Account Deletion
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

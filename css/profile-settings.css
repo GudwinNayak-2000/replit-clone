@@ -1,0 +1,91 @@
+:root{
+    --profile-settings-bg-light: #FCFCFC;
+    --profile-settings-bg-dark: #1c2333;
+    --profile-settings-bg-spooky: #292C33;
+}
+
+body.light-theme{
+    --profile-settings-bg: var(--profile-settings-bg-light);
+}
+
+body.dark-theme{
+    --profile-settings-bg: var(--profile-settings-bg-dark);
+}
+
+body.spooky-theme{
+    --profile-settings-bg: var(--profile-settings-bg-spooky);
+}
+
+.profile-settings-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-container-card{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    background-color: var(--profile-settings-bg);
+}
+
+.profile-left{
+    width: 100%;
+    height: 100%;
+}
+
+.profile-left span{
+    font-size: 2rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, #4776E6, #8E54E9);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    color: white;
+}
+
+.profile-right{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile-right-username{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile-right-name-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.profile-right-name-container-first-name{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile-right-name-container-last-name{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile-right-bio-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+
