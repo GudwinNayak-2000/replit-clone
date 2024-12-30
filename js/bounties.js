@@ -1,4 +1,3 @@
-
 class SwiperController {
     static updateNavigationVisibility(swiper) {
         const { isBeginning, isEnd } = swiper;
@@ -178,6 +177,93 @@ async function initialize() {
         console.error('Error during initialization:', error);
     }
 }
+
+async function loadBountiesData() {
+    try {
+        const response = await fetch('/data/bounties.json');
+        const data = await response.json();
+        renderServices(data.services);
+        renderBounties(data.bounties);
+    } catch (error) {
+        console.error('Error loading bounties data:', error);
+    }
+}
+
+function renderServices(services) {
+    const wrapper = document.getElementById('servicesWrapper');
+    
+    wrapper.innerHTML = services.map(service => `
+        <div class="swiper-slide">
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="${service.image}" alt="${service.title}">
+                </div>
+                <div class="service-content">
+                    <div class="service-price">
+                        <span class="price">$${service.price.min} - $${service.price.max}</span>
+                        <span class="views">${formatNumber(service.views.min)} - ${formatNumber(service.views.max)}</span>
+                    </div>
+                    <h3>${service.title}</h3>
+                    <p>${service.description}</p>
+                    <div class="service-provider">
+                        <img src="${service.provider.image}" alt="${service.provider.name}">
+                        <span>${service.provider.name}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderBounties(bounties) {
+    const container = document.getElementById('bountyCards');
+    
+    container.innerHTML = bounties.map(bounty => `
+        <div class="bounty-history-card">
+            <div class="bounty-history-top">
+                <div class="bounty-history-top-left">
+                    <h2>$${bounty.reward.toFixed(2)}</h2>
+                    <p>
+                        <svg>...</svg>
+                        ${formatNumber(bounty.views)}
+                    </p>
+                </div>
+                <div class="bounty-history-top-right">
+                    <p>
+                        <svg>...</svg>
+                        due ${bounty.dueDate}
+                    </p>
+                    <label for="">${bounty.status}</label>
+                </div>
+            </div>
+            <div class="bounty-history-center">
+                <p class="bounty-title">${bounty.title}</p>
+                <p class="bounty-desc">${bounty.description}</p>
+            </div>
+            <div class="bounty-history-end">
+                <div>
+                    <span>${bounty.author.initials}</span>
+                    <span>${bounty.author.name}</span>
+                    <span>.</span>
+                    <span>${bounty.author.postedTime}</span>
+                </div>
+                <div>
+                    <p>
+                        <svg>...</svg>
+                        ${bounty.applicants} Applicants
+                    </p>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function formatNumber(num) {
+    return num >= 1000 ? (num/1000).toFixed(0) + 'K' : num;
+}
+
+// Load data when page loads
+document.addEventListener('DOMContentLoaded', loadBountiesData);
 
 export { 
     initialize,

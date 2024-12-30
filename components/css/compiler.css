@@ -86,16 +86,6 @@ body {
 
 }
 
-
-::-webkit-scrollbar {
-    width: 12px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--replit-scrollbar-track-bg); 
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--replit-scrollbar-thumb-bg);
-  }
 body.light-theme{
     --replit-bg-color:var(--replit-bg-light);
     --replit-text-color:var(--replit-text-color-light);
@@ -776,23 +766,6 @@ li{
     color: #ffbb33;
 }
 
-/* Scrollbar styles */
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 6px;
-    
-}
-
-::-webkit-scrollbar-thumb:hover {
-    
-}
 
 /* Utility classes */
 .resizing {

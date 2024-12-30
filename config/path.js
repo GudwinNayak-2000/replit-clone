@@ -22,6 +22,17 @@ export const CONFIG = {
             css: '/replit-clone/css'
         }
     },
+    local: {
+       basePath: './',
+       apiUrl: '',
+       paths: {
+           components: './components',
+           settings: './settings',
+           pages: './pages',
+           js: './js',
+           css: './css'
+       }
+   },
     production: {
         basePath: '',
         apiUrl: '',
@@ -30,24 +41,32 @@ export const CONFIG = {
             settings: '/settings',
             pages: '/pages',
             js: '/js',
-            css: '/css'
+            css: './css'
         }
     }
 };
 
 export const getEnvironmentConfig = () => {
+    const protocol = window.location.protocol;
+
     const hostname = window.location.hostname;
-    
+    if (protocol === 'file:') {
+        return CONFIG.local;
+    }
     // Local development
     if (hostname === 'localhost' || hostname === '127.0.0.1') {
         return CONFIG.development;
     }
     
-    // GitHub Pages
-    if (hostname.includes('github.io')) {
-        return CONFIG.staging;
-    }
-    
     // Production/Custom domain
     return CONFIG.production;
+};
+
+export const resolvePath = (path) => {
+    if(window.location.protocol === 'file:') {
+        return `./${path}`;
+    }
+    
+    const environmentConfig = getEnvironmentConfig();
+    return `${environmentConfig.basePath}${path}`;
 };

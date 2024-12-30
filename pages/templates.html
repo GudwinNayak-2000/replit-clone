@@ -9,9 +9,9 @@
 <body>
     <div class="templates-container">
         <div class="templates-header">
-            <h2>Templates</h2>
-            <p>Use Templates as the starting point for your next project.</p>
-            <a href="">How to publish a template</a>
+            <h2 class="templates-header-title" aria-label="template"></h2>
+            <p class="templates-desc"></p>
+            <a href="" class="publish-link" aria-label="publish-link"></a>
         </div>
         <div class="templates-search">
             <input type="Search" placeholder="Search templates">
@@ -19,209 +19,35 @@
     </div>
     <div class="templates-slider-section">
         <div class="templates-content">
-            <h2>What do you want to build?</h2>
+            <h2 class="build-template-title" aria-label="build template"></h2>
             <div class="templates-carousel">
                 <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="template-card">
-                                <div class="template-image">
-                                    <img src="path/to/template-image.jpg" alt="Template 1">
-                                    <div class="template-content"> 
-                                        <h3>Template Name</h3>
-                                        <p>Description of the template</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="template-card">
-                                <div class="template-image">
-                                    <img src="path/to/template-image.jpg" alt="Template 1">
-                                    <div class="template-content"> 
-                                        <h3>Template Name</h3>
-                                        <p>Description of the template</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="template-card">
-                                <div class="template-image">
-                                    <img src="path/to/template-image.jpg" alt="Template 1">
-                                    <div class="template-content"> 
-                                        <h3>Template Name</h3>
-                                        <p>Description of the template</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="template-card">
-                                <div class="template-image">
-                                    <img src="path/to/template-image.jpg" alt="Template 1">
-                                    <div class="template-content"> 
-                                        <h3>Template Name</h3>
-                                        <p>Description of the template</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="template-card">
-                                <div class="template-image">
-                                    <img src="path/to/template-image.jpg" alt="Template 1">
-                                    <div class="template-content"> 
-                                        <h3>Template Name</h3>
-                                        <p>Description of the template</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="template-card">
-                                <div class="template-image">
-                                    <img src="path/to/template-image.jpg" alt="Template 1">
-                                    <div class="template-content"> 
-                                        <h3>Template Name</h3>
-                                        <p>Description of the template</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="template-card">
-                                <div class="template-image">
-                                    <img src="path/to/template-image.jpg" alt="Template 1">
-                                    <div class="template-content"> 
-                                        <h3>Template Name</h3>
-                                        <p>Description of the template</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="swiper-wrapper" id="build-swiper-wrapper">
+                      
                     </div>
                     <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                 <div class="swiper-button-next"></div>
                 </div>
             </div>
         </div>
         <div class="language-section">
-            <h2>Languages</h2>
+            <h2 class="languages-title" aria-label="language title"></h2>
              <div class="language-card-container">
-                <div class="language-card">
-                    <img src="https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg" alt="">
-                    <div class="language-content">
-                        <p>Python</p>
-                        <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" aria-label="Official" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;"><path fill-rule="evenodd" d="M20.53 5.47a.75.75 0 0 1 0 1.06l-11 11a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06L9 15.94 19.47 5.47a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <div class="language-stats">
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M14.558 2.724A6.25 6.25 0 0 1 23.202 8.5a6.249 6.249 0 0 1-1.832 4.42l-8.84 8.84a.75.75 0 0 1-1.06 0l-8.84-8.84a6.251 6.251 0 1 1 8.84-8.84l.53.53.53-.53a6.25 6.25 0 0 1 2.028-1.356ZM20.31 5.14a4.75 4.75 0 0 0-6.72 0L12.53 6.2a.75.75 0 0 1-1.06 0l-1.06-1.06a4.751 4.751 0 0 0-6.72 6.72L12 20.17l8.31-8.31a4.752 4.752 0 0 0 0-6.72Z" clip-rule="evenodd"></path></svg>
-                            <span>5.1K</span>
-                           </p>
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
-                           <span>55.2M</span>
-                           </p>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <img src="https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg" alt="">
-                    <div class="language-content">
-                        <p>Python</p>
-                        <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" aria-label="Official" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;"><path fill-rule="evenodd" d="M20.53 5.47a.75.75 0 0 1 0 1.06l-11 11a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06L9 15.94 19.47 5.47a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <div class="language-stats">
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M14.558 2.724A6.25 6.25 0 0 1 23.202 8.5a6.249 6.249 0 0 1-1.832 4.42l-8.84 8.84a.75.75 0 0 1-1.06 0l-8.84-8.84a6.251 6.251 0 1 1 8.84-8.84l.53.53.53-.53a6.25 6.25 0 0 1 2.028-1.356ZM20.31 5.14a4.75 4.75 0 0 0-6.72 0L12.53 6.2a.75.75 0 0 1-1.06 0l-1.06-1.06a4.751 4.751 0 0 0-6.72 6.72L12 20.17l8.31-8.31a4.752 4.752 0 0 0 0-6.72Z" clip-rule="evenodd"></path></svg>
-                            <span>5.1K</span>
-                           </p>
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
-                           <span>55.2M</span>
-                           </p>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <img src="https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg" alt="">
-                    <div class="language-content">
-                        <p>Python</p>
-                        <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" aria-label="Official" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;"><path fill-rule="evenodd" d="M20.53 5.47a.75.75 0 0 1 0 1.06l-11 11a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06L9 15.94 19.47 5.47a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <div class="language-stats">
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M14.558 2.724A6.25 6.25 0 0 1 23.202 8.5a6.249 6.249 0 0 1-1.832 4.42l-8.84 8.84a.75.75 0 0 1-1.06 0l-8.84-8.84a6.251 6.251 0 1 1 8.84-8.84l.53.53.53-.53a6.25 6.25 0 0 1 2.028-1.356ZM20.31 5.14a4.75 4.75 0 0 0-6.72 0L12.53 6.2a.75.75 0 0 1-1.06 0l-1.06-1.06a4.751 4.751 0 0 0-6.72 6.72L12 20.17l8.31-8.31a4.752 4.752 0 0 0 0-6.72Z" clip-rule="evenodd"></path></svg>
-                            <span>5.1K</span>
-                           </p>
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
-                           <span>55.2M</span>
-                           </p>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <img src="https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg" alt="">
-                    <div class="language-content">
-                        <p>Python</p>
-                        <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" aria-label="Official" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;"><path fill-rule="evenodd" d="M20.53 5.47a.75.75 0 0 1 0 1.06l-11 11a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06L9 15.94 19.47 5.47a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <div class="language-stats">
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M14.558 2.724A6.25 6.25 0 0 1 23.202 8.5a6.249 6.249 0 0 1-1.832 4.42l-8.84 8.84a.75.75 0 0 1-1.06 0l-8.84-8.84a6.251 6.251 0 1 1 8.84-8.84l.53.53.53-.53a6.25 6.25 0 0 1 2.028-1.356ZM20.31 5.14a4.75 4.75 0 0 0-6.72 0L12.53 6.2a.75.75 0 0 1-1.06 0l-1.06-1.06a4.751 4.751 0 0 0-6.72 6.72L12 20.17l8.31-8.31a4.752 4.752 0 0 0 0-6.72Z" clip-rule="evenodd"></path></svg>
-                            <span>5.1K</span>
-                           </p>
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
-                           <span>55.2M</span>
-                           </p>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <img src="https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg" alt="">
-                    <div class="language-content">
-                        <p>Python</p>
-                        <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" aria-label="Official" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;"><path fill-rule="evenodd" d="M20.53 5.47a.75.75 0 0 1 0 1.06l-11 11a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06L9 15.94 19.47 5.47a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <div class="language-stats">
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M14.558 2.724A6.25 6.25 0 0 1 23.202 8.5a6.249 6.249 0 0 1-1.832 4.42l-8.84 8.84a.75.75 0 0 1-1.06 0l-8.84-8.84a6.251 6.251 0 1 1 8.84-8.84l.53.53.53-.53a6.25 6.25 0 0 1 2.028-1.356ZM20.31 5.14a4.75 4.75 0 0 0-6.72 0L12.53 6.2a.75.75 0 0 1-1.06 0l-1.06-1.06a4.751 4.751 0 0 0-6.72 6.72L12 20.17l8.31-8.31a4.752 4.752 0 0 0 0-6.72Z" clip-rule="evenodd"></path></svg>
-                            <span>5.1K</span>
-                           </p>
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
-                           <span>55.2M</span>
-                           </p>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <img src="https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg" alt="">
-                    <div class="language-content">
-                        <p>Python</p>
-                        <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" aria-label="Official" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;"><path fill-rule="evenodd" d="M20.53 5.47a.75.75 0 0 1 0 1.06l-11 11a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06L9 15.94 19.47 5.47a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <div class="language-stats">
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M14.558 2.724A6.25 6.25 0 0 1 23.202 8.5a6.249 6.249 0 0 1-1.832 4.42l-8.84 8.84a.75.75 0 0 1-1.06 0l-8.84-8.84a6.251 6.251 0 1 1 8.84-8.84l.53.53.53-.53a6.25 6.25 0 0 1 2.028-1.356ZM20.31 5.14a4.75 4.75 0 0 0-6.72 0L12.53 6.2a.75.75 0 0 1-1.06 0l-1.06-1.06a4.751 4.751 0 0 0-6.72 6.72L12 20.17l8.31-8.31a4.752 4.752 0 0 0 0-6.72Z" clip-rule="evenodd"></path></svg>
-                            <span>5.1K</span>
-                           </p>
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
-                           <span>55.2M</span>
-                           </p>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <img src="https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg" alt="">
-                    <div class="language-content">
-                        <p>Python</p>
-                        <svg preserveAspectRatio="xMidYMin" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" aria-label="Official" class="css-492dz9" style="--size: 12px; --rotate: 0deg; width: 12px; height: 12px;"><path fill-rule="evenodd" d="M20.53 5.47a.75.75 0 0 1 0 1.06l-11 11a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06L9 15.94 19.47 5.47a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <div class="language-stats">
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M14.558 2.724A6.25 6.25 0 0 1 23.202 8.5a6.249 6.249 0 0 1-1.832 4.42l-8.84 8.84a.75.75 0 0 1-1.06 0l-8.84-8.84a6.251 6.251 0 1 1 8.84-8.84l.53.53.53-.53a6.25 6.25 0 0 1 2.028-1.356ZM20.31 5.14a4.75 4.75 0 0 0-6.72 0L12.53 6.2a.75.75 0 0 1-1.06 0l-1.06-1.06a4.751 4.751 0 0 0-6.72 6.72L12 20.17l8.31-8.31a4.752 4.752 0 0 0 0-6.72Z" clip-rule="evenodd"></path></svg>
-                            <span>5.1K</span>
-                           </p>
-                           <p><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="var(--foreground-dimmest)" aria-hidden="true" class="css-492dz9" style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;"><path fill-rule="evenodd" d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"></path></svg>
-                           <span>55.2M</span>
-                           </p>
-                    </div>
-                </div>
+                
              </div>
+        </div>
+    </div>
+
+    <div class="ai-section">
+        <h2 class="ai-title" aria-label="ai title"></h2>
+        <div class="ai-card-container">
+
+        </div>
+    </div>
+    <div class="website-section">
+        <h2 class="website-title" aria-label="website title"></h2>
+        <div class="website-card-container">
+
         </div>
     </div>
 </body>

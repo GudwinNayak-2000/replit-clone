@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Repl Compiler</title>
-  <link rel="stylesheet" href="../css/compiler.css">
+  <link rel="stylesheet" href="css/compiler.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/monokai.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
@@ -39,14 +39,14 @@
 <body>
   <nav class="nav-container">
     <div class="nav-left">
-      <button class="home-dir-btn"><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24"
+      <a href="/app/app.html" class="home-dir-btn"><svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24"
           fill="currentColor" aria-hidden="false" class="css-492dz9"
           style="--size: 16px; --rotate: 0deg; width: 16px; height: 16px;">
           <title>Home</title>
           <path fill-rule="evenodd"
             d="M11.54 1.408a.75.75 0 0 1 .92 0l9 7a.75.75 0 0 1 .29.592v11A2.75 2.75 0 0 1 19 22.75H5A2.75 2.75 0 0 1 2.25 20V9a.75.75 0 0 1 .29-.592l9-7ZM3.75 9.367V20A1.25 1.25 0 0 0 5 21.25h3.25V13.5a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 .75.75v7.75H19A1.25 1.25 0 0 0 20.25 20V9.367L12 2.95 3.75 9.367Zm10.5 11.883v-7h-4.5v7h4.5Z"
             clip-rule="evenodd"></path>
-        </svg></button>
+        </svg></a>
       <div class="template-info-container">
         <img id="template-icon" class="template-icon" src="" alt="">
         <p id="repl-title" class="repl-title"></p>
@@ -410,7 +410,7 @@
       initialize();
     });
   </script>
-  <script type="module" src="../js/theme-switcher.js"></script>
+  <!-- <script type="module" src="../js/theme-switcher.js"></script> -->
 </body>
 
 </html>

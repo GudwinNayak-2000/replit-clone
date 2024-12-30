@@ -20,7 +20,6 @@ body.spooky-theme{
     position: relative;
 }
 .account-sidebar{
-    width: 200px;
     height: 100%;
     position: sticky;
     height: fit-content;
@@ -29,7 +28,7 @@ body.spooky-theme{
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 12px;
+    /* padding: 10px 12px; */
 }
  
 .account-sidebar-header-info{
@@ -61,6 +60,21 @@ body.spooky-theme{
 }
 .account-sidebar-links>ul>li.active{
     background-color: var(--account-setting-link-bg);
+}
+
+.account-sidebar-header .profile-initial{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+
+}
+.profile-initial-text{
+    font-size: 24px;
+    font-weight: 600;
+    background: var(--account-setting-link-bg);
+    border-radius: 50%;
+    padding: 10px;
 }
 .mobile-nav-wrapper {
     display: none;

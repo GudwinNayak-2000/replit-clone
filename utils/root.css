@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
 :root {
+    --replit-font-family: "IBM Plex Sans", sans-serif;
     --replit-header-height:46px;
     --loader-color-light:#6BB5FF;
     --loader-color-dark:#004182;
@@ -119,6 +124,20 @@
     --replit-connect-github-button-bg-light:#6bb5ff;
     --replit-connect-github-button-bg-dark:#0053a6;
     --replit-connect-github-button-bg-spooky:#9c4e00;
+    --replit-snowflake-bg-light:#6bb5ff;
+    --replit-snowflake-bg-dark:#fcfcfc;
+    --replit-snowflake-bg-spooky:#EBECED;
+    --replit-setting-menu-list-hover-light:#dadcdd;
+    --replit-setting-menu-list-hover-dark:#2B3245;
+    --replit-setting-menu-list-hover-spooky:#383B42;
+    --replit-dropdown-notification-bg-color-light:#fcfcfc;
+    --replit-dropdown-notification-bg-color-dark:#1C2333;
+    --replit-dropdown-notification-bg-color-spooky:#292C33;
+    --replit-dropdown-notification-border-light:#cacccd;
+    --replit-dropdown-notification-border-dark:#3a4359;
+    --replit-dropdown-notification-border-spooky:#5f677a;
+
+
   }
 
   body.light-theme {
@@ -160,6 +179,10 @@
   --replit-connect-github-button-bg: var(--replit-connect-github-button-bg-light);
   --replit-left-bg: var(--replit-repl-left-bg-light);
   --replit-text-color: var(--replit-text-color-light);
+  --replit-snowflake-bg: var(--replit-snowflake-bg-light);
+  --replit-setting-menu-list-hover: var(--replit-setting-menu-list-hover-light);
+  --replit-dropdown-notification-bg-color: var(--replit-dropdown-notification-bg-color-light);
+  --replit-dropdown-notification-border: var(--replit-dropdown-notification-border-light);
   }
   
   body.dark-theme {
@@ -202,6 +225,10 @@
     --replit-connect-github-button-bg: var(--replit-connect-github-button-bg-dark);
     --replit-left-bg: var(--replit-repl-left-bg-dark);
     --replit-text-color: var(--replit-text-color-dark);
+    --replit-snowflake-bg: var(--replit-snowflake-bg-dark);
+    --replit-setting-menu-list-hover: var(--replit-setting-menu-list-hover-dark);
+    --replit-dropdown-notification-bg-color: var(--replit-dropdown-notification-bg-color-dark);
+    --replit-dropdown-notification-border: var(--replit-dropdown-notification-border-dark);
   }
   
   body.spooky-theme {
@@ -244,5 +271,9 @@
     --replit-left-bg: var(--replit-repl-left-bg-spooky);
     --replit-connect-github-button-bg: var(--replit-connect-github-button-bg-spooky);
     --replit-text-color: var(--replit-text-color-spooky);
+    --replit-snowflake-bg: var(--replit-snowflake-bg-spooky);
+    --replit-setting-menu-list-hover: var(--replit-setting-menu-list-hover-spooky);
+    --replit-dropdown-notification-bg-color: var(--replit-dropdown-notification-bg-color-spooky);
+    --replit-dropdown-notification-border: var(--replit-dropdown-notification-border-spooky);
   }
   

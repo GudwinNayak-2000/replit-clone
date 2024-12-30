@@ -1,4 +1,6 @@
-import { getEnvironmentConfig } from './config/path.js';
+
+
+import { getEnvironmentConfig, resolvePath } from '../config/path.js';
 
 const config = getEnvironmentConfig();
 const BASE_PATH = config.basePath;
@@ -23,7 +25,6 @@ function hideLoader() {
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
     window.pageLoader = new PageLoader();
 });
@@ -34,10 +35,51 @@ window.addEventListener('error', (event) => {
         window.pageLoader.hideLoader();
     }
 });
+
+async function loadCSS(page, isComponent = false) {
+    try {
+        const existingStyle = document.getElementById(`style-${page}`);
+        if (existingStyle) {
+            existingStyle.remove();
+        }
+
+        const cssPath = resolvePath(`css/${page}.css`);
+        
+        const response = await fetch(cssPath);
+        if (response.ok) {
+            const cssText = await response.text();
+            const style = document.createElement('style');
+            style.id = `style-${page}`;
+            style.textContent = cssText;
+            document.head.appendChild(style);
+        }
+    } catch (error) {
+        console.warn(`CSS not found for ${page}:`, error);
+    }
+}
+
 async function loadPage() {
     const links = document.querySelectorAll(".nav-link");
     const contentArea = document.getElementById("content-area");
 
+    await Promise.all([
+        loadCSS('home'),
+        loadCSS('style'),
+        loadCSS('repls'),
+        loadCSS('deployments'),
+        loadCSS('usage'),
+        loadCSS('teams'),
+        loadCSS('bounties'),
+        loadCSS('learn'),
+        loadCSS('documentation'),
+        loadCSS('create-repl'),
+        loadCSS('settings'),
+        loadCSS('account'),
+        loadCSS('profile'),
+        loadCSS('compiler'),
+        loadCSS('landing-page')
+
+    ])
     dropdownMenuItems.forEach(item => {
         item.addEventListener('click', async (e) => {
             const pageName = item.textContent.trim().toLowerCase();
@@ -63,27 +105,29 @@ async function loadPage() {
         hideLoader();
         void loader.offsetWidth;
         showLoader();
-
+       
         try {
             if (isComponent) {
-                const response = await fetch(`${BASE_PATH}/components/${page}.html`);
+                const response = await fetch(resolvePath(`../components/${page}.html`));
                 if (!response.ok) throw new Error(`Failed to load ${page} component`);
-                
                 const content = await response.text();
                 contentArea.innerHTML = content;
-                
+
+                            
                 if (page === 'compiler') {
-                    const { initialize: compilerInitialize } = await import(`${BASE_PATH}/components/js/compiler.js`);
+                    const { initialize: compilerInitialize } = await import(resolvePath(`/components/js/compiler.js`));
                     if (compilerInitialize) await compilerInitialize();
-                } else {
-                    const { initialize } = await import(`${BASE_PATH}/components/js/${page}.js`);
+                } 
+                else {
+                    const { initialize } = await import(resolvePath(`/components/js/${page}.js`));
+                    await loadCSS(`components/${page}`)
                     if (initialize) await initialize();
                 }
             } else {
                 const pagePath = getPagePath(page);
                 const scriptPath = getScriptPath(page);
-                const response = await fetch(pagePath);
-                
+                const response = await fetch(resolvePath(pagePath));
+                await loadCSS(page)
                 if (response.ok) {
                     const content = await response.text();
                     contentArea.innerHTML = content;
@@ -108,19 +152,26 @@ async function loadPage() {
     }
 
     function getPagePath(page) {
-        if (!page) return `${BASE_PATH}/pages/404.html`;  // Handle empty/null page names
+        if (!page) return resolvePath(`/pages/404.html`); 
         
-        const segments = page.split('/').filter(Boolean);  // Remove empty segments
+        const segments = page.split('/').filter(Boolean); 
+        const basePath = window.location.protocol === 'file:' ? '.' : BASE_PATH;
         
         switch(segments[0]) {
             case 'settings':
-                return `${BASE_PATH}/settings/pages/${segments[1] || 'index'}.html`;
+                return window.location.protocol === 'file:' 
+                    ? `./settings/pages/${segments[1] || 'index'}.html`
+                    : resolvePath(`/settings/pages/${segments[1] || 'index'}.html`);
             case 'account':
-                return `${BASE_PATH}/components/account.html`;
+                return window.location.protocol === 'file:' 
+                    ? './components/account.html'
+                    : resolvePath(`/components/account.html`);
             case 'profile':
-                return `${BASE_PATH}/components/profile.html`;
+                return window.location.protocol === 'file:' 
+                    ? './components/profile.html'
+                    : resolvePath(`/components/profile.html`);
             default:
-                return `${BASE_PATH}/pages/${page}.html`;
+                return resolvePath(`/pages/${page}.html`);
         }
     }
     
@@ -128,16 +179,16 @@ async function loadPage() {
         if (!page) return null;
         
         const segments = page.split('/').filter(Boolean);
-        
+
         switch(segments[0]) {
             case 'settings':
-                return `${BASE_PATH}/settings/js/${segments[1] || 'index'}.js`;
-            case 'account':
-                return `${BASE_PATH}/components/js/account.js`;
-            case 'profile':
-                return `${BASE_PATH}/components/js/profile.js`;
-            default:
-                return `${BASE_PATH}/js/${page}.js`;
+           return resolvePath(`/settings/js/${segments[1] || 'index'}.js`);
+       case 'account':
+           return resolvePath(`/components/js/account.js`);
+       case 'profile':
+            return resolvePath(`/components/js/profile.js`);
+       default:
+           return resolvePath(`/js/${page}.js`);
         }
     }
 
@@ -196,6 +247,8 @@ async function loadPage() {
 
     setupEventListeners();
 }
+
+
 
 profileContainer.addEventListener("click", () => {
     const dropdownList = document.getElementById("dropdown-list");
@@ -353,6 +406,8 @@ toggleButton.addEventListener("click", () => {
 
 window.addEventListener('resize', () => updateLayout());
 
+
+
 document.addEventListener("DOMContentLoaded", async () => {
     showLoader();
     try {
@@ -364,3 +419,159 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 window.addEventListener('load', () => hideLoader());
+
+
+// Function to handle dropdown toggles
+function setupDropdown(iconSelector, wrapperSelector) {
+    const icon = document.querySelector(iconSelector);
+    const wrapper = document.querySelector(wrapperSelector);
+
+    if (!icon || !wrapper) return; // Guard clause if elements don't exist
+
+    // Toggle dropdown on icon click
+    icon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        // Close all other dropdowns first
+        document.querySelectorAll('.notification-wrapper, .help-wrapper').forEach(el => {
+            if (el !== wrapper && !el.classList.contains('hidden')) {
+                el.classList.add('hidden');
+            }
+        });
+
+        wrapper.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!wrapper.contains(e.target) && !icon.contains(e.target)) {
+            wrapper.classList.add('hidden');
+        }
+    });
+}
+setupDropdown('.notification-icon', '.notification-wrapper');
+setupDropdown('.help-icon', '.help-wrapper');
+
+
+
+class SnowEffect {
+    constructor() {
+        this.snowflakes = [];
+        this.isSnowing = false;
+        this.container = null;
+        this.statusIndicator = null;
+        this.statusTimeout = null;
+        
+        this.setupSnowToggle();
+    }
+
+    setupSnowToggle() {
+        const snowButton = document.querySelector('.snow-button');
+        snowButton.addEventListener('click', () => this.toggleSnow());
+    }
+
+    createSnowContainer() {
+        if (!this.container) {
+            this.container = document.createElement('div');
+            this.container.className = 'snow';
+            document.body.appendChild(this.container);
+        }
+    }
+
+    createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        
+        // Random properties
+        const size = Math.random() * 4 + 2;
+        const startX = Math.random() * window.innerWidth;
+        const startY = -10;
+        const speed = Math.random() * 2 + 1;
+        const swing = Math.random() * 2 - 1;
+        
+        // Set initial position and size
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.left = `${startX}px`;
+        snowflake.style.top = `${startY}px`;
+        
+        return { element: snowflake, x: startX, y: startY, speed, swing };
+    }
+
+    animateSnowflakes() {
+        if (!this.isSnowing) return;
+
+        this.snowflakes.forEach((snowflake, index) => {
+            snowflake.y += snowflake.speed;
+            snowflake.x += Math.sin(snowflake.y * 0.02) * snowflake.swing;
+            
+            snowflake.element.style.transform = `translate(${snowflake.x}px, ${snowflake.y}px)`;
+            
+            if (snowflake.y > window.innerHeight) {
+                snowflake.element.remove();
+                this.snowflakes.splice(index, 1);
+            }
+        });
+
+        if (this.snowflakes.length < 100 && Math.random() > 0.8) {
+            const newSnowflake = this.createSnowflake();
+            this.container.appendChild(newSnowflake.element);
+            this.snowflakes.push(newSnowflake);
+        }
+
+        requestAnimationFrame(() => this.animateSnowflakes());
+    }
+
+    createStatusIndicator(isActive = true) {
+        if (this.statusTimeout) {
+            clearTimeout(this.statusTimeout);
+            this.statusTimeout = null;
+        }
+
+        if (this.statusIndicator) {
+            this.statusIndicator.remove();
+            this.statusIndicator = null;
+        }
+
+        this.statusIndicator = document.createElement('div');
+        this.statusIndicator.className = `snow-status-indicator ${isActive ? 'active' : 'close'}`;
+        this.statusIndicator.innerHTML = `
+            <div class="status-content">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 1.5a.75.75 0 0 1 .75.75v1.697l1.241-.712a.75.75 0 0 1 .75 1.3L9.5 5.247V6.75h1.503l.712-1.241a.75.75 0 0 1 1.3.75L12.303 7.5H14a.75.75 0 0 1 0 1.5h-1.697l.712 1.241a.75.75 0 0 1-1.3.75L10.003 9.75H8.5v1.503l1.241.712a.75.75 0 0 1-.75 1.3L7.75 12.553V14a.75.75 0 0 1-1.5 0v-1.697l-1.241.712a.75.75 0 0 1-.75-1.3L5.5 10.503V9H3.997l-.712 1.241a.75.75 0 0 1-1.3-.75L2.697 8.5H1a.75.75 0 0 1 0-1.5h1.697l-.712-1.241a.75.75 0 0 1 1.3-.75L4.997 6.25H6.5V4.747L5.259 4.035a.75.75 0 0 1 .75-1.3L7.25 3.447V1.75A.75.75 0 0 1 8 1.5Z"/>
+                </svg>
+                <span>${isActive ? 'Snow Mode Active' : 'Snow Mode Disabled'}</span>
+            </div>
+        `;
+        document.body.appendChild(this.statusIndicator);
+
+        this.statusTimeout = setTimeout(() => {
+            this.statusIndicator.classList.add('fade-out');
+            setTimeout(() => {
+                if (this.statusIndicator) {
+                    this.statusIndicator.remove();
+                    this.statusIndicator = null;
+                }
+            }, 500);
+        }, 3000);
+    }
+
+    toggleSnow() {
+        this.isSnowing = !this.isSnowing;
+        
+        if (this.isSnowing) {
+            this.createSnowContainer();
+            this.animateSnowflakes();
+            this.createStatusIndicator(true);
+        } else {
+            if (this.container) {
+                this.container.remove();
+                this.container = null;
+                this.snowflakes = [];
+            }
+            this.createStatusIndicator(false);
+        }
+        document.querySelector('.snow-button').classList.toggle('active');
+    }
+}
+
+const snowEffect = new SnowEffect();

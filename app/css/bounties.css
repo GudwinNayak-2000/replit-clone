@@ -1,4 +1,5 @@
 @import url('/utils/root.css');
+@import url('/utils/fonts.css');
 
 
 :root {
@@ -14,6 +15,9 @@
   --replit-active-tab-hover-bg-light: #fcfcfc;
   --replit-active-tab-hover-bg-dark: #1c2333;
   --replit-active-tab-hover-bg-spooky: #292c33;
+  --replit-services-container-bg-light: #FCFCFC;
+  --replit-services-container-bg-dark: #1C2333;
+  --replit-services-container-bg-spooky: #292C33;
 }
 
 body.light-theme {
@@ -21,6 +25,7 @@ body.light-theme {
   --replit-active-tab-bottom-border: #3c2f31;
   --replit-tabs-divider-border: #d6d8d9;
   --replit-active-tab-hover-bg: #fcfcfc;
+  --replit-services-container-bg: var(--replit-services-container-bg-light);
 }
 
 body.dark-theme {
@@ -28,6 +33,7 @@ body.dark-theme {
   --replit-active-tab-bottom-border: #c4c7bd;
   --replit-tabs-divider-border: #2b3245;
   --replit-active-tab-hover-bg: #1c2333;
+  --replit-services-container-bg: var(--replit-services-container-bg-dark);
 }
 
 body.spooky-theme {
@@ -35,6 +41,7 @@ body.spooky-theme {
   --replit-active-tab-bottom-border: #f5f9fc;
   --replit-tabs-divider-border: #4e5569;
   --replit-active-tab-hover-bg: #292c33;
+  --replit-services-container-bg: var(--replit-services-container-bg-spooky);
 }
 
 .bounties-container {
@@ -97,21 +104,19 @@ body.spooky-theme {
   display: none;
 }
 
-/* Services Container */
 .services-container {
   border-radius: 8px;
   width: 100%;
+  padding: 0 10px;
+  background-color: var(--replit-services-container-bg);
 }
 
 
-/* Header Section */
 .services-header {
-  padding: 10px 0;
   cursor: pointer;
   border-bottom: 1px solid transparent;
 }
 
-/* Title Section */
 .services-title {
   display: flex;
   justify-content: space-between;
@@ -165,19 +170,22 @@ body.spooky-theme {
 .service-card {
   border-radius: 8px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--replit-border-color);
 }
-
 
 
 .service-image {
   width: 100%;
-  height: 160px;
+  height: 100px;
   overflow: hidden;
 }
 
 .service-image img {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   object-fit: cover;
 }
 
@@ -197,7 +205,11 @@ body.spooky-theme {
 .views {
   font-size: 14px;
 }
-
+.service-content{
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
 .service-content h3 {
   margin: 0 0 8px 0;
   font-size: 16px;
@@ -245,12 +257,19 @@ body.spooky-theme {
   cursor: default;
 }
 
-
-
-.posted-bounties-top {
+.posted-bounties-top{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.posted-bounties-top-filters{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
   width: 100%;
 }
 
@@ -265,6 +284,16 @@ body.spooky-theme {
   gap: 8px;
 }
 
+.posted-bounties-top .sort-by-recommended,.all-bounties,.get-started-button{
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  background-color: var(--replit-search-input-bg-color);
+  align-items: center;
+  gap: 8px;
+  color: var(--replit-text-color);
+  border: none;
+}
 .posted-bounties-container{
   display: flex;
   flex-direction: column;
@@ -274,13 +303,21 @@ body.spooky-theme {
   height: 300px;
 }
 
-
+.bounty-history-cards-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+}
 .bounty-history-card{
   display: flex;
   flex-direction: column;
   border-radius: 8px;
   width: 100%;
   padding: 12px;
+  gap: 12px;
+  border: 1px solid var(--replit-border-color);
+  background-color: var(--replit-search-input-bg-color);
 }
 
 .bounty-history-top{

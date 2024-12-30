@@ -1,0 +1,202 @@
+@import url('/utils/root.css');
+@import url('/utils/fonts.css');
+
+
+
+:root{
+   --account-settings-button-bg-light:#f0f1f2;
+   --account-settings-button-bg-dark:#1c2333;
+   --account-settings-button-bg-spooky:#292c33;
+   --input-border-light:#d7d9da;
+   --account-delete-btn-border-light:#fc6a6a;
+   --account-delete-btn-border-dark:#fc6a6a;
+   --account-delete-btn-border-spooky:#fc6a6a;
+   --account-delete-text-color-light:#8a0000;
+   --account-delete-text-color-dark:#fc6a6a;
+   --account-delete-text-color-spooky:#fc6a6a;
+   --select-option-bg-light:#E4E5E6;
+   --select-option-bg-dark:#3C445C;
+   --select-option-bg-spooky:#474A52;
+
+}
+
+body.light-theme{
+   --account-settings-button-bg:var(--account-settings-button-bg-light);
+   --input-border:var(--input-border-light);
+   --account-delete-btn-border:var(--account-delete-btn-border-light);
+   --account-delete-text-color:var(--account-delete-text-color-light);
+   --select-option-bg:var(--select-option-bg-light);
+}
+body.dark-theme{
+   --account-settings-button-bg:var(--account-settings-button-bg-dark);
+   --input-border:var(--input-border-dark);
+   --account-delete-btn-border:var(--account-delete-btn-border-dark);
+   --account-delete-text-color:var(--account-delete-text-color-dark);
+   --select-option-bg:var(--select-option-bg-dark);
+}
+body.spooky-theme{
+   --account-settings-button-bg:var(--account-settings-button-bg-spooky);
+   --input-border:var(--input-border-spooky);
+   --account-delete-btn-border:var(--account-delete-btn-border-spooky);
+   --account-delete-text-color:var(--account-delete-text-color-spooky);
+   --select-option-bg:var(--select-option-bg-spooky);
+}
+
+.account-settings-container{
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+}
+.account-settings-container-card{
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   background-color: var(--replit-template-card-bg);
+   padding: 20px;
+   border-radius: 4px;
+}
+.account-settings-container-card-left{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.account-settings-container-card-right-button{
+    display: flex;
+    align-items: center;
+}
+.receive-notifications-container{
+   display: flex;
+   justify-content: space-between;
+}
+.export-repls-container{
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+}
+.danger-zone-container{
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+}
+
+.edit-email-btn,.edit-password-btn{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap:4px 8px;
+   background-color: var(--account-settings-button-bg);
+   border: 1px solid var(--input-border-light);
+   padding: 8px;
+   border-radius: 4px;
+   cursor: pointer;
+   color: var(--replit-text-color);
+}
+
+.account-settings-region-btn {
+   padding: 4px 8px;
+   min-width: 160px;
+   height: 30px;
+   font-size: 14px;
+   font-family: inherit;
+   background-color:var(--select-option-bg);
+   border: 1px solid var(--input-border);
+   border-radius: 6px;
+   color: var(--replit-text-color);
+   cursor: pointer;
+   transition: all 0.2s ease;
+}
+.account-settings-region-btn option {
+   padding: 8px 12px;
+   background-color: var(--select-option-bg);
+   color: var(--replit-text-color);
+   font-size: var(--text-size-base);
+}
+
+
+.account-settings-region-btn:focus {
+   outline: none;
+   border-color: #2196f3;
+   box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+.receive-notifications-container-label,.server-location-label{
+   display: flex;
+   align-items: center;
+   gap: 8px;
+}
+
+.export-repls-button{
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   width: fit-content;
+   background-color: var(--account-settings-button-bg);
+   border: 1px solid var(--input-border-light);
+   padding: 8px;
+   border-radius: 4px;
+   cursor: pointer;
+   color: var(--replit-text-color);
+}
+
+.request-account-deletion-button{
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   width: fit-content;
+   background-color: var(--account-settings-button-bg);
+   border: 1px solid var(--account-delete-btn-border);
+   padding: 8px;
+   border-radius: 4px;
+   cursor: pointer;
+   color: var(--account-delete-text-color);
+}
+
+
+
+
+
+
+
+
+
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+ }
+ .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+ }
+ .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+ }
+ .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+ }
+ input:checked + .slider {
+    background-color: #2196F3;
+ }
+ input:checked + .slider:before {
+    transform: translateX(16px);
+ }
+

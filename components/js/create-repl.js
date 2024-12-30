@@ -71,9 +71,9 @@ function switchGithubTabs(){
 async function searchTemplates() {
     let data;
     try {
-        const response = await fetch(`${config.basePath}/data/templates.json`);
+        const response = await fetch(`${config.basePath}/data/data.json`);
         const jsonData = await response.json();
-        data = jsonData.templates;
+        data = jsonData.categories;
     } catch (error) {
         console.error('Error loading templates:', error);
         data = [];
@@ -89,7 +89,7 @@ async function searchTemplates() {
         resultsContainer.innerHTML = '';
 
         if (query) {
-            const filteredData = data.filter(item => 
+            const filteredData = data.templates?.filter(item => 
                 item.name.toLowerCase().includes(query)
             );
 

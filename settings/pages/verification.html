@@ -1,20 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/verification.css">
     <title>verification settings</title>
 </head>
+
 <body>
     <div>
         <h2>Verification</h2>
-        <div>
-            <label for="">Enter your phone number:</label>
-            <input type="text" placeholder="Phone number">
-            <span>Your phone number is only used for account verification. We will not use it for any other purpose.</span>
-            <button>Send Code</button>
-        </div>
+        <div class="verification-container">
+            <label>Enter your phone number:</label>
+            <div class="phone-input-container">
+              <div class="country-code">
+                <select id="countryCode">
+                  <option value="+1">🇺🇸 +1</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+91">🇮🇳 +91</option>
+                  <option value="+61">🇦🇺 +61</option>
+                  <option value="+81">🇯🇵 +81</option>
+                </select>
+              </div>
+              <input type="tel" id="phoneNumber" class="phone-number" placeholder="Enter your phone number">
+            </div>
+            <p class="info-text">Your phone number is only used for account verification.</p>
+            <button class="send-code-btn" onclick="sendCode()">Send code</button>
+          </div>
     </div>
+
+    <script>
+        function sendCode() {
+          const countryCode = document.getElementById('countryCode').value;
+          const phoneNumber = document.getElementById('phoneNumber').value;
+    
+          if (phoneNumber.trim() === '') {
+            alert('Please enter your phone number.');
+            return;
+          }
+    
+          alert(`Verification code sent to ${countryCode} ${phoneNumber}`);
+        }
+      </script>
+
+   
+   
 </body>
+
 </html>

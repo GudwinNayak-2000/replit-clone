@@ -1,0 +1,640 @@
+{
+  "metadata": {
+    "lastUpdated": "2024-03-20",
+    "version": "1.0"
+  },
+  "categories": {
+    "bounties_page":{
+      "title": "Bounties",
+      "description": "Work with top Replit creators to bring your ideas to life.",
+      "tabs":{
+        "all_bounties":{
+          "title":"All Bounties",
+          "description":"All bounties"
+        }
+      }
+    },
+    "template_page": {
+      "title": "Templates",
+      "description": "Use Templates as the starting point for your next project.",
+      "how_to_publish": "How to publish a template",
+      "build-title": "What do you want to build?",
+      "build-description": "Choose your development path",
+      "build_carousel_cards": [
+        {
+          "id": "ai",
+          "icon": "ai-icon.svg",
+          "title": "AI",
+          "description": "Build with the latest in AI",
+          "background": "https://replit.com/public/images/template-category-ai.jpg",
+          "tags": ["machine-learning", "data-science", "neural-networks"],
+          "difficulty": "advanced",
+          "popularTemplates": ["python-data-science", "openai-gpt4"]
+        },
+        {
+          "id": "websites",
+          "icon": "website-icon.svg",
+          "title": "Websites",
+          "description": "Build and host websites and apps",
+          "background": "https://replit.com/public/images/template-category-websites.jpg",
+          "tags": ["frontend", "backend", "fullstack"],
+          "difficulty": "beginner",
+          "popularTemplates": ["html-css-js", "react-starter"]
+        },
+        {
+          "id": "Verified Partners",
+          "icon": "verified-partners-icon.svg",
+          "title": "Verified Partners",
+          "description": "SDK's, tutorials and a quick start guide from the worlds best tech companies.",
+          "background": "https://replit.com/public/images/template-category-verified.jpg",
+          "tags": ["verified", "partners"],
+          "difficulty": "beginner",
+          "popularTemplates": ["verified-partners"]
+        },
+        {
+          "id": "graphics",
+          "icon": "graphics-icon.svg",
+          "title": "Graphics",
+          "description": "Paint with code",
+          "background": "https://replit.com/public/images/template-category-graphics.jpg",
+          "tags": ["verified", "partners"],
+          "difficulty": "beginner",
+          "popularTemplates": ["verified-partners"]
+        },
+        {
+          "id": "games",
+          "icon": "games-icon.svg",
+          "title": "Games",
+          "description": "Build bots for telegram, discord, slack and more.",
+          "background": "https://replit.com/public/images/template-category-games.jpg"
+        },
+        {
+          "id": "bots",
+          "icon": "bots-icon.svg",
+          "title": "Bots",
+          "description": "Create the bots of your dreams.",
+          "background": "https://replit.com/public/images/template-category-bots.jpg"
+        },
+        {
+          "id": "google-cloud",
+          "icon": "google-cloud-icon.svg",
+          "title": "Google Cloud",
+          "description": "Official templates created in partnership with Google Cloud.",
+          "background": "https://replit.com/public/images/template-category-cloud.jpg"
+        }
+      ],
+      "languages_title": "Languages",
+      "languages_description": "Choose your language",
+      "languages_cards": [
+        {
+          "id": "python",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "Python",
+          "verified": true,
+          "difficulty": "beginner",
+          "stats": {
+            "likes": "5.1K",
+            "runs": "54.9M",
+            "projects": "120K"
+          },
+          "features": [
+            "Data Science",
+            "Web Development",
+            "AI/ML",
+            "Automation"
+          ],
+          "templates": ["basic", "data-science", "web-flask", "django"],
+          "resources": {
+            "documentation": "https://docs.python.org",
+            "tutorials": ["getting-started", "intermediate", "advanced"],
+            "examples": ["hello-world", "web-scraping", "api-server"]
+          }
+        },
+        {
+          "id": "python",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "Python",
+          "verified": true,
+          "difficulty": "beginner",
+          "stats": {
+            "likes": "5.1K",
+            "runs": "54.9M",
+            "projects": "120K"
+          },
+          "features": [
+            "Data Science",
+            "Web Development",
+            "AI/ML",
+            "Automation"
+          ],
+          "templates": ["basic", "data-science", "web-flask", "django"],
+          "resources": {
+            "documentation": "https://docs.python.org",
+            "tutorials": ["getting-started", "intermediate", "advanced"],
+            "examples": ["hello-world", "web-scraping", "api-server"]
+          }
+        },
+        {
+          "id": "python",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "Python",
+          "verified": true,
+          "difficulty": "beginner",
+          "stats": {
+            "likes": "5.1K",
+            "runs": "54.9M",
+            "projects": "120K"
+          },
+          "features": [
+            "Data Science",
+            "Web Development",
+            "AI/ML",
+            "Automation"
+          ],
+          "templates": ["basic", "data-science", "web-flask", "django"],
+          "resources": {
+            "documentation": "https://docs.python.org",
+            "tutorials": ["getting-started", "intermediate", "advanced"],
+            "examples": ["hello-world", "web-scraping", "api-server"]
+          }
+        },
+        {
+          "id": "python",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "Python",
+          "verified": true,
+          "difficulty": "beginner",
+          "stats": {
+            "likes": "5.1K",
+            "runs": "54.9M",
+            "projects": "120K"
+          },
+          "features": [
+            "Data Science",
+            "Web Development",
+            "AI/ML",
+            "Automation"
+          ],
+          "templates": ["basic", "data-science", "web-flask", "django"],
+          "resources": {
+            "documentation": "https://docs.python.org",
+            "tutorials": ["getting-started", "intermediate", "advanced"],
+            "examples": ["hello-world", "web-scraping", "api-server"]
+          }
+        },
+        {
+          "id": "python",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "Python",
+          "verified": true,
+          "difficulty": "beginner",
+          "stats": {
+            "likes": "5.1K",
+            "runs": "54.9M",
+            "projects": "120K"
+          },
+          "features": [
+            "Data Science",
+            "Web Development",
+            "AI/ML",
+            "Automation"
+          ],
+          "templates": ["basic", "data-science", "web-flask", "django"],
+          "resources": {
+            "documentation": "https://docs.python.org",
+            "tutorials": ["getting-started", "intermediate", "advanced"],
+            "examples": ["hello-world", "web-scraping", "api-server"]
+          }
+        },
+        {
+          "id": "python",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "Python",
+          "verified": true,
+          "difficulty": "beginner",
+          "stats": {
+            "likes": "5.1K",
+            "runs": "54.9M",
+            "projects": "120K"
+          },
+          "features": [
+            "Data Science",
+            "Web Development",
+            "AI/ML",
+            "Automation"
+          ],
+          "templates": ["basic", "data-science", "web-flask", "django"],
+          "resources": {
+            "documentation": "https://docs.python.org",
+            "tutorials": ["getting-started", "intermediate", "advanced"],
+            "examples": ["hello-world", "web-scraping", "api-server"]
+          }
+        },
+        {
+          "id": "python",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "Python",
+          "verified": true,
+          "difficulty": "beginner",
+          "stats": {
+            "likes": "5.1K",
+            "runs": "54.9M",
+            "projects": "120K"
+          },
+          "features": [
+            "Data Science",
+            "Web Development",
+            "AI/ML",
+            "Automation"
+          ],
+          "templates": ["basic", "data-science", "web-flask", "django"],
+          "resources": {
+            "documentation": "https://docs.python.org",
+            "tutorials": ["getting-started", "intermediate", "advanced"],
+            "examples": ["hello-world", "web-scraping", "api-server"]
+          }
+        },
+        {
+          "id": "python",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "Python",
+          "verified": true,
+          "difficulty": "beginner",
+          "stats": {
+            "likes": "5.1K",
+            "runs": "54.9M",
+            "projects": "120K"
+          },
+          "features": [
+            "Data Science",
+            "Web Development",
+            "AI/ML",
+            "Automation"
+          ],
+          "templates": ["basic", "data-science", "web-flask", "django"],
+          "resources": {
+            "documentation": "https://docs.python.org",
+            "tutorials": ["getting-started", "intermediate", "advanced"],
+            "examples": ["hello-world", "web-scraping", "api-server"]
+          }
+        },
+        {
+          "id": "python",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "Python",
+          "verified": true,
+          "difficulty": "beginner",
+          "stats": {
+            "likes": "5.1K",
+            "runs": "54.9M",
+            "projects": "120K"
+          },
+          "features": [
+            "Data Science",
+            "Web Development",
+            "AI/ML",
+            "Automation"
+          ],
+          "templates": ["basic", "data-science", "web-flask", "django"],
+          "resources": {
+            "documentation": "https://docs.python.org",
+            "tutorials": ["getting-started", "intermediate", "advanced"],
+            "examples": ["hello-world", "web-scraping", "api-server"]
+          }
+        },
+        {
+          "id": "HTML, CSS..",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664473044967_513d905f04b05dc76a37ec102fb668eb.jpeg",
+          "title": "HTML, CSS..",
+          "verified": true,
+          "difficulty": "beginner",
+          "stats": {
+            "likes": "5.1K",
+            "runs": "54.9M",
+            "projects": "120K"
+          },
+          "features": [
+            "Data Science",
+            "Web Development",
+            "AI/ML",
+            "Automation"
+          ],
+          "templates": ["basic", "data-science", "web-flask", "django"],
+          "resources": {
+            "documentation": "https://docs.python.org",
+            "tutorials": ["getting-started", "intermediate", "advanced"],
+            "examples": ["hello-world", "web-scraping", "api-server"]
+          }
+        }
+      ],
+      "ai_title": "AI",
+      "ai_cards": [
+        {
+          "id": "python-data-science",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "Python Data Science",
+          "description": "Good starting point for working on data science projects. Contains numpy, pandas, matplotlib, tensorflow and more.",
+          "stats": {
+            "likes": "246",
+            "forks": "71.4K"
+          },
+          "publisherIcon": "https://replit.com/cdn-cgi/image/width=32,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664927092698_5fedf430bbf1e7bb410e01c8b6e12dc8.png",
+          "publisher": "replit",
+          "verified": true
+        },
+        {
+          "id": "openai-gpt4",
+          "icon": "openai-icon.svg",
+          "title": "OpenAI Python GPT-4",
+          "description": "Access the OpenAI GPT-4 chat AI model using Python. Create your own LLM-driven AI server!",
+          "stats": {
+            "likes": "232",
+            "forks": "30.7K"
+          },
+          "publisher": "replit",
+          "verified": true
+        }
+      ],
+      "websites_title": "Websites",
+      "websites_cards": [
+        {
+          "id": "html-css-js",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "HTML, CSS, JS",
+          "description": "The languages that make up the web. HTML provides the basic structure, CSS controls formatting, and JavaScript controls the behavior.",
+          "stats": {
+            "likes": "2.7K",
+            "forks": "15.7M"
+          },
+          "publisher": "replit",
+          "verified": true
+        },
+        {
+          "id": "html-css-js",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "HTML, CSS, JS",
+          "description": "The languages that make up the web. HTML provides the basic structure, CSS controls formatting, and JavaScript controls the behavior.",
+          "stats": {
+            "likes": "2.7K",
+            "forks": "15.7M"
+          },
+          "publisher": "replit",
+          "verified": true
+        },
+        {
+          "id": "react-javascript",
+          "icon": "https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1664475603315_1442b3c69cc612aff6ef60cce0c69328.jpeg",
+          "title": "React Javascript",
+          "description": "Online React Editor and IDE: compile, run, and host React apps",
+          "stats": {
+            "likes": "234",
+            "forks": "472.6K"
+          },
+          "publisher": "replit",
+          "verified": true
+        }
+      ]
+    },
+    "learn_page": {
+      "pageTitle": "Learn",
+      "repls_count": "1/3 Repls",
+      "subtitle": "Get started with a course, tutorial, or lesson.",
+      "courses_section": {
+        "title": "Coding Courses",
+        "description": "Take a deep dive into a new technology.",
+        "courses": [
+          {
+            "id": 1,
+            "title": "100 Days of Code - The Complete Python Course",
+            "description": "In this course, you will build games, apps, and websites by mastering Python programming...",
+            "metadata": {
+              "timePerDay": "15 minutes per day",
+              "level": "Beginner friendly"
+            },
+            "imageUrl": "https://replit.com/cdn-cgi/image/width=2048,quality=80,format=auto/public/images/100-days-of-python/og.jpg"
+          },
+          {
+            "id": 2,
+            "title": "100 Days of Code (Hindi) - Python Course",
+            "description": "Learn Python in 100 Days with CodeWithHarry!",
+            "metadata": {
+              "language": "Taught in Hindi",
+              "level": "Beginner friendly"
+            },
+            "imageUrl": "https://replit.com/cdn-cgi/image/width=1200,quality=80,format=auto/public/images/code-with-harry-100-doc/og.jpg"
+          },
+          {
+            "id": 3,
+            "title": "Build a Discord Currency Bot",
+            "description": "Discord Bots are now more reliable than ever on Replit - let's build a Currency bot that allows...",
+            "metadata": {
+              "timePerDay": "30 minutes per lesson",
+              "level": "Intermediate"
+            },
+            "imageUrl": "https://replit.com/cdn-cgi/image/width=750,quality=80,format=auto/public/images/discord-currency-bot/og.jpg"
+          },
+          {
+            "id": 4,
+            "title": "Unlock the Power of LLMs like GPT with Python",
+            "description": "This course is designed for developers looking...",
+            "metadata": {
+              "timePerDay": "60 minutes per lesson",
+              "level": "Intermediate"
+            },
+            "imageUrl": "https://replit.com/cdn-cgi/image/width=1920,quality=80,format=auto/public/images/ai-camp-unlock-llms/og.jpg"
+          }
+        ]
+      },
+      "youtube-tutorials": {
+        "title": "YouTube Tutorials",
+        "subtitle": "Learn better through video? We've got you covered.",
+        "tutorials": [
+          {
+            "id": 1,
+            "title": "What's the Replit Agent?",
+            "subtitle": "Replit Agent in 60 Seconds",
+            "description": "Discover how Replit's new AI-powered agent revolutionizes software development.",
+            "imageUrl": "replit-agent-60-seconds.jpg",
+            "thumbnailBg": "dark-blue"
+          },
+          {
+            "id": 2,
+            "title": "Replit Agent: Tips & Tricks",
+            "subtitle": "Tips for Agent",
+            "description": "Getting started with the Replit Agent: 3 Essential Tips for Better Results",
+            "imageUrl": "tips-for-agent.jpg",
+            "thumbnailBg": "navy"
+          },
+          {
+            "id": 3,
+            "title": "Add Auth in Seconds",
+            "subtitle": "React auth in seconds",
+            "description": "⚡ Supercharge your React apps with Replit Auth - Simple user authentication in minutes!",
+            "imageUrl": "react-auth-seconds.jpg",
+            "thumbnailBg": "dark-green"
+          },
+          {
+            "id": 4,
+            "title": "Choosing the Right Deployment",
+            "subtitle": "Deploy with Replit",
+            "description": "A Complete Guide to Static, Scheduled, Reserved VM, and Autoscale Options.",
+            "imageUrl": "deploy-with-replit.jpg",
+            "thumbnailBg": "orange"
+          },
+          {
+            "id": 5,
+            "title": "Types of Storage on Replit",
+            "subtitle": "Store data on Replit",
+            "description": "Learn about Postgres, Key-Value, and Object Storage options to build powerful applications.",
+            "imageUrl": "storage-on-replit.jpg",
+            "thumbnailBg": "orange"
+          },
+          {
+            "id": 6,
+            "title": "Fullstack deployments",
+            "subtitle": "Fullstack Deployments",
+            "description": "Unlock the power of Replit for complex architectures. Learn how to build and deploy...",
+            "imageUrl": "fullstack-deployments.jpg",
+            "thumbnailBg": "dark-green"
+          }
+        ]
+      }
+    },
+    "templates": [
+      {
+        "id": "javascript",
+        "name": "JavaScript",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+        "extension": "js",
+        "defaultCode": "// Write your JavaScript code here\n\nconsole.log('Hello, World!');",
+        "difficulty": "beginner",
+        "tags": ["frontend", "web", "scripting"],
+        "features": ["DOM manipulation", "Async programming", "ES6+"],
+        "resources": {
+          "documentation": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+          "tutorials": ["basics", "advanced", "node-integration"]
+        }
+      },
+      {
+        "id": "python",
+        "name": "Python",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+        "extension": "py",
+        "defaultCode": "# Write your Python code here\n\nprint('Hello, World!')",
+        "difficulty": "beginner",
+        "tags": ["backend", "data-science", "ai-ml"],
+        "features": ["Easy syntax", "Large ecosystem", "Cross-platform"],
+        "resources": {
+          "documentation": "https://docs.python.org",
+          "tutorials": ["getting-started", "data-science", "web-dev"]
+        }
+      },
+      {
+        "id": "nodejs",
+        "name": "Node.js",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+        "extension": "js",
+        "defaultCode": "// Write your Node.js code here\n\nconst http = require('http');\n\nconst server = http.createServer((req, res) => {\n    res.writeHead(200, {'Content-Type': 'text/plain'});\n    res.end('Hello, World!');\n});\n\nserver.listen(3000, () => {\n    console.log('Server running on port 3000');\n});",
+        "difficulty": "intermediate",
+        "tags": ["backend", "server", "javascript"],
+        "features": ["Event-driven", "Non-blocking I/O", "NPM ecosystem"],
+        "resources": {
+          "documentation": "https://nodejs.org/docs",
+          "tutorials": ["server-basics", "express", "api-development"]
+        }
+      },
+      {
+        "id": "html5",
+        "name": "HTML5",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+        "extension": "html",
+        "defaultCode": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <title>Hello, World!</title>\n</head>\n<body>\n    <h1>Hello, World!</h1>\n</body>\n</html>",
+        "difficulty": "beginner",
+        "tags": ["frontend", "web", "markup"],
+        "features": ["Semantic elements", "Multimedia support", "Forms 2.0"],
+        "resources": {
+          "documentation": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+          "tutorials": ["structure", "forms", "accessibility"]
+        }
+      },
+      {
+        "name": "CSS3",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+        "extension": "css",
+        "defaultCode": "/* Write your CSS code here */\n\nbody {\n    font-family: Arial, sans-serif;\n    background-color: #f0f0f0;\n}\nh1 {\n    color: #333;\n}"
+      },
+      {
+        "name": "React",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        "extension": "jsx",
+        "defaultCode": "import React from 'react';\n\nfunction App() {\n    return (\n        <div>\n            <h1>Hello, World!</h1>\n        </div>\n    );\n}\n\nexport default App;"
+      },
+      {
+        "name": "Vue.js",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+        "extension": "vue",
+        "defaultCode": "<template>\n  <div>\n    <h1>Hello, World!</h1>\n  </div>\n</template>\n\n<script>\nexport default {\n  name: 'HelloWorld'\n};\n</script>\n\n<style scoped>\nh1 {\n  color: #42b983;\n}\n</style>"
+      },
+      {
+        "name": "Java",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+        "extension": "java",
+        "defaultCode": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}"
+      },
+      {
+        "name": "C++",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+        "extension": "cpp",
+        "defaultCode": "#include <iostream>\n\nint main() {\n    std::cout << \"Hello, World!\" << std::endl;\n    return 0;\n}"
+      },
+      {
+        "name": "C#",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+        "extension": "cs",
+        "defaultCode": "using System;\n\nclass HelloWorld {\n    static void Main() {\n        Console.WriteLine(\"Hello, World!\");\n    }\n}"
+      },
+      {
+        "name": "PHP",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+        "extension": "php",
+        "defaultCode": "<?php\n// Write your PHP code here\necho 'Hello, World!';"
+      },
+      {
+        "name": "Go",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
+        "extension": "go",
+        "defaultCode": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Hello, World!\")\n}"
+      },
+      {
+        "name": "Ruby",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg",
+        "extension": "rb",
+        "defaultCode": "# Write your Ruby code here\n\nputs 'Hello, World!'"
+      },
+      {
+        "name": "Rust",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg",
+        "extension": "rs",
+        "defaultCode": "fn main() {\n    println!(\"Hello, World!\");\n}"
+      },
+      {
+        "name": "Swift",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+        "extension": "swift",
+        "defaultCode": "import Foundation\n\nprint(\"Hello, World!\")"
+      },
+      {
+        "name": "Kotlin",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+        "extension": "kt",
+        "defaultCode": "fun main() {\n    println(\"Hello, World!\")\n}"
+      },
+      {
+        "name": "Docker",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+        "extension": "dockerfile",
+        "defaultCode": "# Write your Dockerfile here\n\nFROM ubuntu:latest\nCMD echo 'Hello, World!'"
+      }
+    ]
+  }
+}
