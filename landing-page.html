@@ -29,8 +29,8 @@
             </div>
             <div class="nav-right">
                 <a href="">Contact Sales</a>
-                <a href="./app/app.html">Log in</a>
-                <a href="">Get Started</a>
+                <a href="./app/app.html" class="login-btn">Log in</a>
+                <a href="./app/app.html" class="get-started-btn">Get Started</a>
             </div>
         </nav>
 
@@ -48,7 +48,7 @@
                    </span>
                    <span class="fourth-word">,</span>
                    <span class="fifth-word">
-                    Fa<span class="fifth-word-s">s</span>t
+                    <span class="fifth-word-f">f</span>a<span class="fifth-word-s">s</span>t
                    </span>
                   </div>
                   <p class="heading-description">Create beautiful, modern web applications at the speed of thought. Describe what you need and Replit's AI Agent builds it for you.</p>
@@ -63,9 +63,12 @@
                                 <div class="option">💪 Workout tracker</div>
                                 <div class="option">🤖 AI debate app</div>
                             </div>
+                            <div class="divider"></div>
                             <div class="actions-btns">
                                 <a class="attach-btn">📎 Attach</a>
-                                <button class="start-btn">Start building</button>
+                                <button class="start-btn">
+                                    <svg class="w-5 h-5" fill="#F1F3F4"  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.47614 2.46329C2.70058 2.24421 3.03764 2.18792 3.32109 2.32219L22.3211 11.3222C22.583 11.4463 22.75 11.7102 22.75 12C22.75 12.2898 22.583 12.5537 22.3211 12.6778L3.32109 21.6778C3.03764 21.8121 2.70058 21.7558 2.47614 21.5367C2.2517 21.3176 2.18728 20.982 2.31467 20.6954L6.17929 12L2.31467 3.30459C2.18728 3.01798 2.2517 2.68238 2.47614 2.46329ZM7.48743 12.75L4.50682 19.4564L18.6647 12.75H7.48743ZM18.6647 11.25H7.48743L4.50682 4.54362L18.6647 11.25Z"></path></svg>
+                                    Start building</button>
                             </div>
                         </div>
                     </div>
@@ -73,7 +76,7 @@
             </section>
             <section class="loved-by-text-section">
                 <div class="loved-by-text">
-                    <p>Loved by 30 million software creators, including teams at:</p>
+                    <p class="loved-by-text-p">Loved by 30 million software creators, including teams at:</p>
                 </div>
             </section>
             <section class="logos-section">
@@ -85,11 +88,66 @@
                         <img class="logo" src="https://cdn.sanity.io/images/bj34pdbp/migration/2cdc4d580f666fcd55b45f9be4a6f16226282aba-211x44.svg?w=211&q=80&fit=clip&auto=format" alt="">
                     </div>
             </section>
-            <section>
-                <p>Replit Agent: The best AI for apps and websites
-                </p>
-                <h2>Your own automated web developer</h2>
-                <p>Meet Replit Agent, an advanced AI making programming accessible to everyone. Build at the speed of thought and launch in minutes.                </p>
+            <section class="replit-agent-section">
+                <div class="replit-agent-text-container">
+                <p class="replit-agent-title">Replit Agent: The best AI for apps and websites</p>
+                <p class="replit-agent-subtitle">Your own automated web developer</p>
+                <p class="replit-agent-description">Meet Replit Agent, an advanced AI making programming accessible to everyone. Build at the speed of thought and launch in minutes.</p>
+                </div>
+            </section>
+            <section class="how-it-works-section">
+                <div class="container">
+                    
+                    <div class="sidebar">
+                      <p class="how-it-works-title"><svg width="16" height="16" viewBox="0 0 32 32" fill="none" class="w-5 h-5"><path d="M13.5 2V3M3.5 12H4.5M17.5 4L18.5 2M5.5 16L3.5 17M21.7938 17.2938C21.6783 17.1786 21.5928 17.0369 21.5446 16.8811C21.4965 16.7253 21.4871 16.5601 21.5175 16.3999C21.5478 16.2396 21.6168 16.0893 21.7186 15.9618C21.8203 15.8344 21.9517 15.7338 22.1012 15.6687L27.9025 13.4412C28.0848 13.3585 28.238 13.2229 28.3423 13.052C28.4467 12.8812 28.4974 12.683 28.4878 12.483C28.4782 12.2831 28.4089 12.0906 28.2887 11.9305C28.1685 11.7704 28.0031 11.65 27.8137 11.585L7.805 5.05125C7.63125 4.99775 7.44621 4.99263 7.26977 5.03643C7.09332 5.08024 6.93216 5.17131 6.80361 5.29986C6.67506 5.42841 6.58399 5.58957 6.54018 5.76602C6.49638 5.94246 6.5015 6.1275 6.555 6.30125L13.085 26.3137C13.15 26.5031 13.2704 26.6685 13.4305 26.7887C13.5906 26.9089 13.7831 26.9782 13.983 26.9878C14.183 26.9974 14.3812 26.9467 14.552 26.8423C14.7229 26.738 14.8585 26.5848 14.9412 26.4025L17.1687 20.6012C17.2338 20.4517 17.3344 20.3203 17.4618 20.2186C17.5893 20.1168 17.7396 20.0478 17.8999 20.0175C18.0601 19.9871 18.2253 19.9965 18.3811 20.0446C18.5369 20.0928 18.6786 20.1783 18.7938 20.2938L25.2075 26.7075C25.395 26.8949 25.6493 27.0002 25.9144 27.0002C26.1795 27.0002 26.4337 26.8949 26.6213 26.7075L28.2075 25.125C28.3949 24.9375 28.5002 24.6832 28.5002 24.4181C28.5002 24.153 28.3949 23.8988 28.2075 23.7113L21.7938 17.2938Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        Click each step to see how it works:</p>
+                      <ul>
+                        <li data-content="content1" class="active">Start with a prompt
+                            <span data-content="content1" class="span-content active">
+                                Prompt Replit Agent by describing the app or site you want to create. Replit AI can even help you enhance your prompt for the best results.
+                            </span>
+                        </li>
+                        <li data-content="content2">Approve your build plan
+                            <span data-content="content2" class="span-content">
+                                Replit Agent generates a plan for bringing your idea to life. Start with a prototype, and add extra features as you go by writing simple prompts.
+                            </span>
+                        </li>
+                        <li data-content="content3">Refine through feedback
+                            <span data-content="content3" class="span-content">
+                                Refine your creation through an easy-to-use chat interface. After every step of your build plan, the agent will ask for feedback and integrate your requests into the next batch of work.
+                            </span>
+                        </li>
+                        <li data-content="content4">
+                            Launch in minutes
+                            <span data-content="content4" class="span-content">
+                                Deployment your site or app to to a live URL in minutes. Backed by Google Cloud, Replit Deployments let you build your startup, automate your job, grow your following, and more — faster than ever before.
+                            </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="content">
+                      <div id="content1" class="content-item active">
+                        <img src="https://cdn.sanity.io/images/bj34pdbp/migration/26280dc59e937e0e8bd76b65dee1e818ad9aae2b-1760x1350.png?w=1200&q=80&fit=clip&auto=format" alt="">
+                      </div>
+                      <div id="content2" class="content-item">
+                       <img src="https://cdn.sanity.io/images/bj34pdbp/migration/6ccb843f45024c2fc9ee955c5b3ed49e0958666a-1760x1350.png?w=1920&q=80&fit=clip&auto=format" alt="">
+                      </div>
+                      <div id="content3" class="content-item">
+                        <img src="https://cdn.sanity.io/images/bj34pdbp/migration/2e1aa4aed5d3e36c9249e623759812d10c53f02c-1760x1350.png?w=1920&q=80&fit=clip&auto=format" alt="">
+                      </div>
+                      <div id="content4" class="content-item">
+                        <img src="https://cdn.sanity.io/images/bj34pdbp/migration/4aa92fcf5a2e1f568290451b88c873b885d8372f-1760x1350.png?w=1920&q=80&fit=clip&auto=format" alt="">
+                      </div>
+                    </div>
+                  </div>
+            </section>
+            <section class="bg-shade-container">
+                <div class="bg-shade"></div>
+            </section>
+            <section class="get-inspired-section">
+              <div class="get-inspired-container">
+                <p class="get-inspired-title">Get inspired by our community</p>
+              </div>
             </section>
         </main> 
        </div>
