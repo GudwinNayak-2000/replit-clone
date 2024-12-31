@@ -43,3 +43,37 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
   
+
+async function loadCommunityData() {
+  try {
+    const response = await fetch('/data/community-data.json');
+    const data = await response.json();
+    const communityData = data["community-data"];
+    const community_title = communityData?.title;
+    const communityCardContainer = document.getElementById("community-card-container");
+    const communityTitle = document.getElementById("community-title");
+
+    communityTitle.innerHTML = community_title;
+    if(!communityData){
+      console.error('Community data not found');
+      return;
+    }
+
+    communityData.community_cards.forEach(card => {
+      const cardElement = document.createElement("div");
+      cardElement.classList.add("community-card");
+      cardElement.innerHTML = `
+        <img src="${card.imgSrc}" alt="${card.title}">
+        <div class="community-card-content">
+          <p class="community-card-title">${card.title}</p>
+          <p class="community-card-source"><em>${card.source}</em></p>
+        </div>
+      `;
+      communityCardContainer.appendChild(cardElement);
+    });
+  } catch (error) {
+    console.error('Error loading community data:', error);
+  }
+}
+
+loadCommunityData();

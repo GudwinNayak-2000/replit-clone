@@ -37,11 +37,11 @@ sleep 2
 # Open in default browser (trying different commands for compatibility)
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS
-    open "http://localhost:8000/app/app.html"
+    open "http://localhost:8000/app/replit.html"
 else
     # Linux
-    xdg-open "http://localhost:8000/app/app.html" || sensible-browser "http://localhost:8000/app/app.html" || \
-    firefox "http://localhost:8000/app/app.html" || google-chrome "http://localhost:8000/app/app.html"
+    xdg-open "http://localhost:8000/app/replit.html" || sensible-browser "http://localhost:8000/app/replit.html" || \
+    firefox "http://localhost:8000/app/replit.html" || google-chrome "http://localhost:8000/app/replit.html"
 fi
 
 # Keep script running and show instructions

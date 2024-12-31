@@ -113,10 +113,10 @@
         <div class="steps">
             <h3>After Server Starts:</h3>
             <p>Access the application at:</p>
-            <code>http://localhost:8000/app.html</code>
+            <code>http://localhost:8000/app/replit.html</code>
             
             <div id="try-redirect">
-                <a href="http://localhost:8000/app/app.html" class="button">Open Application</a>
+                <a href="http://localhost:8000/app/replit.html" class="button">Open Application</a>
             </div>
         </div>
     </div>
@@ -125,7 +125,7 @@
         // Only keep the file protocol check
         if (window.location.protocol !== 'file:') {
             // We're on a server, redirect to app.html
-            window.location.href = 'app.html';
+            window.location.href ="./replit.html"
         }
     </script>
 </body>

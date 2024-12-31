@@ -1,0 +1,37 @@
+{
+    "community-data": {
+        "title": "Get inspired by our community",
+        "community_cards": [
+            {
+                "title": "Build a Personal CRM",
+                "source": "From @sphregis on x.com",
+                "imgSrc": "https://cdn.sanity.io/images/bj34pdbp/migration/ad76d1386ddaac4865537e7c4fdcde2d50091c48-1776x1000.png?w=1920&q=80&fit=clip&auto=format"
+            },
+            {
+                "title": "Replit for Designers",
+                "source": "Andrew Wilkinson, Co-Founder, Tiny",
+                "imgSrc": "https://via.placeholder.com/300x150"
+            },
+            {
+                "title": "Build a Slack Integration",
+                "source": "Replit + Slack",
+                "imgSrc": "https://via.placeholder.com/300x150"
+            },
+            {
+                "title": "Deploy a GIF Converter",
+                "source": "Replit",
+                "imgSrc": "https://via.placeholder.com/300x150"
+            },
+            {
+                "title": "Try Coinbase APIs",
+                "source": "@CoinbaseDev on Replit",
+                "imgSrc": "https://via.placeholder.com/300x150"
+            },
+            {
+                "title": "Try xAI Grok 2",
+                "source": "@xAI on Replit",
+                "imgSrc": "https://via.placeholder.com/300x150"
+            }
+        ]
+    }
+}

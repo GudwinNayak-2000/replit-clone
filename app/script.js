@@ -89,6 +89,10 @@ async function loadPage() {
             if (dropdownMenu) dropdownMenu.classList.add('hidden');
             if (dropdownList) dropdownList.style.display = 'none';
 
+            if (pageName === 'logout') {
+                window.location.href = 'replit.html';
+                return;
+            }
             sidebar.classList.add("closed");
             updateLayout();
             

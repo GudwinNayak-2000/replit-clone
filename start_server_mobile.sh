@@ -34,8 +34,8 @@ fi
 # Start server
 echo
 echo "Starting server..."
-echo "Access at: http://localhost:8000/app.html"
-echo "Or try: http://YOUR_IP_ADDRESS:8000/app.html"
+echo "Access at: http://localhost:8000/app/replit.html"
+echo "Or try: http://YOUR_IP_ADDRESS:8000/app/replit.html"
 echo
 echo "To find your IP, type 'ifconfig' in another terminal"
 echo "To stop server: Press Ctrl+C"

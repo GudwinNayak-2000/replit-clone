@@ -28,7 +28,7 @@ if errorlevel 1 (
 echo Starting server...
 start "" python -m http.server 8000
 timeout /t 2 >nul
-start http://localhost:8000/app/app.html
+start http://localhost:8000/app/replit.html
 echo.
 echo Server is running. Press Ctrl+C to stop.
 echo.
